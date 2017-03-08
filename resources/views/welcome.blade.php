@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>MessFinder</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -48,21 +48,21 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="about">About</a>
                     </li>
                     <li>
                         <a href="services.html">Services</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact">Contact</a>
                     </li>
                 </ul>
                 <ul class = "nav navbar-nav navbar-right">
                     <li>
-                        <a href="about.html">Sign Up</a>
+                        <a href="signup">Sign Up</a>
                     </li>
                     <li>
-                        <a href="services.html">Login</a>
+                        <a href="login">Login</a>
                     </li>
             </ul>
             </div>

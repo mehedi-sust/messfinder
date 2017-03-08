@@ -57,7 +57,17 @@ class Controller extends BaseController
 	}
 
 	public function showdb(){
-      $users = DB::select('select * from basic_mess_info where mess_id = ?',[1]);
-      return view('mess_info',['users'=>$users]);
+		$id =2;
+      $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$id]);
+      return view('mess_info',['mess'=>$mess]);
    }
+
+   public function show_mess_profile()
+    {
+        //
+        $id = 2;
+        $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$id]);
+      return view('mess_profile',['mess'=>$mess]);
+        echo "success";
+    }
 }

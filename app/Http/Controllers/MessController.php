@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mess;
+use DB;
 class MessController extends Controller
 {
     /**
@@ -29,9 +30,13 @@ class MessController extends Controller
 
 public function insert(Request $request){
       $name = $request->input('mess_name');
-      DB::insert('insert into student (name) values(?)',[$name]);
+      $location = $request->input('mess_location');
+      $distance = $request->input('distance');
+      $description = $request->input('description');
+
+      DB::insert('insert into basic_mess_info (mess_name,mess_location,distance,description) values(?,?,?,?)',[$name,$location,$distance,$description]);
       echo "Record inserted successfully.<br/>";
-      echo '<a href = "/insert">Click Here</a> to go back.';
+      echo '<a href = "/mess_profile">Click Here</a> to go continue.';
    }
     /**
      * Store a newly created resource in storage.
@@ -79,6 +84,9 @@ public function insert(Request $request){
     public function show($id)
     {
         //
+        $id = 1;
+        $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$id]);
+      return view('pages/mess_profile',['mess'=>$mess]);
         echo "success";
     }
 
@@ -114,5 +122,14 @@ public function insert(Request $request){
     public function destroy($id)
     {
         //
+    }
+
+    public function show_mess_profile()
+    {
+        //
+        $mess_id = 1;
+        $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
+      return view('pages/mess_profile',['mess'=>$mess]);
+        echo "success";
     }
 }

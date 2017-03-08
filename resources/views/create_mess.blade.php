@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>Create Mess</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -77,7 +77,7 @@
 
     <div class="container"  style="width:50%" id="form_container">
       <h3 class="page-header">Basic Information of Mess</h3>
-      <form id="basic_info_form" action="/create_mess" method="post">
+      <form id="basic_info_form" action="/mess_created" method="post">
       {{csrf_field() }}
         <div class="form-group required">
           <label for="mess_name" class="control-label"> Mess Name</label>

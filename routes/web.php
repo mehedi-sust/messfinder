@@ -11,8 +11,11 @@
 |
 */
 Route::resource('messes','MessController');
+Route::get('mess_profile','Controller@show_mess_profile');
+Route::get('about','PageController@getAbout');
 Route::get('mess_info','Controller@showdb');
-Route::get('create_mess','MessController@insert');
+Route::post('mess_created','MessController@insert');
+Route::get('create_mess','MessController@create');
 Route::post('insert_mess_basic','Controller@insert_mess_basic');
 Route::get('/','PageController@getIndex');
 

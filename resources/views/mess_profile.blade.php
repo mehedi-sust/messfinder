@@ -1,7 +1,23 @@
 <html>
    
    <head>
-      <title>View Student Records</title>
+      <title>Mess Profile</title>
+      <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MessFinder</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{asset('css/modern-business.css')}}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
    </head>
    
    <body>
@@ -47,7 +63,10 @@
          <strong>
          @foreach ($mess as $value)
             <label> ID:</label>{{ $value->mess_id }}<br>
-            <label>Mess Name:</label>{{ $value->mess_name }}
+            <label>Mess Name:</label>{{ $value->mess_name }}<br>
+            <label>Location:</label>{{$value->mess_location}}<br>
+            <label>Distance (from Campus):</label> {{$value->distance}}<br>
+            <label>Description:</label>{{$value->description}}<br>
          @endforeach
      </strong>
    </body>

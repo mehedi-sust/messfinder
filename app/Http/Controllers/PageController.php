@@ -28,6 +28,9 @@ class PageController extends Controller{
 		return view('mess_info');
 	}
 
+	public function getMessProfile(){
+		return view('mess_profile');
+	}
 }
 
 ?>
