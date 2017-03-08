@@ -11,6 +11,7 @@
 |
 */
 Route::resource('messes','MessController');
+Route::get('room_info','PageController@getRoomInfo');
 Route::get('mess_profile','Controller@show_mess_profile');
 Route::get('about','PageController@getAbout');
 Route::get('mess_info','Controller@showdb');

@@ -31,6 +31,9 @@ class PageController extends Controller{
 	public function getMessProfile(){
 		return view('mess_profile');
 	}
+	public function getRoomInfo(){
+		return view('room_info');
+	}
 }
 
 ?>

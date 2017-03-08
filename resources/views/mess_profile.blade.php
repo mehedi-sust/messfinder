@@ -60,14 +60,19 @@
         <!-- /.container -->
 
     </nav>
+    <div class="container">
          <strong>
          @foreach ($mess as $value)
-            <label> ID:</label>{{ $value->mess_id }}<br>
-            <label>Mess Name:</label>{{ $value->mess_name }}<br>
-            <label>Location:</label>{{$value->mess_location}}<br>
-            <label>Distance (from Campus):</label> {{$value->distance}}<br>
-            <label>Description:</label>{{$value->description}}<br>
+            <label> ID : </label>{{ $value->mess_id }}<br>
+            <label>Mess Name : </label>{{ $value->mess_name }}<br>
+            <label>Location : </label>{{$value->mess_location}}<br>
+            <label>Total Room(s) : </label>{{$value->total_room}}<br>
+            <label>Total Seat(s) : </label>{{$value->total_seat}}<br>
+            <label>Vacant Seat(s) : </label>{{$value->vacant_seat}}<br>
+            <label>Distance (from Campus) : </label> {{$value->distance}}<br>
+            <label>Description : </label>{{$value->description}}<br>
          @endforeach
      </strong>
+     </div>
    </body>
 </html>
