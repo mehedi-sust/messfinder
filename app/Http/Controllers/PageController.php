@@ -9,7 +9,7 @@ class PageController extends Controller{
 		#recive from model
 		#compile or process the data fform the model if needed
 		#pass that data to the correct view
-		return view('create_mess');
+		return view('welcome');
 	}
 
 	public function getAbout(){
@@ -18,6 +18,10 @@ class PageController extends Controller{
 
 	public function  getContact(){
 		return view('pages/contact');
+	}
+
+	public function getCreateMess() {
+		return view('create_mess');
 	}
 
 	public function getMessInfo(){

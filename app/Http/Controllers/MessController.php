@@ -27,6 +27,12 @@ class MessController extends Controller
         return view('create_mess');
     }
 
+public function insert(Request $request){
+      $name = $request->input('mess_name');
+      DB::insert('insert into student (name) values(?)',[$name]);
+      echo "Record inserted successfully.<br/>";
+      echo '<a href = "/insert">Click Here</a> to go back.';
+   }
     /**
      * Store a newly created resource in storage.
      *

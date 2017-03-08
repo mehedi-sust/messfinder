@@ -11,11 +11,9 @@
 |
 */
 Route::resource('messes','MessController');
-Route::get('mess_info','Controller@show_mess_info');
-//Route::get('create_mess','Controller@show_mess_info');
-//Route::post('insert_mess_basic','Controller@insert_mess_basic');
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('mess_info','Controller@showdb');
+Route::get('create_mess','MessController@insert');
+Route::post('insert_mess_basic','Controller@insert_mess_basic');
+Route::get('/','PageController@getIndex');
 
 
