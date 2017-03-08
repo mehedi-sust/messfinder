@@ -30,13 +30,14 @@ class MessController extends Controller
 
 public function insert(Request $request){
       $name = $request->input('mess_name');
-      $location = $request->input('mess_location');
+      $location = $request->input('location');
+      $total_seat = $request->input('total_seat');
+      $vacant_seat = $request->input('vacant_seat');
+      $total_room = $request->input('total_room');
       $distance = $request->input('distance');
       $description = $request->input('description');
-
-      DB::insert('insert into basic_mess_info (mess_name,mess_location,distance,description) values(?,?,?,?)',[$name,$location,$distance,$description]);
-      echo "Record inserted successfully.<br/>";
-      echo '<a href = "/mess_profile">Click Here</a> to go continue.';
+      DB::insert('insert into basic_mess_info (mess_name,mess_location,total_seat,vacant_seat,total_room,distance,description) values(?,?,?,?,?,?,?)',[$name,$location,$total_seat,$vacant_seat,$total_room,$distance,$description]);
+      return view('/mess_profile');
    }
     /**
      * Store a newly created resource in storage.

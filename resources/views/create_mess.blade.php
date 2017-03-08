@@ -75,47 +75,40 @@
         <!-- /.container -->
     </nav>
 
-    <div class="container"  style="width:50%" id="form_container">
+   <div class="container" id="form_container" style="width:50%">
       <h3 class="page-header">Basic Information of Mess</h3>
       <form id="basic_info_form" action="/mess_created" method="post">
       {{csrf_field() }}
         <div class="form-group required">
           <label for="mess_name" class="control-label"> Mess Name</label>
-          <input type="text" class="form-control" name ="mess_name" id="mess_name" placeholder="Enter mess name" required>
+          <input type="text" class="form-control" id="mess_name" name="mess_name" placeholder="Enter mess name" required>
         </div>
-
         <div class="form-group required">
           <label for="mess_location" class="control-label">Location</label>
-          <input type="text" class="form-control" name ="mess_location" id="mess_location" placeholder="Enter location of mess">
+          <input type="text" class="form-control" id="mess_location" placeholder="Enter location of mess" name="location" required>
         </div>
-        <!--
+        <div class="form-group required">
+         <label for="total_room" class="control-label">Total room</label>
+         <input type="text" class="form-control" id="total_room" placeholder="Enter total number of rooms" name="total_room" required>
+        </div>
         <div class = "form-group required">
          <label for="total_seat" class="control-label">Total Seat </label>
-         <input type="text" class="form-control" id="total_seat" placeholder="Enter total number of seats">
+         <input type="text" class="form-control" id="total_seat" placeholder="Enter total number of seats" name="total_seat" required>
         </div>
         <div class = "form-group required">
          <label for="vacant_seat" class="control-label">Vacant Seat</label>
-         <input type="text" class="form-control" id="vacant_seat" placeholder="Enter total number of vacant seats">
+         <input type="text" class="form-control" id="vacant_seat" placeholder="Enter total number of vacant seats" name="vacant_seat" required>
         </div>
-        -->
-
         <div class = "form-group required">
          <label for="campus_distance" class="control-label">Distance from campus (in minutes)</label>
-        
-        <input type="text" class="form-control" name ="distance" id="distance" placeholder="Enter the time required to reach campus from mess">
+         <input type="text" class="form-control" id="campus_distance" name="distance" placeholder="Enter the time required to reach campus from mess">
         </div>
-        
-        <div class="form-group">
-            <label for="mess_description" class="control-label">Description</label>
-            <textarea class="form-control" name="description" id="description" row="3" placeholder="Provide description about the mess"></textarea>
-        </div>
+           <div class="form-group">
+               <label for="add_button">Has additional features to include?</label>
+               <button type="button" id="add_button" class="btn btn-success">Add Feature</button>
+           </div>
 
-        <div class="form-group">
-            <label for="add_button">Has additional features to include?</label>
-            <button id="add_button" type="button" class="btn btn-success">Add Features</button>
-        </div>
-
-        <div class="form-group" id="next_div">
+           <div class="form-group" id="next_div">
             <button class="btn btn-success" >Next</button>
         </div>
 

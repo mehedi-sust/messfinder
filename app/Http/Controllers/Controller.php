@@ -65,7 +65,7 @@ class Controller extends BaseController
    public function show_mess_profile()
     {
         //
-        $id = 2;
+        $id = 3;
         $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$id]);
       return view('mess_profile',['mess'=>$mess]);
         echo "success";
