@@ -94,7 +94,7 @@
 
         <div class="form-group">
             <label for="vacant_seat">Vacant Seat: </label>
-            <input type="text" class="form-control" name="vacant_seat[] "id="vacant_seat">
+            <input type="text" class="form-control" name="vacant_seat[]" id="vacant_seat">
         </div>
 
         <div class="form-group">

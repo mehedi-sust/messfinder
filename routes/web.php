@@ -16,6 +16,7 @@ Route::get('mess_profile','Controller@show_mess_profile');
 Route::get('about','PageController@getAbout');
 Route::get('mess_info','Controller@showdb');
 Route::post('mess_created','MessController@insert');
+Route::post('room_info_inserted','MessController@insert_room');
 Route::get('create_mess','MessController@create');
 Route::post('insert_mess_basic','Controller@insert_mess_basic');
 Route::get('/','PageController@getIndex');

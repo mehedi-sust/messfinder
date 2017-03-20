@@ -133,4 +133,19 @@ public function insert(Request $request){
       return view('pages/mess_profile',['mess'=>$mess]);
         echo "success";
     }
+
+public function insert_room(Request $request){
+    foreach($request as $request) {
+    $seat = $request->input('seat_no');
+    
+    $vacant_seat = $request->input('vacant_seat');
+    $cost =$request->input('fare') ;
+      $description = $request->input('description');
+      DB::insert('insert into room_info (total_seat,vacant_seat,cost) values(?,?,?)',[$seat,$vacant_seat,$cost]);
+      //return view('/');
+    }
+    return "Success";
+      
+   }
+
 }
