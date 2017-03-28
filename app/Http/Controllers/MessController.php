@@ -132,7 +132,11 @@ public function insert(Request $request){
         $mess_id = $_GET['id'];
         echo $mess_id;
         $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
-      return view('mess_profile',['mess'=>$mess]);
+        $feature = DB::select('select * from mess_features where mess_id = ?',[$mess_id]);
+        $room = DB::select('select * from room_info where mess_id =?',[$mess_id]);
+        $member = DB::select('select distinct room_id,name from mess_members,users where mess_id =?',[$mess_id]);
+      //return view('mess_profile',['mess'=>$mess])->with(['feature'=>$feature])->with(['room'=>$room]);
+        return view('test')->with(['room'=>$room])->with(['member'=>$member]);
         echo "success";
     }
 
@@ -144,7 +148,7 @@ public function insert_room(Request $request){
     $cost =$request->input('fare') ;
       $description = $request->input('description');
       DB::insert('insert into room_info (total_seat,vacant_seat,cost) values(?,?,?)',[$seat,$vacant_seat,$cost]);
-      //return view('/');
+      //return view('/'); 
     }
     return "Success";
       

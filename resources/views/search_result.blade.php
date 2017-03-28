@@ -42,9 +42,12 @@
 <?php     
 $i=1;
   ?>    @foreach ($mess as $mess) 
+ <?php $mess_id = $mess->mess_id;
+ $a = "mess_profile?id=".$mess_id;
+ ?>
             <tr>
             <td><?php echo $i++;?></td>
-            <td><a href="">{{$mess->mess_name}}</a></td>
+            <td><a href=<?php echo $a;?>>{{$mess->mess_name}}</a></td>
             <td>{{$mess->mess_location}}</td>
             <td>{{$mess->distance}}</td>
             <td><form action="/">
