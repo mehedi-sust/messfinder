@@ -34,31 +34,22 @@
                 <td><a href="">Shajalal Mess</a></td>
                 <td>Surma R/A</td>
                 <td> 5 km</td>
-                <td><button type="submit" class="btn btn-info">Apply</button> </td>
+                <td><form action="/">
+   <button type="submit" class="btn btn-info">Apply</button>
+    </form></td>
             </tr>
-            <tr>
-                <td>Room 1</td>
-                <td>2012331023</td>
-                <td>Mehedi The Ultimate Boss</td>
-            </tr>
-            <tr>
-                <td>Room 1</td>
-                <td>2012331023</td>
-                <td>Mehedi The Ultimate Boss</td>
-            </tr>
-            <tr>
-                <td>Room 1</td>
-                <td>2012331023</td>
-                <td>Mehedi The Ultimate Boss</td>
-            </tr>
-<?     
-var $i=1;
+           
+<?php     
+$i=1;
   ?>    @foreach ($mess as $mess) 
             <tr>
-            <td>{{$i++}}</td>
-            <td>{{$mess->mess_id}}</td>
-            <td>{{$mess->mess_name}}</td>
+            <td><?php echo $i++;?></td>
+            <td><a href="">{{$mess->mess_name}}</a></td>
             <td>{{$mess->mess_location}}</td>
+            <td>{{$mess->distance}}</td>
+            <td><form action="/">
+   <button type="submit" class="btn btn-info">Apply</button>
+    </form></td>
             </tr>
 @endforeach
 

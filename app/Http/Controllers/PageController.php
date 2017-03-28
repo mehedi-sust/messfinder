@@ -38,6 +38,10 @@ class PageController extends Controller{
 	public function getSearchResult(){
 		return view('search_result');
 	}
+
+	public function test(){
+		return view('test');
+	}
 }
 
 ?>

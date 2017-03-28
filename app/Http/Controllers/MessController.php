@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use input;
 use App\Mess;
 use DB;
 class MessController extends Controller
@@ -128,9 +129,10 @@ public function insert(Request $request){
     public function show_mess_profile()
     {
         //
-        $mess_id = 1;
+        $mess_id = $_GET['id'];
+        echo $mess_id;
         $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
-      return view('pages/mess_profile',['mess'=>$mess]);
+      return view('mess_profile',['mess'=>$mess]);
         echo "success";
     }
 
