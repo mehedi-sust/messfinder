@@ -34,6 +34,10 @@ class PageController extends Controller{
 	public function getRoomInfo(){
 		return view('room_info');
 	}
+
+	public function getSearchResult(){
+		return view('search_result');
+	}
 }
 
 ?>

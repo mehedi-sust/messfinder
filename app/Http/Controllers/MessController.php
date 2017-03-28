@@ -148,4 +148,13 @@ public function insert_room(Request $request){
       
    }
 
+   public function simple_search(){
+    $key = "a";
+    $key = "%".$key."%";
+    $mess = DB::select("select * from basic_mess_info where mess_name like ?",[$key]);
+      return view('search_result',['mess'=>$mess]);
+        echo "success";
+        
+   }
+
 }
