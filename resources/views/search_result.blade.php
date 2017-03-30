@@ -1,18 +1,5 @@
 @extends('layouts.app')
 
-<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="{{asset('css/modern-business.css')}}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
-
-    <!-- Custom Fonts -->
-
 <div class="jumbotron">
     <h1>The Search Results</h1> <vr>
     <br>
@@ -28,16 +15,6 @@
 <th>Distance</th>
 <th></th>
 </tr>
-
-            <tr>
-                <td>1</td>
-                <td><a href="">Shajalal Mess</a></td>
-                <td>Surma R/A</td>
-                <td> 5 km</td>
-                <td><form action="/">
-   <button type="submit" class="btn btn-info">Apply</button>
-    </form></td>
-            </tr>
            
 <?php     
 $i=1;

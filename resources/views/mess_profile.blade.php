@@ -106,47 +106,69 @@
                         </div>
                         <!--/.table-responsive-->
 
-                        <h3 class="page-header">Room Information</h3>
+                       <h3 class="page-header">Room Information</h3>
                             <div class="container">
                                 <ul class="nav nav-pills">
+                                    @foreach($room as $value)
+                                    <?php 
+                                        $id = $value->room_id;
+                                        $link = "<a href='#room".$id."' data-toggle='tab'>";
+                                        if($id==1){
+                                    ?>
                                     <li class="active">
-                                        <a href="#room1" data-toggle="tab">Room 1</a>
+                                    <?php }
+                                    else echo"<li>";
+                                       echo $link; ?>
+                                        Room {{$value->room_id}}</a>
                                     </li>
-
-                                    <li>
-                                        <a href="#room2" data-toggle="tab">Room 2</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#room3" data-toggle="tab">Room 3</a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <!--/.container-->
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="tab-content clearfix">
-                                            <div class="tab-pane active" id="room1">
+                                        @foreach ($room as $value)
+                                        <?php
+                                         $id = $value->room_id;
+                                         if($id==1){
+                                        $link = "<div class='tab-pane active' id='room".$id."'>";
+                                        }
+                                        else $link = "<div class='tab-pane' id='room".$id."'>";
+                                         
+                                         echo $link;
+                                        ?>
                                                 <div class="table-responsive">
                                                     <table class="table custom-table">
                                                     <tbody>
                                                         <tr>
                                                             <td><strong>Total Seat:</strong></td>
-                                                            <td>3</td>
+                                                            <td>{{$value->total_seat}}</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td><strong> Vacant:</strong></td>
+                                                            <td>{{$value->vacant_seat}}</td>
                                                         </tr>
 
                                                         <tr>
                                                             <td><strong>Rent:</strong></td>
-                                                            <td>4000</td>
+                                                            <td>{{$value->cost}}</td>
                                                         </tr>
                                                         <tr>
                                                             <td><strong>Members:</strong>
                                                             <td>
                                                                 <ul>
-                                                                    <li>Yakub</li>
-                                                                    <li>Zakaria</li>
-                                                                    <li>Rakib</li>
+                                             @foreach($member as $person)
+                                                @if($person->room_id==$value->room_id)
+                                                <li><a href="">{{$person->name}}</a> </li>
+                                                @endif
+
+
+                                             @endforeach
+                                                                    
                                                                 </ul>
+
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -155,68 +177,8 @@
                                                 <!--/.table-responsive-->                
                                             </div>
                                             <!--/.tab-pane-->
-
-                                            <div class="tab-pane" id="room2">
-                                                <div class="table-responsive">
-                                                    <table class="table custom-table">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><strong>Total Seat:</strong></td>
-                                                            <td>3</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td><strong>Rent:</strong></td>
-                                                            <td>3600</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>Members:</strong>
-                                                            <td>
-                                                                <ul>
-                                                                    <li>Raihan</li>
-                                                                    <li>Zakaria</li>
-                                                                    <li>Rakib</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <!--/.table-responsive-->                
-                                            </div>
-                                            <!--/.tab-pane-->
-
-                                            <div class="tab-pane" id="room3">
-                                                <div class="table-responsive">
-                                                    <table class="table custom-table">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><strong>Total Seat:</strong></td>
-                                                            <td>4</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td><strong>Rent:</strong></td>
-                                                            <td>4800</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>Members:</strong>
-                                                            <td>
-                                                                <ul>
-                                                                    <li>Raihan</li>
-                                                                    <li>Yakub</li>
-                                                                    <li>Zakaria</li>
-                                                                    <li>Rakib</li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>            
-                                                <!--/.table-responsive-->    
-                                            </div>
-                                            <!--/.tab-pane-->
-                                        </div>
+                                            @endforeach
+                                       </div>
                                         <!--/.tab-content clearfix-->
                                     </div>
                                     <!--/.col-md-5-->

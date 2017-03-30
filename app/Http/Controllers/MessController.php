@@ -135,8 +135,8 @@ public function insert(Request $request){
         $feature = DB::select('select * from mess_features where mess_id = ?',[$mess_id]);
         $room = DB::select('select * from room_info where mess_id =?',[$mess_id]);
         $member = DB::select('select distinct room_id,name from mess_members,users where mess_id =?',[$mess_id]);
-      //return view('mess_profile',['mess'=>$mess])->with(['feature'=>$feature])->with(['room'=>$room]);
-        return view('test')->with(['room'=>$room])->with(['member'=>$member]);
+      return view('mess_profile',['mess'=>$mess])->with(['feature'=>$feature])->with(['room'=>$room])->with(['member'=>$member]);
+      //  return view('test')->with(['room'=>$room])->with(['member'=>$member]);
         echo "success";
     }
 
@@ -154,13 +154,52 @@ public function insert_room(Request $request){
       
    }
 
-   public function simple_search(){
-    $key = "a";
-    $key = "%".$key."%";
-    $mess = DB::select("select * from basic_mess_info where mess_name like ?",[$key]);
-      return view('search_result',['mess'=>$mess]);
+   public function simple_search(Request $req){
+    $location = $req->input('area');
+    $seat = $req->input('vacant_seat');
+    $distance = $req->input('distance');
+    $rent_start = $req->input('fare_from');
+    $rent_last = $req->input('fare_to');
+
+    $location = "%".$location."%";
+    if($location==NULL){
+        $location ="%%";
+    }
+    if($seat == NULL){
+        $seat = 0;
+    }
+    if($distance == NULL){
+        $distance = 1000000;
+    }
+    if($rent_start == NULL){
+        $rent_start=0;
+    }
+    if($rent_last == NULL){
+        $rent_last = 1000000;
+    }
+    echo "Loc -".$location." dist-".$distance." rent-".$rent_start." to ".$rent_last." ." ;
+    //$search_location = DB::table('basic_mess_info')->select('mess_id','mess_name','distance','mess_location')->where('mess_location','like',$location);
+  //  dd($mess);
+    //$search_vacant = DB::table('basic_mess_info')->select('mess_id','mess_name','distance','mess_location')->where('vacant_seat','>=',$seat);//->union($search_location);
+//    $search_cost = DB::table('room_info')->select('mess_id','cost')->wherebetween('cost',[$rent_start,$rent_last])->union($search_vacant)->groupby('mess_id')->distinct()->get();
+    $mess= DB::table('basic_mess_info')->join('room_info', 'basic_mess_info.mess_id', '=', 'room_info.mess_id')->select('basic_mess_info.*')->where([['basic_mess_info.vacant_seat','>=',$seat],['mess_location','like',$location],['distance','<=',$distance]])->wherebetween('cost',[$rent_start,$rent_last])->groupby('room_info.mess_id')->distinct()->get();
+
+
+#foreach ($mess as $mess) {
+    # code...
+#    $val = $mess->mess_name;
+#    echo $val;
+#}
+
+    //select distinct basic_mess_info.mess_id,basic_mess_info.vacant_seat,mess_name,mess_location,cost from basic_mess_info, room_info where basic_mess_info.mess_id = room_info.mess_id and basic_mess_info.mess_location like '?' and basic_mess_info.vacant_seat >= ? and basic_mess_info.distance <= ? and room_info.cost between ? and ? GROUP BY basic_mess_info.mess_id,basic_mess_info.vacant_seat,mess_name,mess_location",[$location,$seat,$distance,$rent_start,$rent_last]);
+     return view('search_result')->with(['mess'=>$mess]);
         echo "success";
         
+   }
+
+   public function test(){
+
+    
    }
 
 }

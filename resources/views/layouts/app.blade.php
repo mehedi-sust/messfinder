@@ -71,7 +71,8 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Sign Up</a></li>
                         @else
-                        <li id="noti_Container">
+                        <ul class = "nav navbar-nav navbar-right">
+                    <li id="noti_Container">
                         <div id="noti_Counter" title="Notifications"></div>   <!--SHOW NOTIFICATIONS COUNT.-->
                         
                         <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->

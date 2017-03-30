@@ -77,28 +77,29 @@
 
     <div class="container">
       <h3>Find your desired mess easily:</h3>
-      <form>
+      <form action="search" method="post">
+      {{csrf_field() }}
         <div class="form-group">
           <div class="col-xs-4">
             <label for="area">Area:</label>
-            <input class="form-control" id="area" type="text">
+            <input class="form-control" name="area" id="area" type="text">
           </div>
         
           <div class="col-xs-4">
-            <label for="vacant_seat">Vacant Seat:</label>
-            <input class="form-control" id="vacant_seat" type="text">
+            <label for="vacant_seat">Minimum Vacant Seat:</label>
+            <input class="form-control" name="vacant_seat" id="vacant_seat" type="text">
           </div>
           <div class="col-xs-4">
-            <label for="campus_distance">Distanc from campus:</label>
-            <input class="form-control" id="campus_distance" type="text">
+            <label for="campus_distance">Distance from SUST(in KM):</label>
+            <input class="form-control" name="distance" id="campus_distance" type="text">
           </div>
           <div class="col-xs-4">
             <label for="fare_from">Fare Range(from):</label>
-            <input class="form-control" id="vacant_seat" type="text">
+            <input class="form-control" name="fare_from" id="vacant_seat" type="text">
           </div>
           <div class="col-xs-4">
             <label for="fare_to">Fare Range(to)</label>
-            <input class="form-control" id="fare_to" type="text">
+            <input class="form-control" name="fare_to" id="fare_to" type="text">
           </div>
 
           <!-- I got no other way other than using a div to set up the button in the form element.But I don't think it is a good practice. So should try to change it.-->
