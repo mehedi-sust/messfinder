@@ -77,7 +77,7 @@
 
     <div class="container">
       <h3>Find your desired mess easily:</h3>
-      <form action="search" method="post">
+      <form action="search/" method="get">
       {{csrf_field() }}
         <div class="form-group">
           <div class="col-xs-4">

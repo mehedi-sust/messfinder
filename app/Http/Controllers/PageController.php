@@ -42,6 +42,14 @@ class PageController extends Controller{
 	public function test(){
 		return view('test');
 	}
+
+	public function get_edit_mess(){
+		return view('edit_mess_basic');
+	}
+
+	public function get_edit_room_info(){
+		return view('edit_mess_room_info');
+	}
 }
 
 ?>

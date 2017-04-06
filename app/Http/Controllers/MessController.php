@@ -147,7 +147,7 @@ public function insert_room(Request $request){
     $vacant_seat = $request->input('vacant_seat');
     $cost =$request->input('fare') ;
       $description = $request->input('description');
-      DB::insert('insert into room_info (total_seat,vacant_seat,cost) values(?,?,?)',[$seat,$vacant_seat,$cost]);
+      DB::insert('insert into room_info (total_seat,vacant_seat,cost,add_info) values(?,?,?,?)',[$seat,$vacant_seat,$cost,$description]);
       //return view('/'); 
     }
     return "Success";
@@ -182,7 +182,7 @@ public function insert_room(Request $request){
   //  dd($mess);
     //$search_vacant = DB::table('basic_mess_info')->select('mess_id','mess_name','distance','mess_location')->where('vacant_seat','>=',$seat);//->union($search_location);
 //    $search_cost = DB::table('room_info')->select('mess_id','cost')->wherebetween('cost',[$rent_start,$rent_last])->union($search_vacant)->groupby('mess_id')->distinct()->get();
-    $mess= DB::table('basic_mess_info')->join('room_info', 'basic_mess_info.mess_id', '=', 'room_info.mess_id')->select('basic_mess_info.*')->where([['basic_mess_info.vacant_seat','>=',$seat],['mess_location','like',$location],['distance','<=',$distance]])->wherebetween('cost',[$rent_start,$rent_last])->groupby('room_info.mess_id')->distinct()->get();
+    $mess= DB::table('basic_mess_info')->join('room_info', 'basic_mess_info.mess_id', '=', 'room_info.mess_id')->select('basic_mess_info.*')->where([['basic_mess_info.vacant_seat','>=',$seat],['mess_location','like',$location],['distance','<=',$distance]])->wherebetween('cost',[$rent_start,$rent_last])->groupby('room_info.mess_id')->distinct()->simplePaginate(15);
 
 
 #foreach ($mess as $mess) {
@@ -197,9 +197,93 @@ public function insert_room(Request $request){
         
    }
 
-   public function test(){
+   public function test(Request $req){
+    $room_id = $req->input('room_id');
+    $reg = $req->input('reg_no');
+    $date = $req->input('vacant_from');
+    $mess_id = 3;
+    if($room_id != NULL and $reg != NULL) {
+        DB::table('mess_members')->insert(['mess_id'=>$mess_id,'room_id' => $room_id , 'reg'=> $reg , 'vacant_from' => $date]);
+
+        //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
+    }
 
     
+    $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->get();
+    $room = DB::table('room_info')->where('mess_id','=',$mess_id)->get();
+   echo "room id : ".$room_id."reg : ".$reg."vacant_from : ".$date;
+   // return view('test')->with(['room'=>$room])->with(['member_info'=>$member_info]);
+    
    }
+
+   public function mess_list(){
+        
+    $mess= DB::table('basic_mess_info')->simplePaginate(2);
+
+     return view('mess_list')->with(['mess'=>$mess]);
+        echo "success";
+        
+   }
+
+   public function mess_edit(){
+    $mess_id = 3;
+    $mess_info= DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
+    return view('edit_mess_basic')->with(['mess_info'=>$mess_info]);
+   }
+
+   public function edit_room_info(){
+    $mess_id = 3;
+    $room_info= DB::table('room_info')->where('mess_id','=',$mess_id)->get();
+    return view('edit_mess_room_info')->with(['room_info'=>$room_info]);
+   }
+
+    public function member_list(Request $req){
+    $room_id = $req->input('room_id');
+    $reg = $req->input('reg_no');
+    $date = $req->input('vacant_from');
+    $mess_id = 3;
+    if($room_id != NULL and $reg != NULL) {
+        DB::table('mess_members')->insert(['mess_id'=>$mess_id,'room_id' => $room_id , 'reg'=> $reg , 'vacant_from' => $date]);
+
+        //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
+    }
+    
+    $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->orderBy('room_id')->get();
+    $room = DB::table('room_info')->where('mess_id','=',$mess_id)->get();
+   
+    return view('add_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
+   
+   }
+
+   public function mess_info_updated(Request $request){
+    $mess_id = 3;
+    $name = $request->input('mess_name');
+      $location = $request->input('location');
+      $total_seat = $request->input('total_seat');
+      $vacant_seat = $request->input('vacant_seat');
+      $total_room = $request->input('total_room');
+      $distance = $request->input('distance');
+      $description = $request->input('description');
+      DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->update(['mess_name' => $name,'mess_location' => $location,'total_seat' => $total_seat,'vacant_seat' => $vacant_seat,'total_room' =>$total_room ,'distance' => $distance,'description' => $description]);
+      //return view('/mess_profile');
+
+      echo "Basic Mess Info updated";
+   }
+
+public function room_info_update(Request $request){
+    $mess_id = 3;
+    foreach($request as $request) {
+    $seat = $request->input('seat_no');
+    
+    $vacant_seat = $request->input('vacant_seat');
+    $cost =$request->input('fare') ;
+      $description = $request->input('description');
+      DB::table('room_info')->where('mess_id','=',$mess_id)->update(['total_seat' => $seat,'vacant_seat' => $vacant_seat,'cost' => $cost]);
+      //return view('/'); 
+    }
+
+    echo "Room Info updated";
+}
+
 
 }

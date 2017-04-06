@@ -11,8 +11,15 @@
 |
 */
 Route::resource('messes','MessController');
-Route::get('test','PageController@test');
-Route::post('search','MessController@simple_search');
+Route::post('update_room_info','MessController@room_info_update');
+Route::post('mess_info_updated','MessController@mess_info_updated');
+Route::get('add_member','MessController@member_list');
+Route::post('add_member','MessController@member_list');
+Route::get('edit_room_info','MessController@edit_room_info');
+Route::get('edit_mess','MessController@mess_edit');
+Route::get('mess_list','MessController@mess_list');
+Route::post('test','MessController@test');
+Route::get('search','MessController@simple_search');
 Route::get('room_info','PageController@getRoomInfo');
 Route::get('mess_profile','MessController@show_mess_profile');
 Route::get('about','PageController@getAbout');

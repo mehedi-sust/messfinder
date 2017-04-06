@@ -23,6 +23,7 @@
     <style type="text/css">
     .container2 {
         padding: 8%;
+        margin-left: 15%;
     }
 </style>
 
