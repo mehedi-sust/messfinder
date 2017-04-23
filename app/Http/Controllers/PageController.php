@@ -50,6 +50,10 @@ class PageController extends Controller{
 	public function get_edit_room_info(){
 		return view('edit_mess_room_info');
 	}
+
+	public function get_mess_info_home(){
+		return view('mess_info_home');
+	}
 }
 
 ?>

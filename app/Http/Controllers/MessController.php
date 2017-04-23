@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use input;
 use App\Mess;
 use DB;
+use Auth;
 class MessController extends Controller
 {
     /**
@@ -37,8 +38,9 @@ public function insert(Request $request){
       $total_room = $request->input('total_room');
       $distance = $request->input('distance');
       $description = $request->input('description');
-      DB::insert('insert into basic_mess_info (mess_name,mess_location,total_seat,vacant_seat,total_room,distance,description) values(?,?,?,?,?,?,?)',[$name,$location,$total_seat,$vacant_seat,$total_room,$distance,$description]);
-      return view('/mess_profile');
+      $manager = Auth::user()->reg;
+      DB::insert('insert into basic_mess_info (mess_name,mess_location,total_seat,vacant_seat,total_room,distance,description,manager) values(?,?,?,?,?,?,?,?)',[$name,$location,$total_seat,$vacant_seat,$total_room,$distance,$description,$manager]);
+      return view('mess_info_home');
    }
     /**
      * Store a newly created resource in storage.
@@ -59,6 +61,7 @@ public function insert(Request $request){
         $mess->location = $request->input('mess_location');
         $mess->distance = $request->input('distance');
         $mess->description = $request->input('description');
+
         /*
         $mess->name = $request->mess_name;
         $mess->location = $request->mess_location;
@@ -134,7 +137,7 @@ public function insert(Request $request){
         $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
         $feature = DB::select('select * from mess_features where mess_id = ?',[$mess_id]);
         $room = DB::select('select * from room_info where mess_id =?',[$mess_id]);
-        $member = DB::select('select distinct room_id,name from mess_members,users where mess_id =?',[$mess_id]);
+        $member = DB::select('select distinct room_id,name from mess_members,users where mess_members.mess_id =?',[$mess_id]);
       return view('mess_profile',['mess'=>$mess])->with(['feature'=>$feature])->with(['room'=>$room])->with(['member'=>$member]);
       //  return view('test')->with(['room'=>$room])->with(['member'=>$member]);
         echo "success";
@@ -285,5 +288,11 @@ public function room_info_update(Request $request){
     echo "Room Info updated";
 }
 
+public function manager_change(){
 
+}
+
+public function show_map(){
+    return view('map');
+}
 }
