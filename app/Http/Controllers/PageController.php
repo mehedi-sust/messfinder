@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Storage;
 class PageController extends Controller{
 	public function getIndex() {
 		# process varibale data or params
@@ -54,6 +55,12 @@ class PageController extends Controller{
 	public function get_mess_info_home(){
 		return view('mess_info_home');
 	}
+
+	public function show_upload_photo(){
+		return view('upload_photo');
+	}
+
+	
 }
 
 ?>

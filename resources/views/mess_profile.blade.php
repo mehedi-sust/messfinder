@@ -21,7 +21,9 @@
    </head>
    
    <body>
+
    @foreach ($mess as $value)
+   
     <div class="container2"> 
         <div class="content">
             <div class="row">
