@@ -240,6 +240,25 @@ public function insert_room(Request $request){
     return view('edit_mess_room_info')->with(['room_info'=>$room_info]);
    }
 
+   public function edit_single_room_info($room_id, $total_seat, $vacant_seat, $cost, $add_info){
+    $mess_id = 3;
+    /*
+    $room_info= DB::table('room_info')->where([
+                                        ['mess_id','=',$mess_id],
+                                        ['room_id','=',$room_id]
+                                        ])
+                                      ->get();
+                                      */
+    $room_info = [];
+    $room_info['room_id'] = $room_id;
+    $room_info['total_seat'] = $total_seat;
+    $room_info['vacant_seat'] = $vacant_seat;
+    $room_info['cost'] = $cost;
+    $room_info['add_info'] = $add_info;
+
+    return view('update_room_info')->with("room_info",$room_info);
+   }
+
     public function member_list(Request $req){
     $room_id = $req->input('room_id');
     $reg = $req->input('reg_no');
@@ -275,17 +294,23 @@ public function insert_room(Request $request){
 
 public function room_info_update(Request $request){
     $mess_id = 3;
-    foreach($request as $request) {
+    //foreach($request as $request) {
+    $room_id = $request->input('room_id');
     $seat = $request->input('seat_no');
     
     $vacant_seat = $request->input('vacant_seat');
     $cost =$request->input('fare') ;
-      $description = $request->input('description');
-      DB::table('room_info')->where('mess_id','=',$mess_id)->update(['total_seat' => $seat,'vacant_seat' => $vacant_seat,'cost' => $cost]);
+      $description = $request->input('add_info');
+      DB::table('room_info')->where([
+                                        ['mess_id','=',$mess_id],
+                                        ['room_id','=',$room_id]
+                                        ])
+      ->update(['total_seat' => $seat,'vacant_seat' => $vacant_seat,'cost' => $cost,'add_info' => $description]);
       //return view('/'); 
-    }
-
-    echo "Room Info updated";
+    //}
+    //session::flush('success','Update successful!');
+    //return view('edit_room_info');
+      echo "Succeed = ".$cost."Add_info = ".$description;
 }
 
 public function manager_change(){
