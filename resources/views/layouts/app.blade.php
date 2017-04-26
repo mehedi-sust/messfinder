@@ -11,15 +11,38 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="css/view-notifications.css" rel="stylesheet">
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    
+    <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
 
-    <!-- Custom CSS for this page -->
-    <link href="css/registered-user-home-page.css" rel="stylesheet">
-     
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    <link href="{{ asset('css/view-notifications.css') }}" rel="stylesheet">
+    
+    <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
+    
+    <!-- Custom CSS for only registered user's page. This should be used as
+    <link href="{{ asset('css/registered-user-home-page.css') }}" rel="stylesheet">
+    -->
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/
+    css">
+    
+    @section('custom_css_js')
+
+    @show
+    <!-- Scripts -->
+
+    <!-- jQuery -->
+    <script src="js/jquery-3.1.1.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/view_notifications.js"></script>
     <style type="text/css">
     .container2 {
         padding: 8%;
@@ -27,18 +50,14 @@
     }
 </style>
 
-    <!-- Scripts -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-       <script src="js/view_notifications.js"></script>
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
 </head>
+
+
 <body>
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -122,11 +141,8 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-
     </nav>
         @yield('content')
-    </div>
-
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 </body>

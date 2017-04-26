@@ -132,7 +132,8 @@ public function insert(Request $request){
     public function show_mess_profile()
     {
         //
-        $mess_id = $_GET['id'];
+        //$mess_id = $_GET['id'];
+        $mess_id = 3;
         echo $mess_id;
         $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
         $feature = DB::select('select * from mess_features where mess_id = ?',[$mess_id]);

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+   <!--
    <head>
       <title>Mess Profile</title>
       <meta charset="utf-8">
@@ -9,35 +10,38 @@
     <meta name="author" content="">
 
     <title>MessFinder</title>
-
-    <!-- Bootstrap Core CSS -->
+     
+    
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    
     <link href="{{asset('css/modern-business.css')}}" rel="stylesheet">
 
-    <!-- Custom Fonts -->
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
    </head>
+   -->
+
+   @section('custom_css_js')
+     @parent 
+   <!-- Custom CSS for this page-->
+    <link href="{{ asset('css/view-mess.css') }}" rel="stylesheet">
+    </style>
+   @endsection
    
+   @section('content')
    <body>
    @foreach ($mess as $value)
-    <div class="container2"> 
+    <div class="container"> 
+        <div class="jumbotron" style="margin-top:25px;">
+            <h1>{{$value->mess_name}}</h1>
+        </div>
+        <!--/.jumbotron-->
         <div class="content">
             <div class="row">
-                <div class="col-md-5">
-                    <div class="container">
-                        <div class="jumbotron" style="margin-top:25px;">
-                            <h1>{{$value->mess_name}}</h1>
-                            
-                        </div>
-                        <!--/.jumbotron-->
-                    </div>
-                    <!--/.conatiner-->
-
-                        <h3 class="page-header" style="margin-left: 10px;">Basic Information</h3>
+                <div class="col-md-8 col-md-offset-2">
+                        <h2 class="page-header text-center" style="margin-left: 10px;">Basic Information</h2>
                         <div id="table-responsive">
-                            <table class="table custom-table">
+                            <table class="table table-striped custom-table ">
                             <tbody>
                                 <tr>
                                     <td><strong>Location:</strong></td>
@@ -62,17 +66,13 @@
                                     <td><strong>Vacant Seat:</strong></td>
                                     <td><!--php code--> {{$value->vacant_seat}}</td>
                                 </tr>
-         @endforeach
-
-
+                                @endforeach
                                 <tr>
                                     <td><strong>Features:</strong></td>
                                     <td>
                                     <ul >
                                     @foreach($feature as $value)
-                                    
                                         <li>{{$value->feature}}</li>
-                                        
                                     @endforeach
                                     </ul>
                                     </td>
@@ -82,11 +82,11 @@
                         </div>
                         <!--/.table-responsive-->
                         
-                        <h3 class="page-header">Vacancy Informamtion</h3>
+                        <h2 class="page-header text-center">Vacancy Informamtion</h2>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
-                                    <tr>
+                                    <tr style="background-color: #5bc0de; color:#fff">
                                         <th>Room No.</th>
                                         <th>Vacant Seat</th>
                                         <th>Vacant From</th>
@@ -94,19 +94,18 @@
                                 </thead>
                                 <tbody>
                                 @foreach ($room as $value)
-                                    <tr class="info">
+                                    <tr>
                                         <td>Room {{$value->room_id}}</td>
                                         <td>{{$value->vacant_seat}}</td>
                                         <td>September, 2017</td>
                                     </tr>
                                 @endforeach
-                                    
                                 </tbody>
                             </table>
                         </div>
                         <!--/.table-responsive-->
 
-                       <h3 class="page-header">Room Information</h3>
+                       <h2 class="page-header text-center">Room Information</h2>
                             <div class="container">
                                 <ul class="nav nav-pills">
                                     @foreach($room as $value)
@@ -125,8 +124,9 @@
                                 </ul>
                             </div>
                             <!--/.container-->
+
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="tab-content clearfix">
                                         @foreach ($room as $value)
                                         <?php
@@ -163,10 +163,7 @@
                                                 @if($person->room_id==$value->room_id)
                                                 <li><a href="">{{$person->name}}</a> </li>
                                                 @endif
-
-
-                                             @endforeach
-                                                                    
+                                             @endforeach 
                                                                 </ul>
 
                                                             </td>
@@ -181,20 +178,15 @@
                                        </div>
                                         <!--/.tab-content clearfix-->
                                     </div>
-                                    <!--/.col-md-5-->
+                                    <!--/.col-md-6-->
                                 </div>
                                 <!--/.row-->
-
-                            <!--</div>-->
-                            <!--/.container-->
                         </div>
                        <!--/.col-md-5-->
                     </div>
                     <!--/.row-->
                 </div>
                 <!-- /.content-->
-           </div>
-     </strong>
-     </div>
-   </body>
-</html>
+           </div>     
+           <!-- /.container2-->
+   @endsection
