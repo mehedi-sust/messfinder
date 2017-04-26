@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-<!DOCTYPE html>
 
+@if(Auth::check() and Auth::user()->type == "Manager")
     <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -15,10 +15,17 @@
                     <a href="edit_room_info">Room Information</a>
                 </li>
                 <li>
-                    <a href="edit_mess_member_info.html">Member Inforamtion</a>
+                    <a href="add_member">Member Inforamtion</a>
                 </li>
                 <li>
-                    <a href="edit_mess_feature.html">Additional Features</a>
+                    <a href="features">Additional Features</a>
+                </li>
+                <li>
+                  <a href="">Change Manager</a>
+                </li>
+
+                <li>
+                  <a href="">Delete My Mess</a>
                 </li>
             </ul>
         </div>
@@ -63,5 +70,10 @@
       </form>
       @endforeach
     </div>
+@else
+
+<h2> ERROR!!! You can not access this page.</h2>
+
 </body>
 </html>
+@endif

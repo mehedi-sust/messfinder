@@ -31,17 +31,25 @@
    @section('content')
    <body>
 
+
+
    @foreach ($mess as $value)
-<<<<<<< HEAD
+   <?php 
+    $mess_id = $_GET['id'];
+    $filename = "banner_".$mess_id.".jpg";
+    //    return Storage::allfiles('public');
+    $url = Storage::url($filename);
+    //echo $url."<br>";
+    echo "<img src='".$url."' width =800 hieght=300/>";
+?>
+
     <div class="container"> 
         <div class="jumbotron" style="margin-top:25px;">
             <h1>{{$value->mess_name}}</h1>
         </div>
         <!--/.jumbotron-->
-=======
    
     <div class="container2"> 
->>>>>>> 6803fe1f810f83f70dfccd08002efe97b3844824
         <div class="content">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">

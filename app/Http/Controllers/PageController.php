@@ -12,7 +12,7 @@ class PageController extends Controller{
 		#recive from model
 		#compile or process the data fform the model if needed
 		#pass that data to the correct view
-		return view('welcome');
+		return view('home');
 	}
 
 	public function getAbout(){
@@ -63,6 +63,10 @@ class PageController extends Controller{
 
 	public function show_upload_photo(){
 		return view('upload_photo');
+	}
+
+	public function getAdmin_home(){
+		return view('admin/admin_home');
 	}
 
 	
