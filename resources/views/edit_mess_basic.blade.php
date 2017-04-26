@@ -21,6 +21,9 @@
                     <a href="features">Additional Features</a>
                 </li>
                 <li>
+                  <a href="upload_photo">Upload Mess Cover Photo</a>
+                </li>
+                <li>
                   <a href="">Change Manager</a>
                 </li>
 

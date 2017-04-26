@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@if(Auth::check() and Auth::user()->type == "Manager")
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,3 +30,4 @@
 
 </body>
 </html>
+@endif

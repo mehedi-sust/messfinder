@@ -164,7 +164,7 @@ public function insert_room(Request $request){
     $vacant_seat = $request->input('vacant_seat');
     $cost =$request->input('fare') ;
       $description = $request->input('description');
-      DB::insert('insert into room_info (total_seat,vacant_seat,cost,add_info) values(?,?,?,?)',[$seat,$vacant_seat,$cost,$description]);
+      DB::insert('insert into room_info (total_seat,vacant_seat,cost,add_info) values(?,?,?,?)',[$seat,$seat,$cost,$description]);
       //return view('/'); 
     }
     return "Success";
@@ -285,16 +285,22 @@ public function insert_room(Request $request){
     $room_id = $req->input('room_id');
     $reg = $req->input('reg_no');
     $date = $req->input('vacant_from');
-    $mess_id = 3;
-    if($room_id != NULL and $reg != NULL) {
-        DB::table('mess_members')->insert(['mess_id'=>$mess_id,'room_id' => $room_id , 'reg'=> $reg , 'vacant_from' => $date]);
-
-        //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
-    }
+    $mess_id = Auth::user()->mess_id;
+    $vacant = 0;
     
     $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->orderBy('room_id')->get();
     $room = DB::table('room_info')->where('mess_id','=',$mess_id)->get();
    
+    $mess = DB::table('basic_mess_info')->select()->where('mess_id','=',$mess_id)->get();
+    
+    if($room_id != NULL and $reg != NULL) {
+        DB::table('mess_members')->insert(['mess_id'=>$mess_id,'room_id' => $room_id , 'reg'=> $reg , 'vacant_from' => $date]);
+
+      DB::table('room_info')->where([['mess_id','=',$mess_id],['room_id' , '=' , $room_id]])->decrement('vacant_seat');
+      DB::table('basic_mess_info')->where ('mess_id','=',$mess_id)->decrement('vacant_seat');  //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
+    }
+    
+    
     return view('add_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
    
    }

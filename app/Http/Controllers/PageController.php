@@ -65,11 +65,7 @@ class PageController extends Controller{
 		return view('upload_photo');
 	}
 
-	public function getAdmin_home(){
-		return view('admin/admin_home');
-	}
-
-	
+		
 }
 
 ?>
