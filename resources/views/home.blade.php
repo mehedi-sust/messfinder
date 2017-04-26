@@ -9,7 +9,7 @@
 <?php 
     $mess_id = Auth::user()->mess_id;
 ?>
-
+   
  <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <?php if($mess_id == 0) {?>
@@ -41,10 +41,10 @@
  <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li >
-                    <a href="edit_mess">    Manage Your Mess </a>           
+                    <a href="edit_mess"> Manage Your Mess </a>           
                 </li>
                 <?php if($mess_id == 0) {?>
-                <li>
+                <li>k
 
                     <a href="create_mess">Create New Mess</a>
                 </li>
@@ -62,5 +62,4 @@
                 <?php } ?>
             </ul>
         </div>
-
 @endif

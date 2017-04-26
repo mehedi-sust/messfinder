@@ -5,7 +5,6 @@
      @parent 
    <!-- Custom CSS for this page-->
     <link href="{{ asset('css/view-mess.css') }}" rel="stylesheet">
-    </style>
    @endsection
    
    @section('content')

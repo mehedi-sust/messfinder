@@ -310,8 +310,7 @@ public function insert_room(Request $request){
       $description = $request->input('description');
       DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->update(['mess_name' => $name,'mess_location' => $location,'total_seat' => $total_seat,'vacant_seat' => $vacant_seat,'total_room' =>$total_room ,'distance' => $distance,'description' => $description]);
       //return view('/mess_profile');
-
-      echo "Basic Mess Info updated";
+      return redirect()->route('edit_mess');
    }
 
 public function room_info_update(Request $request){
@@ -388,3 +387,4 @@ public function show_image(){
     return "<img src='".$url."'/>";
     }
 }
+

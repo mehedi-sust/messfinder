@@ -58,11 +58,6 @@
          <label for="total_seat" class="control-label">Total Seat </label>
          <input type="text" class="form-control" id="total_seat" value = "{{$data->total_seat}}" name="total_seat" required>
         </div>
-        <div class = "form-group required">
-         <label for="vacant_seat" class="control-label">Vacant Seat</label>
-         <input type="text" class="form-control" id="vacant_seat" value = "{{$data->vacant_seat}}" name="vacant_seat" required>
-        </div>
-
         <div class="form-group" id="next_div">
             <button class="btn btn-success" >Save</button>
         </div>

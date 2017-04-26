@@ -39,6 +39,10 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/view_notifications.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     
     @section('custom_css_js')
 
@@ -51,6 +55,9 @@
     }
     textarea{
         resize:none;
+    }
+    #user_dropdown{
+        z-index: 5
     }
 </style>
 
@@ -117,7 +124,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
+                                <ul class="dropdown-menu" role="menu" id = "user_dropdown">
                                     <li><a href="">
                                         My Profile
                                         </a>
@@ -126,6 +133,7 @@
                                         My Preferences
                                         </a>
                                     </li>
+                                    <li class = "divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
