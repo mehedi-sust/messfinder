@@ -35,6 +35,12 @@
     <!-- jQuery code for this page -->
     <script src="js/edit_room_info.js"></script>
 
+    <style>
+        textarea{
+            resize: none;
+        }
+    </style>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -48,8 +54,8 @@
 
     <!-- Navigation -->
    
-    <div class="container2" id="form_container" style="width:80%; margin-left: 260px;">
-    <h2 class="page-header" style="text-align: center">Room Information</h2>
+    <div class="container2" id="form_container" style="width:78%; margin-left: 15%;">
+    <h2 class="page-header" style="text-align: center">Edit Room Information</h2>
     
     <form class="form-inline" id="room_info_form" action="update_room_info" method="post">
     @foreach($room_info as $data)
@@ -58,29 +64,32 @@
         
         <div class="form-group">
             <label for="seat_no">No. of Seat: </label>
-            <input type="text" class="form-control" id="seat_no" value = "{{$data->total_seat}}" name="seat_no[]" style="width:160px;">
+            <input type="text" class="form-control" id="seat_no" value = "{{$data->total_seat}}" name="seat_no[]" style="width:100px;" readonly>
         </div>
 
         <div class="form-group">
             <label for="vacant_seat">Vacant Seat: </label>
-            <input type="text" class="form-control" id="vacant_seat" value = "{{$data->vacant_seat}}" name="vacant_seat[]" style="width:160px;">
+            <input type="text" class="form-control" id="vacant_seat" value = "{{$data->vacant_seat}}" name="vacant_seat[]" style="width:100px;" readonly>
         </div>
 
         <div class="form-group">
-            <label for="fare">Fare: </label>
-            <input type="text" class="form-control" id="fare" value = "{{$data->cost}}" name="fare[]" style="width:160px;">
+            <label for="fare">Rent: </label>
+            <input type="text" class="form-control" id="fare" value = "{{$data->cost}}" name="fare[]" style="width:100px;" readonly>
         </div>
          
         <div class="form-group">
             <label for="additonal_info">More Information: </label>
-            <textarea type="text" class="form-control" rows="3" id="additional_info" value = "{{$data->add_info}}" style="width:180px;" placeholder="Enter additional information here..." name="add_info[]"></textarea>
+            <textarea type="text" class="form-control" rows="3" id="additional_info" value = "{{$data->add_info}}" style="width:200px;" name="add_info[]" readonly></textarea>
         </div>
-        @endforeach
-        <br>
+        <div class="form-group" id="edit_div">
+            <a class="btn btn-info" href = "{{ route('edit_single_room_info', ['room_id' => $data->room_id, 'total_seat' => $data->total_seat, 'vacant_seat' =>$data->vacant_seat, 'cost'=>$data->cost, 'add_info'=>$data->add_info]) }}" id="edit_button">Edit</a>
+        </div>
+        <!--
         <div class="form-group" id="next_div">
-            <button class="btn btn-success" id="next_button">Save</button>
+            <button class="btn btn-danger" id="next_button">Delete</button>
         </div>
-        {{csrf_field() }}
+        -->
+        @endforeach
         </form>
         
     </div>

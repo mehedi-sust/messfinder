@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Storage;
+use DB;
+use Auth;
 class PageController extends Controller{
 	public function getIndex() {
 		# process varibale data or params
@@ -33,7 +35,9 @@ class PageController extends Controller{
 		return view('mess_profile');
 	}
 	public function getRoomInfo(){
-		return view('room_info');
+		$mess_id = Auth::user()->mess_id;
+		$mess = DB::table('basic_mess_info')->select()->where('mess_id','=',$mess_id)->get();
+		return view('room_info',['mess'=> $mess]);
 	}
 
 	public function getSearchResult(){
