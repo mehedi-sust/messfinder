@@ -40,6 +40,7 @@
     <script src="js/jquery-3.1.1.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script src="js/add_room_info.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/view_notifications.js"></script>

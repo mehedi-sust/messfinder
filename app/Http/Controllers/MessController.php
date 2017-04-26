@@ -37,7 +37,7 @@ public function insert(Request $request){
       $name = $request->input('mess_name');
       $location = $request->input('location');
       $total_seat = $request->input('total_seat');
-      $vacant_seat = $request->input('vacant_seat');
+      $vacant_seat = $request->input('total_seat');
       $total_room = $request->input('total_room');
       $distance = $request->input('distance');
       $description = $request->input('description');
@@ -51,7 +51,7 @@ public function insert(Request $request){
         $mess_id = $value->mess_id; 
       }
       
-      DB::table('users')->where('reg',$manager)->update(['mess_id' => $mess_id]);
+      DB::table('users')->where('reg',$manager)->update(['mess_id' => $mess_id, 'type' => 'Manager']);
 
       return view('mess_info_home');
    }

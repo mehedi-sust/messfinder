@@ -24,7 +24,7 @@
         </div>
         <!-- /#sidebar-wrapper -->
 
-    <div class="container2"  style="width:50%" id="form_container">
+    <div class="container"  style="width:50%" id="form_container">
       <h3 class="page-header"> Basic Information of Mess</h3>
       @foreach($mess_info as $data)
       <form id="basic_info_form" action ="mess_info_updated" method="post">

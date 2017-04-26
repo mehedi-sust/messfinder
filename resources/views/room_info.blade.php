@@ -6,16 +6,15 @@
 Sorry You cannot access this Page. Please Log in first.
 
 
-@elseif(Auth::check() and $value->room_info == 'no')
+@elseif(Auth::check() and $value->room_info == "no")
     <!-- Navigation -->
 
-    <div class="container2" id="form_container" style="width:87%">
+    <div class="container" id="form_container" style="width:87%">
     <h2 class="page-header" style="text-align: center">Room Information</h2>
-    {{$value->room_info}}
     <form class="form-inline" id="room_info_form">
     <div class="form-group required">
          <label for="total_room" class="control-label">Total Room: </label>
-         <input type="text" class="form-control" id="total_room" placeholder="Enter total number of rooms">
+         <input type="text" class="form-control" id="total_room" placeholder="Enter total number of rooms" value="{{$value->total_room}}">
     </div>
     <legend>Room 1</legend>
         
@@ -43,12 +42,5 @@ Sorry You cannot access this Page. Please Log in first.
         </div>
         </form>
     </div>    
-    @else
-
-<div class="container2" id="form_container" style="width:50%">
-
-<h2> Error!!! Wrong Page.</h2>
-
-</div>
 @endif
 @endforeach
