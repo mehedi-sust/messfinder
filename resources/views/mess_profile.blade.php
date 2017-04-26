@@ -30,12 +30,18 @@
    
    @section('content')
    <body>
+
    @foreach ($mess as $value)
+<<<<<<< HEAD
     <div class="container"> 
         <div class="jumbotron" style="margin-top:25px;">
             <h1>{{$value->mess_name}}</h1>
         </div>
         <!--/.jumbotron-->
+=======
+   
+    <div class="container2"> 
+>>>>>>> 6803fe1f810f83f70dfccd08002efe97b3844824
         <div class="content">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">

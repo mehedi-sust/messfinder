@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Response;
 use input;
 use App\Mess;
 use DB;
 use Auth;
+use File;
 class MessController extends Controller
 {
     /**
@@ -40,6 +43,16 @@ public function insert(Request $request){
       $description = $request->input('description');
       $manager = Auth::user()->reg;
       DB::insert('insert into basic_mess_info (mess_name,mess_location,total_seat,vacant_seat,total_room,distance,description,manager) values(?,?,?,?,?,?,?,?)',[$name,$location,$total_seat,$vacant_seat,$total_room,$distance,$description,$manager]);
+
+      
+      $mess = DB::select('select * from basic_mess_info where manager = ?',[$manager]);
+      $mess_id =0;
+      foreach ($mess as $value) {
+        $mess_id = $value->mess_id; 
+      }
+      
+      DB::table('users')->where('reg',$manager)->update(['mess_id' => $mess_id]);
+
       return view('mess_info_home');
    }
     /**
@@ -201,8 +214,8 @@ public function insert_room(Request $request){
         
    }
 
-   public function test(Request $req){
-    $room_id = $req->input('room_id');
+   public function test(){
+    /*$room_id = $req->input('room_id');
     $reg = $req->input('reg_no');
     $date = $req->input('vacant_from');
     $mess_id = 3;
@@ -217,7 +230,15 @@ public function insert_room(Request $request){
     $room = DB::table('room_info')->where('mess_id','=',$mess_id)->get();
    echo "room id : ".$room_id."reg : ".$reg."vacant_from : ".$date;
    // return view('test')->with(['room'=>$room])->with(['member_info'=>$member_info]);
-    
+    */
+    $mess_id = $_GET['id'];
+        echo $mess_id;
+        $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
+        $feature = DB::select('select * from mess_features where mess_id = ?',[$mess_id]);
+        $room = DB::select('select * from room_info where mess_id =?',[$mess_id]);
+        $member = DB::select('select distinct room_id,name from mess_members,users where mess_members.mess_id =?',[$mess_id]);
+      return view('test',['mess'=>$mess]);
+
    }
 
    public function mess_list(){
@@ -230,7 +251,7 @@ public function insert_room(Request $request){
    }
 
    public function mess_edit(){
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     $mess_info= DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
     return view('edit_mess_basic')->with(['mess_info'=>$mess_info]);
    }
@@ -279,7 +300,7 @@ public function insert_room(Request $request){
    }
 
    public function mess_info_updated(Request $request){
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     $name = $request->input('mess_name');
       $location = $request->input('location');
       $total_seat = $request->input('total_seat');
@@ -321,4 +342,49 @@ public function manager_change(){
 public function show_map(){
     return view('map');
 }
+
+public function upload_img(Request $req){
+ /*   $user = 3;
+    $file = $req->file('ban_img');
+    $filename = 'banner_'.$user.'.jpg';
+    if($file){
+        Storage::disk('local')->put($filename,File::get($file));
+    }
+    echo $filename;
+    return view('upload_photo');
+
+    if($req->hasFile('image')){
+        $req->file('image');
+        return $req->image->store('public',$req->file('image'));
+    }
+    else{
+        return "no file selected";
+    }*/
+    if($req->hasFile('image')){
+        $req->file('image');
+        $mess_id = 3;
+        $filename = "banner_".$mess_id.".jpg";
+        //$req->image->path();
+        //$req->image->extension();
+        return $req->image->storeAs('public',$filename);
+        //return Storage::putFile('public',$req->file('image'));
+    }
+    else {
+        return "No File Selected";
+    }
+
+}
+
+public function get_mess_img($filename){
+    $file = Storage::disk('local')->get($filename);
+    return new Response($file, 200);
+}
+public function show_image(){
+        //return "show";
+    $mess_id = 3;
+    $filename = "banner_".$mess_id.".jpg";
+    //    return Storage::allfiles('public');
+    $url = Storage::url($filename);
+    return "<img src='".$url."'/>";
+    }
 }
