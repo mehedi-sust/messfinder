@@ -11,7 +11,18 @@
    @section('content')
    <body>
 
+
+
    @foreach ($mess as $value)
+   <?php 
+    $mess_id = $_GET['id'];
+    $filename = "banner_".$mess_id.".jpg";
+    //    return Storage::allfiles('public');
+    $url = Storage::url($filename);
+    //echo $url."<br>";
+    echo "<img src='".$url."' width =800 hieght=300/>";
+?>
+
     <div class="container"> 
         <div class="jumbotron" style="margin-top:25px;">
             <h1>{{$value->mess_name}}</h1>
