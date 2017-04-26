@@ -8,7 +8,9 @@
                     <form class="form-inline">
                         <div class="form-group">
                             <select class="form-control" name="manager_name" id="manager_name">
-                            @foreach($members as $membername)
+                            @foreach($users as $value)
+                            <option>{{$value->name}}</option>
+                            @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md-offset-1" id="submit_div">
@@ -19,4 +21,3 @@
             </div>
         </div>
         @endsection
-   

@@ -112,22 +112,11 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="admin_home" class="active"><i class="fa fa-dashboard fa-fw"></i>Home</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
+                        <a href="" class="active"><i class="fa fa-list"></i>Pending Requests</a>
+                    </li>
                         </ul>
                     </li>
                 </ul>
@@ -144,7 +133,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Page Title</h1>
+                    <h1 class="page-header">Welcome Admin</h1>
 
                     <div class="col-sm-12">
             <div class="row">

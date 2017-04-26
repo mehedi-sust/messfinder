@@ -17,6 +17,11 @@
     });
   } );
     </script>
+    <script>
+    $(".delete").on("submit", function(){
+        return confirm("Do you want to delete this item?");
+    });
+</script>
     @endsection
 
 
@@ -41,7 +46,9 @@
             <label for="sel1">Select list:</label>
             <select class="form-control" id="sel1" name="room_id">
                 @foreach($room as $room)
+                    @if($room->vacant_seat > 0)
                     <option value ="{{$room->room_id}}" > Room {{$room->room_id}}</option>
+                    @endif
                 @endforeach
             </select>
         </div>
@@ -70,6 +77,7 @@
                 <th>Room No.</th>
                 <th>Reg. No.</th>
                 <th>Vacant From</th>
+                <th></th>
             </tr>
             </thead>
             
@@ -79,6 +87,12 @@
             <th>Room {{$data->room_id}}</th>
             <th>{{$data->reg}}</th>
             <th>{{$data->vacant_from}}</th>
+            <th> <form class="delete" action="delete_member" method="POST">
+        <input type="hidden" name="mem_reg" value="{{$data->reg}}">
+        <input type="hidden" name="room_id" value="{{$data->room_id}}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <input type="submit" value="Delete">
+    </form></th>
              </tbody>
             @endforeach
 
@@ -87,3 +101,6 @@
     </div>
 </body>
 </html>
+
+
+

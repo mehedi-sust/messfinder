@@ -12,6 +12,7 @@
 */
 Route::resource('messes','MessController');
 Route::get('show_map','MessController@Show_map');
+Route::get('change_manager','AdminController@get_change_manager');
 Route::get('upload_photo','PageController@show_upload_photo');
 Route::post('update_room_info','MessController@room_info_update');
 Route::post('mess_info_updated','MessController@mess_info_updated');
@@ -32,7 +33,8 @@ Route::get('mess_info','Controller@showdb');
 Route::post('mess_created','MessController@insert');
 Route::post('uploaded','MessController@upload_img');
 Route::get('show_image','MessController@show_image');
-Route::get('admin_home','PageController@getAdmin_home');
+Route::get('admin_home','AdminController@index');
+Route::post('delete_member','AdminController@delete_member');
 //Route::get('mess_banner/{filename}',[		'uses' => 'MessController@get_mess_img',		'as' => 'mess.img'	]);
 Route::post('room_info_inserted','MessController@insert_room');
 Route::get('create_mess','MessController@create');
