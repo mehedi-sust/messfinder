@@ -6,23 +6,12 @@ Sorry You cannot access this Page. Please Log in first.
 
 @elseif(Auth::check() and Auth::user()->mess_id == 0)
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Create Mess</title>
-
-    <!-- Bootstrap Core CSS -->
-
-</head>
-
 <body>
 
     <!-- Navigation -->
 
    <div class="container2" id="form_container" style="width:50%">
-      <h3 class="page-header">Basic Information of Mess</h3>
+      <h3 class="page-header text-center">Basic Information of Mess</h3>
       <form id="basic_info_form" action="/mess_created" method="post">
       {{csrf_field() }}
         <div class="form-group required">
@@ -42,18 +31,9 @@ Sorry You cannot access this Page. Please Log in first.
          <input type="text" class="form-control" id="total_seat" placeholder="Enter total number of seats" name="total_seat" required>
         </div>
         <div class = "form-group required">
-         <label for="vacant_seat" class="control-label">Vacant Seat</label>
-         <input type="text" class="form-control" id="vacant_seat" placeholder="Enter total number of vacant seats" name="vacant_seat" required>
-        </div>
-        <div class = "form-group required">
          <label for="campus_distance" class="control-label">Distance from campus (in KM)</label>
          <input type="text" class="form-control" id="campus_distance" name="distance" placeholder="Enter the time required to reach campus from mess">
         </div>
-           <div class="form-group">
-               <label for="add_button">Has additional features to include?</label>
-               <button type="button" id="add_button" class="btn btn-success">Add Feature</button>
-           </div>
-
            <div class="form-group" id="next_div">
             <button class="btn btn-success" >Create Mess and Continue</button>
         </div>

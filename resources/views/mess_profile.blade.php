@@ -1,25 +1,5 @@
 @extends('layouts.app')
 
-   <!--
-   <head>
-      <title>Mess Profile</title>
-      <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>MessFinder</title>
-     
-    
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-
-    
-    <link href="{{asset('css/modern-business.css')}}" rel="stylesheet">
-
-    <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-   </head>
-   -->
 
    @section('custom_css_js')
      @parent 
@@ -32,16 +12,13 @@
    <body>
 
    @foreach ($mess as $value)
-<<<<<<< HEAD
     <div class="container"> 
         <div class="jumbotron" style="margin-top:25px;">
             <h1>{{$value->mess_name}}</h1>
         </div>
         <!--/.jumbotron-->
-=======
    
     <div class="container2"> 
->>>>>>> 6803fe1f810f83f70dfccd08002efe97b3844824
         <div class="content">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -55,7 +32,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td><strong>Distacne from campus(in minutes):</strong></td>
+                                    <td><strong>Distacne from campus(in KM):</strong></td>
                                     <td><!--php code-->{{$value->distance}}</td>
                                 </tr>
 

@@ -38,8 +38,6 @@ Route::get('create_mess','MessController@create');
 Route::post('insert_mess_basic','Controller@insert_mess_basic');
 Route::get('/','PageController@getIndex');
 
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

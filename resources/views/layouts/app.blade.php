@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Mess Finder') }}</title>
 
     <!-- Styles -->
     <!-- Bootstrap Core CSS -->
@@ -30,24 +30,27 @@
     <!-- Custom Fonts -->
     <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/
     css">
-    
-    @section('custom_css_js')
-
-    @show
     <!-- Scripts -->
 
     <!-- jQuery -->
     <script src="js/jquery-3.1.1.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-    <script src="js/add_room_info.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/view_notifications.js"></script>
+    
+    @section('custom_css_js')
+
+    @show
+
     <style type="text/css">
     .container2 {
         padding: 8%;
         margin-left: 15%;
+    }
+    textarea{
+        resize:none;
     }
 </style>
 

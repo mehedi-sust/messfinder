@@ -6,11 +6,7 @@ $(document).ready(function(){
             " <input type=\"text\" class=\"form-control\" name=\"seat_no[]\" id=\"seat_no\">" +
         "<\/div>" +
         " <div class=\"form-group\">" +
-            " <label for=\"vacant_seat\"> Vacant Seat: <\/label>" +
-            " <input type=\"text\" class=\"form-control\" name=\"vacant_seat[]\" id=\"vacant_seat\">" +
-        "<\/div>" +
-        " <div class=\"form-group\">" +
-            " <label for=\"fare\"> Fare: <\/label>" +
+            " <label for=\"fare\"> Rent: <\/label>" +
             " <input type=\"text\" class=\"form-control\" name=\"fare[]\" id=\"fare\">" +
         "<\/div>" +         
         " <div class=\"form-group\">"+
@@ -18,7 +14,7 @@ $(document).ready(function(){
             " <textarea class=\"form-control\" rows=\"3\" name=\"more_info[]\" id=\"more_info\" placeholder=\"Enter additional information here...\"><\/textarea>" +
         "<\/div>";
         
-    $("#total_room").focusout(function(){
+    //$("#total_room").focusout(function(){
     	var numberOfRoom = document.getElementById("total_room").value;
         var roomCounter = 2;
     	while(roomCounter <= numberOfRoom){
@@ -27,5 +23,5 @@ $(document).ready(function(){
     	++roomCounter;    	
     }
     document.getElementById("total_room").disabled=true;
-    });
+    //});
 });
