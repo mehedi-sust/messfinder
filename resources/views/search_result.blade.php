@@ -18,7 +18,6 @@
             <th>Mess Name</th>
             <th>Location</th>
             <th>Distance(KM)</th>
-            <th></th>
             </tr>
             </thead>
 
@@ -34,9 +33,9 @@
                         <td><a href=<?php echo $a;?>>{{$data->mess_name}}</a></td>
                         <td>{{$data->mess_location}}</td>
                         <td>{{$data->distance}}</td>
-                        <td><form action="/">
+                      <!--  <td><form action="/">
                <button type="submit" class="btn btn-info">Apply</button>
-                </form></td>
+                </form></td> -->
                         </tr>
             @endforeach
             {{$mess->links()}}

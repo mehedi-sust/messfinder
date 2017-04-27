@@ -6,7 +6,7 @@
     <br>
 </div>
 <table class="table table-striped" border='1' align = 'center'>
-<tr style="background-color: #5bc0de; color:#fff">
+<thead><tr style="background-color: #5bc0de; color:#fff">
 <th>Count</th>
 <th>Mess Name</th>
 <th>Location</th>
@@ -14,8 +14,11 @@
 <th>Rooms</th>
 <th>Vacant Seat(s)</th>
 <th>Distance from sust</th>
+<th>Created On</th>
 </tr>
-           
+</thead>
+
+<tbody>
 <?php     
 $i=1;
   ?>    @foreach ($mess as $data) 
@@ -29,10 +32,13 @@ $i=1;
             <td>{{$data->total_seat}}</td>
             <td>{{$data->total_room}}</td>
             <td>{{$data->vacant_seat}}</td>
-            <td>{{$data->distance}}</td>
+            <td>{{$data->distance}} KM</td>
+            <td>{{ date('F d, Y', strtotime($data->created_at)) }}</td>
             </tr>
-@endforeach
-{{ $mess->links() }}
- </table>
+@endforeach 
+ </tbody>
+</table>
+
+{!! $mess->render() !!}
 
 @endif
