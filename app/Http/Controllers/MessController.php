@@ -147,7 +147,7 @@ public function insert(Request $request){
         //
         $mess_id = $_GET['id'];
         //$mess_id = 3;
-        echo $mess_id;
+        //echo $mess_id;
         $reg = 0;
         $man = DB::table('basic_mess_info')->select('manager')->where('mess_id','=',$mess_id)->get();
         foreach ($man as $value) {
@@ -250,7 +250,7 @@ public function insert_room(Request $request){
 
    public function mess_list(){
         
-    $mess= DB::table('basic_mess_info')->simplePaginate(20);
+    $mess= DB::table('basic_mess_info')->simplePaginate(2);
 
      return view('mess_list')->with(['mess'=>$mess]);
         echo "success";

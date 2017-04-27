@@ -14,8 +14,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin/admin_home');
+        $users = DB::table('users')->count();
+        $mess = DB::table('basic_mess_info')->count();
+        echo $users ."   ;  ".$mess;
+        $total_seat = DB::table("basic_mess_info")->sum('total_seat');
+        $vacant_seat = DB::table("basic_mess_info")->sum('vacant_seat');
+        $mess_member = DB::table('mess_members')->count();
+        return view('admin/admin_home',['users'=>$users])->with(['mess'=>$mess])->with(['total_seat'=>$total_seat])->with(['vacant_seat'=>$vacant_seat])->with(['mess_member'=>$mess_member]);
     }
 
     /**
@@ -104,11 +109,14 @@ class AdminController extends Controller
     }
 
     public function get_user_list(){
-        $user=DB::table('users')
+        /*$user=DB::table('users')
             ->join('mess_members', 'users.reg', '=', 'mess_members.reg')
             ->select('users.name','users.reg','users.mobile','users.type','users.password','users.mess_id', 'mess_members.*')
-            ->simplePaginate(20);
-
+            ->simplePaginate(2);
+        */
+            $user=DB::table('users')
+            ->select('name','reg','mobile','type','password','mess_id')
+            ->simplePaginate(2);
         return view('user_list',['user' => $user]);
 
     }

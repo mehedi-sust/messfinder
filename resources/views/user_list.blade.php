@@ -6,14 +6,17 @@
     <br>
 </div>
 <table class="table table-striped" border='1' align = 'center'>
+<thead>
 <tr style="background-color: #5bc0de; color:#fff">
 <th>Count</th>
 <th>Name</th>
 <th>Reg No.</th>
 <th>Mobile No.</th>
-<th>Type</th><th></th><th></th>
+<th>Type</th>
 </tr>
-           
+</thead>
+
+<tbody>    
 <?php     
 $i=1;
   ?>    @foreach ($user as $data) 
@@ -24,13 +27,16 @@ $i=1;
             <td><?php echo $i++;?></td>
             <td><a href=<?php echo $a;?>>{{$data->name}}</a></td>
             <td>{{$data->reg}}</td>
-            <td>{{$data->mobile}}</td>
+            <td>0{{$data->mobile}}</td>
             <td>{{$data->type}}</td>
-            <td><button type="button" class="btn btn-info">edit</button></td>
-            <td><button type="button" class="btn btn-danger">remove</button>
+            <!--   <td><button type="button" class="btn btn-info">edit</button></td>
+            <td><button type="button" class="btn btn-danger">remove</button>    -->
             </td></tr>
 @endforeach
-{{ $user->links() }}
+</tbody>
  </table>
+ 
+{!! $user->render() !!}
+
 
 @endif
