@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@if(Auth::check() and Auth::user()->type == "Manager")
+
+
 @section('custom_css_js')
      @parent 
    <!-- Custom CSS for this page-->
@@ -13,18 +14,18 @@
 @endsection
 
 @section('content')
+
 @foreach ($mess as $value)
 
-@if (!Auth::check())
-Sorry You cannot access this Page. Please Log in first.
 
 
-@elseif(Auth::check() and $value->room_info == "no")
+@if(Auth::user()->type == "Manager" and $value->room_info == "no")
     <!-- Navigation -->
 
     <div class="container" id="form_container" style="width:66.667%">
     <h2 class="page-header" style="text-align: center">Enter Room Information</h2>
-    <form class="form-inline" id="room_info_form">
+    <form class="form-inline" action="room_info_inserted" method = "post" id="room_info_form">
+    {{csrf_field()}}
     <div class="form-group required">
          <label for="total_room" class="control-label">Total Room: </label>
          <input type="text" class="form-control" id="total_room" placeholder="Enter total number of rooms" value="{{$value->total_room}}">
