@@ -85,14 +85,16 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
+                @if (Auth::check() and Auth::user()->reg == "admin")
+                    <li>
+                        <a href="admin_home">Admin Dashboard</a>
+                    </li>
+                @endif
                     <li>
                         <a href="about">About</a>
                     </li>
                     <li>
-                        <a href="services.html">Services</a>
-                    </li>
-                    <li>
-                        <a href="contact">Contact</a>
+                        <a href="http://www.sust.edu/d/cse/contact-us">Contact</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

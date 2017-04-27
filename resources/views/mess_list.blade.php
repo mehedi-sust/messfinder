@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@if(Auth::check() and Auth::user()->type == "Admin")
 <div class="jumbotron">
     <h1>Mess List</h1> <vr>
     <br>
@@ -32,5 +33,6 @@ $i=1;
             </tr>
 @endforeach
 {{ $mess->links() }}
- </table>}
-}
+ </table>
+
+@endif

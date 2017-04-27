@@ -145,14 +145,21 @@ public function insert(Request $request){
     public function show_mess_profile()
     {
         //
-        //$mess_id = $_GET['id'];
-        $mess_id = 3;
+        $mess_id = $_GET['id'];
+        //$mess_id = 3;
         echo $mess_id;
+        $reg = 0;
+        $man = DB::table('basic_mess_info')->select('manager')->where('mess_id','=',$mess_id)->get();
+        foreach ($man as $value) {
+          # code...
+          $reg = $value->manager;
+        }
+        $mobile= DB::table('users')->select('mobile','name')->where('reg','=',$reg)->get();
         $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
         $feature = DB::select('select * from mess_features where mess_id = ?',[$mess_id]);
         $room = DB::select('select * from room_info where mess_id =?',[$mess_id]);
-        $member = DB::select('select distinct room_id,name from mess_members,users where mess_members.mess_id =?',[$mess_id]);
-      return view('mess_profile',['mess'=>$mess])->with(['feature'=>$feature])->with(['room'=>$room])->with(['member'=>$member]);
+        $member = DB::select('select distinct room_id,name,users.reg,mobile,vacant_from from mess_members,users where mess_members.mess_id =? and users.reg = mess_members.reg group by room_id',[$mess_id]);
+      return view('mess_profile',['mess'=>$mess])->with(['feature'=>$feature])->with(['room'=>$room])->with(['member'=>$member])->with(['mobile'=>$mobile]);
       //  return view('test')->with(['room'=>$room])->with(['member'=>$member]);
         echo "success";
     }
@@ -194,7 +201,7 @@ public function insert_room(Request $request){
     if($rent_last == NULL){
         $rent_last = 1000000;
     }
-    echo "Loc -".$location." dist-".$distance." rent-".$rent_start." to ".$rent_last." ." ;
+    //echo "Loc -".$location." dist-".$distance." rent-".$rent_start." to ".$rent_last." ." ;
     //$search_location = DB::table('basic_mess_info')->select('mess_id','mess_name','distance','mess_location')->where('mess_location','like',$location);
   //  dd($mess);
     //$search_vacant = DB::table('basic_mess_info')->select('mess_id','mess_name','distance','mess_location')->where('vacant_seat','>=',$seat);//->union($search_location);
@@ -243,7 +250,7 @@ public function insert_room(Request $request){
 
    public function mess_list(){
         
-    $mess= DB::table('basic_mess_info')->simplePaginate(2);
+    $mess= DB::table('basic_mess_info')->simplePaginate(20);
 
      return view('mess_list')->with(['mess'=>$mess]);
         echo "success";

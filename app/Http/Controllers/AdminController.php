@@ -93,11 +93,23 @@ class AdminController extends Controller
 
     public function get_change_manager()
     {
+        $mess_id = Auth::user()->mess_id;
         $users = DB::table('users')
             ->join('mess_members', 'users.reg', '=', 'mess_members.reg')
-            ->select('users.*', 'mess_members.*')
+            ->select('users.name', 'mess_members.*')
+            ->where('mess_members.mess_id','=',$mess_id)
             ->get();
 
         return view('change_manager',['users'=>$users]);
+    }
+
+    public function get_user_list(){
+        $user=DB::table('users')
+            ->join('mess_members', 'users.reg', '=', 'mess_members.reg')
+            ->select('users.name','users.reg','users.mobile','users.type','users.password','users.mess_id', 'mess_members.*')
+            ->simplePaginate(20);
+
+        return view('user_list',['user' => $user]);
+
     }
 }
