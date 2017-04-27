@@ -28,11 +28,6 @@
 ?>
 
     <div class="container"> 
-        <div class="jumbotron" style="margin-top:25px;">
-            <h1>{{$value->mess_name}}</h1>
-        </div>
-        <!--/.jumbotron-->
-   
     <div class="container2"> 
         <div class="content">
             <div class="row">
@@ -41,6 +36,10 @@
                         <div id="table-responsive">
                             <table class="table table-striped custom-table ">
                             <tbody>
+                            <tr>
+                            <td><strong>Mess Name:</strong></td>
+                            <td><!--php code for mess name-->{{$value->mess_name}}</td>
+                            </tr>
                                 <tr>
                                     <td><strong>Location:</strong></td>
                                     <td><!--php code for location-->{{$value->mess_location}}</td>
