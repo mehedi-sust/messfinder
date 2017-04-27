@@ -31,7 +31,7 @@
                   <a href="">Delete My Mess</a>
                 </li>
                 <li class="sidebar-brand">
-                        Manage Events and Notice
+                        Manage Events
                 </li>
                 <li>
                     <a href="#">Edit Event</a>

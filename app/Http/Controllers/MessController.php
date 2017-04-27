@@ -374,7 +374,7 @@ public function upload_img(Request $req){
     }*/
     if($req->hasFile('image')){
         $req->file('image');
-        $mess_id = 3;
+        $mess_id = Auth::user()->mess_id;
         $filename = "banner_".$mess_id.".jpg";
         //$req->image->path();
         //$req->image->extension();

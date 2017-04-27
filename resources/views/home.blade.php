@@ -19,7 +19,7 @@
                 </li>
                 <?php } else {?>
                 <li>
-                    <a href="<?php echo "mess_profile?id=".$mess_id ?>">View My Mess</a>
+                    <a href="<?php "mess_profile?id=".$mess_id ?>">View My Mess</a>
                 </li>
 
                 <li>
