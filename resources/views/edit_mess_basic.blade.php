@@ -28,7 +28,7 @@
                 </li>
 
                 <li>
-                  <a href="">Delete My Mess</a>
+                  <a href="delete_mess">Delete My Mess</a>
                 </li>
             </ul>
         </div>

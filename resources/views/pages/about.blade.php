@@ -80,7 +80,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 text-center">
                 <img class="img-circle img-responsive img-center" src="http://i.imgur.com/lLPM7jW.jpg" style="width: 200px" alt="">
-                <h3>Raihan Ahmed The boss
+                <h3>Raihan Ahmed
                     <small>Job Title</small>
                 </h3>
                 <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
@@ -107,7 +107,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p class="text-center">Copyright &copy; Your Website 2014</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

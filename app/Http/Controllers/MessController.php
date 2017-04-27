@@ -392,5 +392,17 @@ public function show_image(){
     $url = Storage::url($filename);
     return "<img src='".$url."'/>";
     }
+
+public function delete_mess(){
+  $mess_id = 3;
+  return view('delete_mess')->with(['mess_id'=>$mess_id]);
 }
+
+public function delete_mess_request(Request $delete_request){
+  $mess_id = $delete_request->input('mess_id');
+  return view('home');
+}
+
+}
+
 
