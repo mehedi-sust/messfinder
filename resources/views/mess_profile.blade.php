@@ -136,6 +136,7 @@
                                         @if(Auth::user()->type == 'Admin')
                                         <td>{{$value->mobile}}</td>
                                         @endif
+                                        <td></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

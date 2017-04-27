@@ -59,7 +59,7 @@
 
                         <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }}">
                         
-                            <label for="mobile" class="col-md-4 control-label">Mobile Num</label>
+                            <label for="mobile" class="col-md-4 control-label">Mobile Number</label>
 
                             <div class="col-md-6">
                                 <input id="mobile" type="text" class="form-control" name="mobile" placeholder="e.g 01721000111" value="{{ old('mobile') }}" required autofocus>

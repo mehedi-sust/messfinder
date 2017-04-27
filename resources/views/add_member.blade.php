@@ -85,12 +85,16 @@
             <tbody>
             <th>Room {{$data->room_id}}</th>
             <th>{{$data->reg}}</th>
-            <th>{{$data->vacant_from}}</th>
+            @if($data->vacant_from != NULL)
+            <th>{{date('F d, Y', strtotime($data->vacant_from))}}</th>
+            @else
+            <th></th>
+            @endif
             <th> <form class="delete" action="delete_member" method="POST">
         <input type="hidden" name="mem_reg" value="{{$data->reg}}">
         <input type="hidden" name="room_id" value="{{$data->room_id}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        <input type="submit" value="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" >
     </form></th>
              </tbody>
             @endforeach

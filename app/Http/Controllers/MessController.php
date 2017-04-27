@@ -303,6 +303,7 @@ public function insert_room(Request $request){
     if($room_id != NULL and $reg != NULL) {
         DB::table('mess_members')->insert(['mess_id'=>$mess_id,'room_id' => $room_id , 'reg'=> $reg , 'vacant_from' => $date]);
 
+      DB::table('users')->where('reg','=',$reg)->update(['mess_id'=>$mess_id]);
       DB::table('room_info')->where([['mess_id','=',$mess_id],['room_id' , '=' , $room_id]])->decrement('vacant_seat');
       DB::table('basic_mess_info')->where ('mess_id','=',$mess_id)->decrement('vacant_seat');  //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
     }
@@ -327,7 +328,7 @@ public function insert_room(Request $request){
    }
 
 public function room_info_update(Request $request){
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     //foreach($request as $request) {
     $room_id = $request->input('room_id');
     $seat = $request->input('seat_no');
@@ -336,15 +337,15 @@ public function room_info_update(Request $request){
     $cost =$request->input('fare') ;
       $description = $request->input('add_info');
       DB::table('room_info')->where([
-                                        ['mess_id','=',$mess_id],
-                                        ['room_id','=',$room_id]
+                                        ['mess_id',$mess_id],
+                                        ['room_id',$room_id]
                                         ])
       ->update(['total_seat' => $seat,'vacant_seat' => $vacant_seat,'cost' => $cost,'add_info' => $description]);
       //return view('/'); 
     //}
     //session::flush('success','Update successful!');
     //return view('edit_room_info');
-      echo "Succeed = ".$cost."Add_info = ".$description;
+      echo "mess_id".$mess_id;
 }
 
 public function manager_change(){
