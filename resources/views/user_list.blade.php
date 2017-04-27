@@ -6,6 +6,7 @@
     <br>
 </div>
 <table class="table table-striped" border='1' align = 'center'>
+<thead>
 <tr style="background-color: #5bc0de; color:#fff">
 <th>Count</th>
 <th>Name</th>
@@ -13,10 +14,12 @@
 <th>Mobile No.</th>
 <th>Type</th><th></th><th></th>
 </tr>
-           
+</thead>
+        
+<tbody>   
 <?php     
 $i=1;
-  ?>    @foreach ($user as $data) 
+?>    @foreach ($user as $data) 
  <?php $mess_id = $data->mess_id;
  $a = "mess_profile?id=".$mess_id;
  ?>
@@ -31,6 +34,7 @@ $i=1;
             </td></tr>
 @endforeach
 {{ $user->links() }}
- </table>
+</tbody>
+</table>
 
 @endif

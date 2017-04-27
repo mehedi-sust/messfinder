@@ -23,17 +23,6 @@
 </script>
     @endsection
 
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
 <body>
 
 
@@ -83,19 +72,17 @@
             
             @foreach($member_info as $data)
             <tbody>
-            <th>Room {{$data->room_id}}</th>
-            <th>{{$data->reg}}</th>
-            <th>{{$data->vacant_from}}</th>
-            <th> <form class="delete" action="delete_member" method="POST">
+            <td>Room {{$data->room_id}}</td>
+            <td>{{$data->reg}}</td>
+            <td>{{$data->vacant_from}}</td>
+            <td> <form class="delete" action="delete_member" method="POST">
         <input type="hidden" name="mem_reg" value="{{$data->reg}}">
         <input type="hidden" name="room_id" value="{{$data->room_id}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <input type="submit" value="Delete">
-    </form></th>
+    </form></td>
              </tbody>
             @endforeach
-
-           
       </table>
     </div>
 </body>

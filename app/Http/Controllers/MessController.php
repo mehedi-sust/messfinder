@@ -264,7 +264,7 @@ public function insert_room(Request $request){
    }
 
    public function edit_room_info(){
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     $room_info= DB::table('room_info')->where('mess_id','=',$mess_id)->get();
     return view('edit_mess_room_info')->with(['room_info'=>$room_info]);
    }
@@ -327,7 +327,7 @@ public function insert_room(Request $request){
    }
 
 public function room_info_update(Request $request){
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     //foreach($request as $request) {
     $room_id = $request->input('room_id');
     $seat = $request->input('seat_no');
@@ -401,13 +401,32 @@ public function show_image(){
     }
 
 public function delete_mess(){
-  $mess_id = 3;
+  $mess_id = Auth::user()->mess_id;
   return view('delete_mess')->with(['mess_id'=>$mess_id]);
 }
 
 public function delete_mess_request(Request $delete_request){
   $mess_id = $delete_request->input('mess_id');
   return view('home');
+}
+
+public function add_mess_feature(){
+  $mess_id = Auth::user()->mess_id; 
+  $current_features = DB::table('mess_features')->where('mess_id','=',$mess_id)->get();
+  return view('add_mess_feature')->with(['current_features'=>$current_features]);
+}
+
+public function mess_feature_added(Request $add_mess_feature){
+  $mess_id = Auth::user()->mess_id; 
+  $feature_name = $add_mess_feature->input('feature_name');  
+  DB::table('mess_features')->insert(['mess_id'=>$mess_id,'feature'=>$feature_name]);
+  return redirect()->route('add_mess_feature');
+}
+public function mess_feature_deleted(Request $delete_mess_feature){
+  $mess_id = Auth::user()->mess_id; 
+  $feature_id = $delete_mess_feature->input('feature_id');
+  DB::table('mess_features')->where([['mess_id','=', $mess_id],['count','=',$feature_id]])->delete();
+  return redirect()->route('add_mess_feature');
 }
 
 }
