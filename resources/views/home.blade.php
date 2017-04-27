@@ -56,8 +56,18 @@
                 <li>
                     <a href="notice">Notice Board</a>
                 </li>
+                <li class="sidebar-brand">
+                        Events and Notice
+                </li>
                 <li>
-                    <a href="msg">Message and Request</a>
+                    <a href="#">Create New Event</a>
+                </li>
+                <li>
+                    <a href="#">Create Notice</a>
+                </li>
+                
+                <li>
+                    <a href="#">View Notice and Events</a>
                 </li>
                 <?php } ?>
             </ul>

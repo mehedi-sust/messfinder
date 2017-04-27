@@ -74,6 +74,17 @@
                                     </ul>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td><strong>Contact(Mobile):</strong></td>
+                                    <ul>
+                                    <td>  @foreach($mobile as $value)
+                                          
+                                          0{{$value->mobile}} ({{$value->name}})
+                                          @endforeach 
+                                    </td>         
+                                    </ul>
+
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -86,7 +97,7 @@
                                     <tr style="background-color: #5bc0de; color:#fff">
                                         <th>Room No.</th>
                                         <th>Vacant Seat</th>
-                                        <th>Vacant From</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -94,13 +105,44 @@
                                     <tr>
                                         <td>Room {{$value->room_id}}</td>
                                         <td>{{$value->vacant_seat}}</td>
-                                        <td>September, 2017</td>
+                                        
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <!--/.table-responsive-->
+
+<h2 class="page-header text-center">Members Information</h2>
+<div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr style="background-color: #5bc0de; color:#fff">
+                                        <th>Room No.</th>
+                                        <th>Reg no.</th>
+                                        <th>Name</th>
+                                        @if(Auth::user()->type == 'Admin')<th>Mobile</th>
+                                        @endif
+                                        <th>Vacant From</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($member as $value)
+                                    <tr>
+                                        <td>Room {{$value->room_id}}</td>
+                                        <td>{{$value->reg}}</td>
+                                        <td>{{$value->name}}</td>
+                                        @if(Auth::user()->type == 'Admin')
+                                        <td>{{$value->mobile}}</td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                       
 
                        <h2 class="page-header text-center">Room Information</h2>
                             <div class="container">

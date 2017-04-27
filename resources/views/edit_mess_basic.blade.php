@@ -6,7 +6,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                        Information Type           
+                        Manage Mess           
                 </li>
                 <li>
                     <a href="#">Basic Information</a>
@@ -24,12 +24,22 @@
                   <a href="upload_photo">Upload Mess Cover Photo</a>
                 </li>
                 <li>
-                  <a href="">Change Manager</a>
+                  <a href="change_manager">Change Manager</a>
                 </li>
 
                 <li>
                   <a href="delete_mess">Delete My Mess</a>
                 </li>
+                <li class="sidebar-brand">
+                        Manage Events and Notice
+                </li>
+                <li>
+                    <a href="#">Edit Event</a>
+                </li>
+                <li>
+                    <a href="#">Edit Notice</a>
+                </li>
+
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->

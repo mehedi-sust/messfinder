@@ -23,6 +23,7 @@ Route::get('edit_room_info','MessController@edit_room_info');
 Route::get('edit_single_room_info/{room_id}/{total_seat}/{vacant_seat}/{cost}/{add_info}',array('uses' => 'MessController@edit_single_room_info', 'as' => 'edit_single_room_info'));
 Route::get('edit_mess','MessController@mess_edit')->name('edit_mess');
 Route::get('mess_list','MessController@mess_list');
+Route::get('user_list','AdminController@get_user_list');
 Route::get('test','MessController@test');
 Route::get('search','MessController@simple_search');
 Route::get('room_info','PageController@getRoomInfo');

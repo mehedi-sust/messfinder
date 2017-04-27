@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@if(Auth::check() and Auth::user()->type == "Manager")
 @section('custom_css_js')
      @parent 
    <!-- Custom CSS for this page-->
