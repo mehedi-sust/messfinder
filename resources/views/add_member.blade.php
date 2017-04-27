@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-    
     @section('custom_css_js')
      @parent
     <script

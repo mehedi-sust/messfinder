@@ -36,6 +36,9 @@ Route::post('uploaded','MessController@upload_img');
 Route::get('show_image','MessController@show_image');
 Route::get('admin_home','AdminController@index');
 Route::post('delete_member','AdminController@delete_member');
+Route::get('delete_mess', 'MessController@delete_mess');
+Route::post('delete_mess_request', 'MessController@delete_mess_request');
+
 //Route::get('mess_banner/{filename}',[		'uses' => 'MessController@get_mess_img',		'as' => 'mess.img'	]);
 Route::post('room_info_inserted','MessController@insert_room');
 Route::get('create_mess','MessController@create');

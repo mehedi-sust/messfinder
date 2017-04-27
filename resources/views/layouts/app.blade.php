@@ -17,7 +17,7 @@
     <!-- Custom CSS -->
     
     <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
-
+     
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
     <link href="{{ asset('css/view-notifications.css') }}" rel="stylesheet">
@@ -55,9 +55,6 @@
     }
     textarea{
         resize:none;
-    }
-    #user_dropdown{
-        z-index: 5
     }
 </style>
 
@@ -105,22 +102,29 @@
                             <li><a href="{{ route('register') }}">Sign Up</a></li>
                         @else
                         <ul class = "nav navbar-nav navbar-right">
+                        <!--
                     <li id="noti_Container">
-                        <div id="noti_Counter" title="Notifications"></div>   <!--SHOW NOTIFICATIONS COUNT.-->
+                        <div id="noti_Counter" title="Notifications"></div> 
+                        -->  <!--SHOW NOTIFICATIONS COUNT.-->
                         
                         <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
                         <!--
                         <div id="noti_Button"></div>    
                         -->
+                        
+                        <!--
                         <div id="noti_Button" title="Notifications"><a href="#"><span class="glyphicon glyphicon-bell"></span></a></div>
+                         -->
 
                         <!--THE NOTIFICAIONS DROPDOWN BOX.-->
+                        <!--
                         <div id="notifications">
                             <h3 id=noti_header>Notifications</h3>
                             <div style="height:300px;"></div>
                             <div class="seeAll"><a href="#">See All</a></div>
                         </div>
                     </li>
+                         -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>

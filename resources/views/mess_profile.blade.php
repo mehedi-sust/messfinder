@@ -1,17 +1,22 @@
 @extends('layouts.app')
 
-
    @section('custom_css_js')
      @parent 
    <!-- Custom CSS for this page-->
-    <link href="{{ asset('css/view-mess.css') }}" rel="stylesheet">
+   <link href="{{ asset('css/view-mess.css') }}" rel="stylesheet">
+   <style>
+        img{
+            display: block;
+            margin:auto;
+            width:100%;
+            height:300px;
+        }
+   </style>
+
    @endsection
    
    @section('content')
    <body>
-
-
-
    @foreach ($mess as $value)
    <?php 
     $mess_id = $_GET['id'];
@@ -23,19 +28,18 @@
 ?>
 
     <div class="container"> 
-        <div class="jumbotron" style="margin-top:25px;">
-            <h1>{{$value->mess_name}}</h1>
-        </div>
-        <!--/.jumbotron-->
-   
     <div class="container2"> 
         <div class="content">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-8 col-md-offset-1">
                         <h2 class="page-header text-center" style="margin-left: 10px;">Basic Information</h2>
                         <div id="table-responsive">
                             <table class="table table-striped custom-table ">
                             <tbody>
+                            <tr>
+                            <td><strong>Mess Name:</strong></td>
+                            <td><!--php code for mess name-->{{$value->mess_name}}</td>
+                            </tr>
                                 <tr>
                                     <td><strong>Location:</strong></td>
                                     <td><!--php code for location-->{{$value->mess_location}}</td>
