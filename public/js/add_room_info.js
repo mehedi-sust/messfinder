@@ -14,7 +14,6 @@ $(document).ready(function(){
             " <textarea class=\"form-control input-lg\" rows=\"3\" name=\"more_info[]\" id=\"more_info\" style=\"resize:none;\" placeholder=\"Enter additional information here...\"><\/textarea>" +
         "<\/div>";
         
-    alert("GOT IT!!!");
     	var numberOfRoom = 5;
         var roomCounter = 2;
     	while(roomCounter <= numberOfRoom){

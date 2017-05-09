@@ -68,7 +68,7 @@
 {{csrf_field()}}
 -->         
             <div class="form-group required">
-              <input type="hidden" class="form-control" id="total_room" placeholder="Enter total number of rooms" value="10">
+              <input type="hidden" class="form-control" id="total_room" value="10">
             </div>
 
             <legend>Room 1</legend>

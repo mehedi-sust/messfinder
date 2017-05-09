@@ -22,15 +22,14 @@
     <link href="css/progress-steps.css" rel="stylesheet">
     <link href="css/customize-style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
+    -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
-  </head>
-    
     
     @section('custom_css')
 
@@ -137,6 +136,7 @@
     <script src="js/gmap3.min.js"></script>
     <script src="js/jquery.easing.js"></script>
     <script src="js/jquery.jcarousel.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/jquery.backstretch.js"></script>
@@ -145,6 +145,10 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- Customized JavaScript for different pages
+    ================================================== -->
+    <!-- Applicable to add_room_info.html -->
+    <script src="js/add_room_info.js"></script>
     
     @section('custom_js')
 
