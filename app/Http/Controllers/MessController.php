@@ -165,15 +165,29 @@ public function insert(Request $request){
     }
 
 public function insert_room(Request $request){
-    foreach($request as $request) {
+  $i =0;
+  $input = $request->all();
+  $seat = "";
+  foreach ($input as $req) {
     $seat = $request->input('seat_no');
-    
-    $vacant_seat = $request->input('vacant_seat');
-    $cost =$request->input('fare') ;
-      $description = $request->input('description');
-      DB::insert('insert into room_info (total_seat,vacant_seat,cost,add_info) values(?,?,?,?)',[$seat,$seat,$cost,$description]);
-      //return view('/'); 
-    }
+    $cost = $request->input('fare');
+    $add_info = $request->input('more_info');
+    //echo $seat[$i]."  ".$rent[$i] ."<br>" ;
+
+    $i=$i+1;  
+
+  }
+
+  $len = count($seat);
+  echo $len;
+
+  for($i=0;$i<$len;$i++){
+    DB::insert('insert into room_info (total_seat,vacant_seat,cost,add_info) values(?,?,?,?)',[$seat[$i],$seat[$i],$cost[$i],$add_info[$i]]);
+
+    //echo $seat[$i]."   ".$seat[$i]."   ".$cost[$i]."    ".$add_info[$i]."<br>";
+  }
+    //echo $seat[4]."<br>";
+  
     return "Success";
       
    }
@@ -264,7 +278,7 @@ public function insert_room(Request $request){
    }
 
    public function edit_room_info(){
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     $room_info= DB::table('room_info')->where('mess_id','=',$mess_id)->get();
     return view('edit_mess_room_info')->with(['room_info'=>$room_info]);
    }
@@ -402,13 +416,32 @@ public function show_image(){
     }
 
 public function delete_mess(){
-  $mess_id = 3;
+  $mess_id = Auth::user()->mess_id;
   return view('delete_mess')->with(['mess_id'=>$mess_id]);
 }
 
 public function delete_mess_request(Request $delete_request){
   $mess_id = $delete_request->input('mess_id');
   return view('home');
+}
+
+public function add_mess_feature(){
+  $mess_id = Auth::user()->mess_id; 
+  $current_features = DB::table('mess_features')->where('mess_id','=',$mess_id)->get();
+  return view('add_mess_feature')->with(['current_features'=>$current_features]);
+}
+
+public function mess_feature_added(Request $add_mess_feature){
+  $mess_id = Auth::user()->mess_id; 
+  $feature_name = $add_mess_feature->input('feature_name');  
+  DB::table('mess_features')->insert(['mess_id'=>$mess_id,'feature'=>$feature_name]);
+  return redirect()->route('add_mess_feature');
+}
+public function mess_feature_deleted(Request $delete_mess_feature){
+  $mess_id = Auth::user()->mess_id; 
+  $feature_id = $delete_mess_feature->input('feature_id');
+  DB::table('mess_features')->where([['mess_id','=', $mess_id],['count','=',$feature_id]])->delete();
+  return redirect()->route('add_mess_feature');
 }
 
 }

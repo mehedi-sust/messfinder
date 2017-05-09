@@ -18,7 +18,7 @@
                     <a href="add_member">Member Inforamtion</a>
                 </li>
                 <li>
-                    <a href="features">Additional Features</a>
+                    <a href="add_mess_feature">Additional Features</a>
                 </li>
                 <li>
                   <a href="upload_photo">Upload Mess Cover Photo</a>
@@ -74,7 +74,7 @@
         <div class="form-group" id="next_div">
             <button class="btn btn-success" >Save</button>
         </div>
-        {{csrf_field() }}
+        {{ csrf_field() }}
       </form>
       @endforeach
     </div>

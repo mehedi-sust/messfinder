@@ -19,7 +19,7 @@
 <tbody>    
 <?php     
 $i=1;
-  ?>    @foreach ($user as $data) 
+?>    @foreach ($user as $data) 
  <?php $mess_id = $data->mess_id;
  $a = "mess_profile?id=".$mess_id;
  ?>
@@ -33,10 +33,10 @@ $i=1;
             <td><button type="button" class="btn btn-danger">remove</button>    -->
             </td></tr>
 @endforeach
+{{ $user->links() }}
 </tbody>
- </table>
+</table>
  
 {!! $user->render() !!}
-
 
 @endif

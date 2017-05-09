@@ -19,6 +19,10 @@ Route::post('mess_info_updated','MessController@mess_info_updated');
 Route::get('mess_info_home','PageController@get_mess_info_home');
 Route::get('add_member','MessController@member_list');
 Route::post('add_member','MessController@member_list');
+Route::get('add_mess_feature','MessController@add_mess_feature')->name('add_mess_feature');
+Route::post('mess_feature_added','MessController@mess_feature_added');
+Route::post('mess_feature_deleted','MessController@mess_feature_deleted');
+
 Route::get('edit_room_info','MessController@edit_room_info');
 Route::get('edit_single_room_info/{room_id}/{total_seat}/{vacant_seat}/{cost}/{add_info}',array('uses' => 'MessController@edit_single_room_info', 'as' => 'edit_single_room_info'));
 Route::get('edit_mess','MessController@mess_edit')->name('edit_mess');
@@ -38,7 +42,6 @@ Route::get('admin_home','AdminController@index');
 Route::post('delete_member','AdminController@delete_member');
 Route::get('delete_mess', 'MessController@delete_mess');
 Route::post('delete_mess_request', 'MessController@delete_mess_request');
-
 //Route::get('mess_banner/{filename}',[		'uses' => 'MessController@get_mess_img',		'as' => 'mess.img'	]);
 Route::post('room_info_inserted','MessController@insert_room');
 Route::get('create_mess','MessController@create');
