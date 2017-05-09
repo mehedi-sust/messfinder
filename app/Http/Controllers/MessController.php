@@ -30,7 +30,7 @@ class MessController extends Controller
     public function create()
     {
         //
-        return view('create_mess');
+        return view('add_basic_info');
     }
 
 public function insert(Request $request){
