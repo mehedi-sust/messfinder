@@ -121,7 +121,8 @@
                                         <th>Room No.</th>
                                         <th>Reg no.</th>
                                         <th>Name</th>
-                                        @if(Auth::user()->type == 'Admin')<th>Mobile</th>
+                                        @if(Auth::user()->type == 'Admin')
+                                        <th>Mobile</th>
                                         @endif
                                         <th>Vacant From</th>
                                         
@@ -136,6 +137,7 @@
                                         @if(Auth::user()->type == 'Admin')
                                         <td>{{$value->mobile}}</td>
                                         @endif
+                                        <td></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

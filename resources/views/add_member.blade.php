@@ -72,15 +72,19 @@
             
             @foreach($member_info as $data)
             <tbody>
-            <td>Room {{$data->room_id}}</td>
-            <td>{{$data->reg}}</td>
-            <td>{{$data->vacant_from}}</td>
-            <td> <form class="delete" action="delete_member" method="POST">
+            <th>Room {{$data->room_id}}</th>
+            <th>{{$data->reg}}</th>
+            @if($data->vacant_from != NULL)
+            <th>{{date('F d, Y', strtotime($data->vacant_from))}}</th>
+            @else
+            <th></th>
+            @endif
+            <th> <form class="delete" action="delete_member" method="POST">
         <input type="hidden" name="mem_reg" value="{{$data->reg}}">
         <input type="hidden" name="room_id" value="{{$data->room_id}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        <input type="submit" value="Delete">
-    </form></td>
+        <input type="submit" value="Delete" class="btn btn-danger" >
+    </form></th>
              </tbody>
             @endforeach
       </table>
