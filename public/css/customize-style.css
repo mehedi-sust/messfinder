@@ -1,0 +1,68 @@
+/*
+===============================
+Customized Styles for Pages
+===============================
+*/
+
+/*
+=================
+GLOBAL
+=================
+*/
+
+textarea{
+	resize: none;
+}
+
+.panel-arillo {
+  border-color: #37bc9b;
+}
+.panel-arillo > .panel-heading {
+  color: #fff;
+  background-color: #48cfad;
+  border-color: #37bc9b;
+}
+
+/*
+=================
+index.html
+=================
+*/
+
+#homepage_row_search{
+	margin-top:-82px;
+}
+
+/*
+=================
+search_result.html
+=================
+*/
+
+#search_result_quick_search{
+	margin:50px;
+}
+
+#search_result_content{
+	margin:50px;
+}
+
+/*
+=================
+create_mess.html
+=================
+*/
+
+#create_mess_content{
+	margin:50px;
+}
+
+/*
+=================
+room_info.html
+=================
+*/
+
+#room_info_content{
+	margin:50px;
+}

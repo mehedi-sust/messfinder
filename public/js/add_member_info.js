@@ -8,7 +8,7 @@ function populateSelect(){
             " <select class=\"form-control\" name=\"room_no[]\" id=\"room_no\">"+
             "<option>Room 1</option>";
             
- var counter = 2;
+ var counter = 1;
  var room2 = "</select>"+
             "</div>";
  while(counter<=numberOfRoom){
@@ -19,45 +19,29 @@ function populateSelect(){
  return room;
 }
 
+$("#reg_div").before(roomNo);
+
+/*
 
 var memberInfo = " ";
 memberInfo = memberInfo + " " + roomNo;
 memberInfo = memberInfo+
-        " <div class=\"form-group\">"+
-            " <label for=\"user_name\"> User Name: <\/label>"+
-            " <input type=\"text\" class=\"form-control\" name=\"user_name[]\" id=\"user_name\">"+
+        "<div class=\"form-group\">"+
+            " <label for=\"reg_no\"> Reg. No.: <\/label>"+
+            " <input type=\"text\" class=\"form-control\" name=\"reg_no[]\" id=\"reg_no\">"+
         "<\/div>"+
         " <div class=\"form-group\">"+
-            " <label for=\"vacant_start_month\"> Vacant From(Month): <\/label>"+
-            " <select name=\"vacant_start_month[]\" class=\"form-control\">"+
-                "<option>NA<\/option>"+
-                "<option>January<\/option>"+
-                "<option>February<\/option>"+
-                "<option>March<\/option>"+   
-                "<option>April<\/option>"+
-                "<option>May<\/option>"+
-                "<option>June<\/option>"+
-                "<option>July<\/option>"+
-                "<option>August<\/option>"+
-                "<option>September<\/option>"+
-                "<option>October<\/option>"+
-                "<option>November<\/option>"+
-                "<option>December<\/option>"+
-            "<\/select>"+
+            " <label for=\"vacant_start_month\"> Vacant From: <\/label>"+
+            " <input type=\"date\" name=\"vacant_start_month[]\" class=\"form-control\">"+
         "<\/div>"+
-        " <div class=\"form-group\">"+
-            " <label for=\"vacant_start_year\"> Vacant from(Year): <\/label>"+
-            " <input type=\"text\" class=\"form-control\" rows=\"3\" name = \"vacant_start_year[]\" id=\"vacant_start_year\">"+
-        "<\/div><p></p><p></p>";
+        "<p></p><p></p><p></p>";
       
-             
-        $("#total_seat").focusout(function(){
         	
-    	var numberOfMember = document.getElementById("total_seat").value;
+    	var numberOfMember = 5;
         var memberCounter = 1;
     	while(memberCounter <= numberOfMember){
     	$("#submit_div").before(memberInfo);
     	++memberCounter;
     	}    	
-        });
+        */
 });
