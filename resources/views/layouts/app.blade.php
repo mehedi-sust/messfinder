@@ -26,6 +26,7 @@
     <!--
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     -->
+    
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -167,7 +168,6 @@
     <!-- jQuery UI code for datepicker -->
     <script>
     $( function() {
-        alert("GOT IT!!!");
     $( "#vacant_start_month" ).datepicker({
       changeMonth: true,
       changeYear: true

@@ -46,7 +46,7 @@ Route::post('delete_mess_request', 'MessController@delete_mess_request');
 Route::post('room_info_inserted','MessController@insert_room');
 Route::get('create_mess','MessController@create');
 Route::post('insert_mess_basic','Controller@insert_mess_basic');
-Route::get('/','PageController@getIndex');
+Route::get('/','PageController@getIndex')->name('index');
 
 Auth::routes();
 

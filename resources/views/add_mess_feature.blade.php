@@ -22,41 +22,98 @@
    @endsection
 
 @section('content')
-    <div class="container" id="form_container" style="width:70%">
-        <div class = "row">
-            <div class= "col-md-8 col-md-offset-2">
-                <h3 class="page-header text-center">Add Mess Features</h3>
+<!-- begin:header -->
+    <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-12">
+            <div class="page-title">
+              <h2>Create Mess</h2>
+            </div>
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li class="active">Create Mess</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:header -->
+
+<!-- begin:progress steps -->
+<div class="container">
+    <div class="row bs-wizard" style="border-bottom:0;">
+        <div class="col-xs-3 bs-wizard-step complete">
+          <div class="text-center bs-wizard-stepnum">Step 1</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <a href="#" class="bs-wizard-dot"></a>
+          <div class="bs-wizard-info text-center">Basic Information</div>
+        </div>
+        
+        <div class="col-xs-3 bs-wizard-step complete"><!-- complete -->
+          <div class="text-center bs-wizard-stepnum">Step 2</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <a href="#" class="bs-wizard-dot"></a>
+          <div class="bs-wizard-info text-center">Room Information</div>
+        </div>
+        
+        <div class="col-xs-3 bs-wizard-step complete"><!-- complete -->
+          <div class="text-center bs-wizard-stepnum">Step 3</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <a href="#" class="bs-wizard-dot"></a>
+          <div class="bs-wizard-info text-center">Member Information</div>
+        </div>
+        
+        <div class="col-xs-3 bs-wizard-step active"><!-- active -->
+          <div class="text-center bs-wizard-stepnum">Step 4</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <a href="#" class="bs-wizard-dot"></a>
+          <div class="bs-wizard-info text-center">Extra Features</div>
+        </div>
+    </div>
+  </div>
+<!-- end:progress steps -->
+
+  <!-- begin: add member form -->
+  <div class="content" id="add_member_content_form">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-arillo">
+          <div class="panel-heading"><h4>Add Mess Features</h4></div>
+            <div class="panel-body">
                 <form class="form-inline" action = "mess_feature_added" method="post"> 
                  {{ csrf_field() }}       
-                    <div class="form-group">
-                        <label for="vacant_start_month"> New Feature: </label>
+                    <div class="form-group col-md-offset-2">
+                        <label for="vacant_start_month">Feature Name: </label>
                         <input name="feature_name" class="form-control" id="vacant_start_month">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success">Add</button>
                     </div>
-                    <!--
-                    <div class="form-group col-md-offset-4" id="submit_div">
-                        <button class="btn btn-success">Save</button>
-                    </div>
-                    -->
                 </form>
+                <a href = "{{ route('index')}}"class="btn btn-success col-md-offset-5" id="add_mess_feature_finish_btn">Finish</a>
             </div>
-            <!--/.col-md-8 col-md-offset-2-->
-        </div>
-        <!--/.row-->
-    </div>
-    <!--/.container-->
+           <!-- /.panel-body -->
+         </div>
+         <!-- /.panel -->
+       </div>
+       <!-- /.col-md-8 -->
+     </div>
+     <!-- /.row -->
+   </div>
+   <!-- /.content -->
+   <!-- end:add member form -->
 
-    <div class="container" id="table_container" style="width:70%">
-        <div class = "row">
-            <div class = "col-md-8 col-md-offset-2">
-                <h3 class="page-header text-center">Current Features</h3>
-                <table class="table table-striped">
+  <!-- begin:member list -->
+  <div class="content" id="add_member_content_list">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-arillo">
+          <div class="panel-heading"><h4>Member List</h4></div>
+              <table class="table table-striped">
                     <thead>
-                    <tr style="background-color: #5bc0de; color:#fff" >
                         <th>Feature Name</th>
-                        <th></th>
+                        <th class="right_aligned">Delete Feature</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -75,7 +132,14 @@
                     @endforeach
                     </tbody>
               </table>
-            </div>
+          </div>
+            <!-- /.panel -->
         </div>
+         <!-- /.col-md-8 -->
+      </div>
+     <!-- /.row -->
     </div>
+    <!-- /.content -->
+  <!-- end:member list -->
 @endsection
+

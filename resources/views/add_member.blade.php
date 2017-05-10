@@ -85,12 +85,9 @@
                 <div class="form-group col-md-offset-1">
                     <button class="btn btn-success" type="submit">Add</button>
                 </div>
-
-                <div class="form-group col-md-offset-5" id="add_member_next_btn">
-                    <button class="btn btn-success" type="submit">Next</button>
-                </div>
                 {{csrf_field() }}
             </form>
+                <a href = "{{ route('add_mess_feature')}}" class="btn btn-success col-md-offset-5" id="add_member_next_btn">Next</a>
             </div>
            <!-- /.panel-body -->
          </div>
@@ -116,28 +113,28 @@
                   <th>Room No.</th>
                   <th>Reg. No.</th>
                   <th>Vacant From</th>
-                  <th></th>
+                  <th>Delete Member</th>
                 </tr>
               </thead>
                 
                 
                 @foreach($member_info as $data)
               <tbody>
-                <th>Room {{$data->room_id}}</th>
-                <th>{{$data->reg}}</th>
+                <td>Room {{$data->room_id}}</td>
+                <td>{{$data->reg}}</td>
                 @if($data->vacant_from != NULL)
-                <th>{{date('F d, Y', strtotime($data->vacant_from))}}</th>
+                <td>{{date('F d, Y', strtotime($data->vacant_from))}}</td>
                 @else
-                <th></th>
+                <td></td>
                 @endif
-                <th> 
+                <td> 
                 <form class="delete" action="delete_member" method="POST">
                   <input type="hidden" name="mem_reg" value="{{$data->reg}}">
                   <input type="hidden" name="room_id" value="{{$data->room_id}}">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                   <input type="submit" value="Delete" class="btn btn-danger" >
                 </form>
-                </th>
+                </td>
               </tbody>
               @endforeach
               </table>

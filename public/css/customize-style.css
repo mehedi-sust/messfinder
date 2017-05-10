@@ -68,9 +68,9 @@ add_room_info.blade.php
 }
 
 /*
-====================
+=========================
 add_member_info.blade.php
-====================
+=========================
 */
 
 #add_member_content_form{
@@ -82,5 +82,14 @@ add_member_info.blade.php
 }
 
 #add_member_next_btn{
+	margin-top:25px;
+}
+
+/*
+=========================
+add_member_info.blade.php
+=========================
+*/
+#add_mess_feature_finish_btn{
 	margin-top:25px;
 }

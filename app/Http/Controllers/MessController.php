@@ -279,7 +279,8 @@ public function insert_room(Request $request){
    }
 
    public function edit_room_info(){
-    $mess_id = Auth::user()->mess_id;
+    //$mess_id = Auth::user()->mess_id;
+    $mess_id = 3;
     $room_info= DB::table('room_info')->where('mess_id','=',$mess_id)->get();
     return view('edit_mess_room_info')->with(['room_info'=>$room_info]);
    }
@@ -428,7 +429,8 @@ public function delete_mess_request(Request $delete_request){
 }
 
 public function add_mess_feature(){
-  $mess_id = Auth::user()->mess_id; 
+  //$mess_id = Auth::user()->mess_id; 
+  $mess_id = 3;
   $current_features = DB::table('mess_features')->where('mess_id','=',$mess_id)->get();
   return view('add_mess_feature')->with(['current_features'=>$current_features]);
 }
