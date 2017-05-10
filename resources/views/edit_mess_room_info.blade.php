@@ -1,59 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('content')
+  <!-- begin:header -->
+    <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-12">
+            <div class="page-title">
+              <h2>Edit Room Information</h2>
+            </div>
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li class="active">Edit Room Information</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:header -->
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Modern Business - Start Bootstrap Template</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/modern-business.css" rel="stylesheet">
-
-    <!-- Custom CSS for Sidebar-->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
-    <!-- jQuery -->
-    <script src="js/jquery-3.1.1.js"></script>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    
-    <!-- jQuery code for this page -->
-    <script src="js/edit_room_info.js"></script>
-
-    <style>
-        textarea{
-            resize: none;
-        }
-    </style>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-   
     <div class="container2" id="form_container" style="width:78%; margin-left: 15%;">
     <h2 class="page-header" style="text-align: center">Edit Room Information</h2>
     
@@ -90,8 +54,59 @@
         </div>
         -->
         @endforeach
-        </form>
-        
+        </form>        
     </div>
-</body>
-</html>
+
+<!-- begin:room list -->
+  <div class="content" id="add_member_content_list">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-arillo">
+          <div class="panel-heading"><h4>Room Information</h4></div>
+              <table class="table table-striped">
+              <thead>
+              <!--style="background-color: #5bc0de; color:#fff" -->
+                <tr>
+                  <th>Room No.</th>
+                  <th>No. of Seat</th>
+                  <th>Vacant Seat</th>
+                  <th>Rent</th>
+                  <th>Additional Information</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+                
+                
+                @foreach($member_info as $data)
+              <tbody>
+                <th>Room {{$data->room_id}}</th>
+                <th>{{$data->reg}}</th>
+                @if($data->vacant_from != NULL)
+                <th>{{date('F d, Y', strtotime($data->vacant_from))}}</th>
+                @else
+                <th></th>
+                @endif
+                <th> 
+                <form class="delete" action="delete_member" method="POST">
+                  <input type="hidden" name="mem_reg" value="{{$data->reg}}">
+                  <input type="hidden" name="room_id" value="{{$data->room_id}}">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                  <input type="submit" value="Delete" class="btn btn-danger" >
+                </form>
+                </th>
+              </tbody>
+              @endforeach
+              </table>
+        </div>
+        <!-- /.panel -->
+      </div>
+      <!-- /.col-md-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.content -->
+  <!-- end:room list -->
+@endsection
+
+
+

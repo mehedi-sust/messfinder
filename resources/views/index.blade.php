@@ -201,6 +201,5 @@
         </div>
       </div>
     </div>
-    <!-- end:modal-signup -->
-   
+    <!-- end:modal-signup -->   
   @endsection

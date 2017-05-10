@@ -272,7 +272,8 @@ public function insert_room(Request $request){
    }
 
    public function mess_edit(){
-    $mess_id = Auth::user()->mess_id;
+    //$mess_id = Auth::user()->mess_id;
+    $mess_id = 3;
     $mess_info= DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
     return view('edit_mess_basic')->with(['mess_info'=>$mess_info]);
    }

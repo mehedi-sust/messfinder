@@ -58,12 +58,11 @@
 <div class="content" id="create_mess_content">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="panel panel-form">
+      <div class="panel panel-arillo">
         <div class="panel-heading"><h4>Basic Information</h4></div>
         <div class="panel-body">
-          <form id="basic_info_form" action="/mess_created" method="post"><!--
+          <form id="basic_info_form" action="/mess_created" method="post">
           {{csrf_field() }}
-          -->
             <div class="form-group required">
               <label for="mess_name" class="control-label"> Mess Name</label>
               <input type="text" class="form-control input-lg" id="mess_name" name="mess_name" placeholder="Enter mess name" required>
@@ -84,7 +83,7 @@
              <input type="text" class="form-control input-lg" id="total_room" placeholder="Enter total number of rooms" name="total_room" required>
             </div>
             <div class = "form-group required">
-             <label for="total_seat" class="control-label">Total Seat </label>
+             <label for="total_seat" class="control-label">Total Seat</label>
              <input type="text" class="form-control input-lg" id="total_seat" placeholder="Enter total number of seats" name="total_seat" required>
             </div>
             <div class = "form-group required">

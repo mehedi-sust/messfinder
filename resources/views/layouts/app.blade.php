@@ -149,8 +149,10 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <!-- Customized JavaScript for different pages
     ================================================== -->
-    <!-- Applicable to add_room_info.html -->
+    <!-- Applicable to add_room_info.blade.php -->
     <script src="js/add_room_info.js"></script>
+    <!-- Applicable to edit_mess_room_info.blade.php -->
+    <script src="js/edit_room_info.js"></script>
     
     @section('custom_js')
 
