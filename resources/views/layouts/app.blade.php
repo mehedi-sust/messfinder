@@ -19,6 +19,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
     <link href="css/progress-steps.css" rel="stylesheet">
     <link href="css/customize-style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -131,6 +132,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
     <script src="js/gmap3.min.js"></script>
@@ -142,7 +144,7 @@
     <script src="js/jquery.backstretch.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/script.js"></script>
-
+     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <!-- Customized JavaScript for different pages
@@ -159,6 +161,22 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+
+    <!-- jQuery UI code for datepicker -->
+    <script>
+    $( function() {
+        alert("GOT IT!!!");
+    $( "#vacant_start_month" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+    });
+    </script>
+    <script>
+    $(".delete").on("submit", function(){
+        return confirm("Do you want to delete this item?");
+    });
+</script>
   </body>
 </html>
 

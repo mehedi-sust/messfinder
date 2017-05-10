@@ -306,7 +306,8 @@ public function insert_room(Request $request){
     $room_id = $req->input('room_id');
     $reg = $req->input('reg_no');
     $date = $req->input('vacant_from');
-    $mess_id = Auth::user()->mess_id;
+    //$mess_id = Auth::user()->mess_id;
+    $mess_id = 3;
     $vacant = 0;
     
     $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->orderBy('room_id')->get();

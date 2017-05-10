@@ -34,9 +34,9 @@ index.html
 }
 
 /*
-=================
+==================
 search_result.html
-=================
+==================
 */
 
 #search_result_quick_search{
@@ -48,9 +48,9 @@ search_result.html
 }
 
 /*
-=================
-create_mess.html
-=================
+========================
+add_basic_info.blade.php
+========================
 */
 
 #create_mess_content{
@@ -58,11 +58,29 @@ create_mess.html
 }
 
 /*
-=================
-room_info.html
-=================
+=======================
+add_room_info.blade.php
+=======================
 */
 
 #room_info_content{
 	margin:50px;
+}
+
+/*
+====================
+add_member_info.blade.php
+====================
+*/
+
+#add_member_content_form{
+	margin:50px 25px;
+}
+
+#add_member_content_list{
+	margin:50px 25px;
+}
+
+#add_member_next_btn{
+	margin-top:25px;
 }

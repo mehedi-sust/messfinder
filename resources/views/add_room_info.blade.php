@@ -89,7 +89,7 @@
             </div>
 
             <div class="form-group col-xs-offset-5" id="add_room_info_btn">
-                <button class="btn btn-success btn-lg" id="next_button">Continue</button>
+                <button class="btn btn-success btn-lg" id="next_button">Next</button>
             </div>
           </form>
         </div>
