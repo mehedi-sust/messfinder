@@ -30,7 +30,7 @@ class MessController extends Controller
     public function create()
     {
         //
-        return view('create_mess');
+        return view('add_basic_info');
     }
 
 public function insert(Request $request){
@@ -273,13 +273,15 @@ public function insert_room(Request $request){
    }
 
    public function mess_edit(){
-    $mess_id = Auth::user()->mess_id;
+    //$mess_id = Auth::user()->mess_id;
+    $mess_id = 3;
     $mess_info= DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
     return view('edit_mess_basic')->with(['mess_info'=>$mess_info]);
    }
 
    public function edit_room_info(){
-    $mess_id = Auth::user()->mess_id;
+    //$mess_id = Auth::user()->mess_id;
+    $mess_id = 3;
     $room_info= DB::table('room_info')->where('mess_id','=',$mess_id)->get();
     return view('edit_mess_room_info')->with(['room_info'=>$room_info]);
    }
@@ -307,7 +309,8 @@ public function insert_room(Request $request){
     $room_id = $req->input('room_id');
     $reg = $req->input('reg_no');
     $date = $req->input('vacant_from');
-    $mess_id = Auth::user()->mess_id;
+    //$mess_id = Auth::user()->mess_id;
+    $mess_id = 3;
     $vacant = 0;
     
     $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->orderBy('room_id')->get();
@@ -427,7 +430,8 @@ public function delete_mess_request(Request $delete_request){
 }
 
 public function add_mess_feature(){
-  $mess_id = Auth::user()->mess_id; 
+  //$mess_id = Auth::user()->mess_id; 
+  $mess_id = 3;
   $current_features = DB::table('mess_features')->where('mess_id','=',$mess_id)->get();
   return view('add_mess_feature')->with(['current_features'=>$current_features]);
 }

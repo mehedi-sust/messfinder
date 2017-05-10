@@ -12,7 +12,7 @@ class PageController extends Controller{
 		#recive from model
 		#compile or process the data fform the model if needed
 		#pass that data to the correct view
-		return view('home');
+		return view('index');
 	}
 
 	public function getAbout(){
@@ -35,10 +35,11 @@ class PageController extends Controller{
 		return view('mess_profile');
 	}
 	public function getRoomInfo(){
-		$mess_id = Auth::user()->mess_id;
+		//$mess_id = Auth::user()->mess_id;
+		$mess_id = 3;
 		$mess = DB::table('basic_mess_info')->select()->where('mess_id','=',$mess_id)->get();
 		$room = DB::table('room_info')->select()->where('mess_id','=',$mess_id)->get();
-		return view('room_info',['mess'=> $mess])->with(['room'=>$room]);
+		return view('add_room_info',['mess'=> $mess])->with(['room'=>$room]);
 	}
 
 	public function getSearchResult(){
@@ -68,7 +69,7 @@ class PageController extends Controller{
 	public function get_upload_add(){
 		return view('admin/upload_add');
 	}
-		
+	
 }
 
 ?>
