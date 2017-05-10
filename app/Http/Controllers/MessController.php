@@ -154,13 +154,14 @@ public function insert(Request $request){
           # code...
           $reg = $value->manager;
         }
+        echo $reg;
         $mobile= DB::table('users')->select('mobile','name')->where('reg','=',$reg)->get();
         $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
         $feature = DB::select('select * from mess_features where mess_id = ?',[$mess_id]);
         $room = DB::select('select * from room_info where mess_id =?',[$mess_id]);
         $member = DB::select('select distinct room_id,name,users.reg,mobile,vacant_from from mess_members,users where mess_members.mess_id =? and users.reg = mess_members.reg group by room_id',[$mess_id]);
       return view('mess_profile',['mess'=>$mess])->with(['feature'=>$feature])->with(['room'=>$room])->with(['member'=>$member])->with(['mobile'=>$mobile]);
-      //  return view('test')->with(['room'=>$room])->with(['member'=>$member]);
+       //return view('test',['mess'=>$mess])->with(['room'=>$room])->with(['member'=>$member])->with(['feature'=>$feature])->with(['mobile'=>$mobile])->with(['member'=>$member]);
         echo "success";
     }
 

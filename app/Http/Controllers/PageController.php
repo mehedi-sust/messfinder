@@ -65,6 +65,9 @@ class PageController extends Controller{
 		return view('upload_photo');
 	}
 
+	public function get_upload_add(){
+		return view('admin/upload_add');
+	}
 		
 }
 

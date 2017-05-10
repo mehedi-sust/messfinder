@@ -121,7 +121,7 @@
                                         <th>Room No.</th>
                                         <th>Reg no.</th>
                                         <th>Name</th>
-                                        @if(Auth::user()->type == 'Admin')
+                                        @if(Auth::check() && Auth::user()->type == 'Admin')
                                         <th>Mobile</th>
                                         @endif
                                         <th>Vacant From</th>
@@ -134,7 +134,7 @@
                                         <td>Room {{$value->room_id}}</td>
                                         <td>{{$value->reg}}</td>
                                         <td>{{$value->name}}</td>
-                                        @if(Auth::user()->type == 'Admin')
+                                        @if(Auth::check() && Auth::user()->type == 'Admin')
                                         <td>{{$value->mobile}}</td>
                                         @endif
                                         <td></td>
