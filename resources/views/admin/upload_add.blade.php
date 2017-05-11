@@ -18,55 +18,87 @@
     
     <form action="uploaded_ad" enctype="multipart/form-data" method="post">
 
-    
-
-       		
             <label for="image1">Advertisement 1</label><br>
-            <label>Current Advertisement: </label>
+            
 		<?php 
+if(file_exists( public_path() . '/storage/advertisement_1.jpg') )
+ {
     $filename = "advertisement_1.jpg";
     //    return Storage::allfiles('public');
     $url = Storage::url($filename);
     //echo $url."<br>";
-    echo "<img src='".$url."' width =800 hieght=300/>";
+    echo "<label>Current Advertisement: </label>";
+    echo "<img src='".$url."' width =30% hieght=30%/>";
+}
+else echo "No current Advertisement";
+
 ?>
 
             <input type="file" class="form-control" id="image1" name="image1" >
-            <input type="submit" class="btn btn-info" value="Upload" >
         {{csrf_field() }}
-</form>
 
- <form action="uploaded_ad" enctype="multipart/form-data" method="post">
-
-    
 
        
-            <label for="image2">Advertisement 2</label>
+            <label for="image2">Advertisement 2</label><br>
+
+<?php 
+if(file_exists( public_path() . '/storage/advertisement_2.jpg') )
+ {
+    $filename = "advertisement_2.jpg";
+    //    return Storage::allfiles('public');
+    $url = Storage::url($filename);
+    //echo $url."<br>";
+    echo "<label>Current Advertisement: </label>";
+    echo "<img src='".$url."' width =30% hieght=30%/>";
+}else echo "No current Advertisement";
+
+
+?>
+
             <input type="file" class="form-control" id="image2" name="image2" >
-            <input type="submit" class="btn btn-info" value="Upload" >
-        {{csrf_field() }}
-</form>
+            
 
- <form action="uploaded_ad" enctype="multipart/form-data" method="post">
-
-    
+ 
 
        
-            <label for="image3">Advertisement 3</label>
+            <label for="image3">Advertisement 3</label><br>
+<?php 
+if(file_exists( public_path() . '/storage/advertisement_3.jpg') )
+ {
+    $filename = "advertisement_3.jpg";
+    //    return Storage::allfiles('public');
+    $url = Storage::url($filename);
+    //echo $url."<br>";
+    echo "<label>Current Advertisement: </label>";
+    echo "<img src='".$url."' width =30% hieght=30%/>";
+}else echo "No current Advertisement";
+
+?>
+
             <input type="file" class="form-control" id="image3" name="image3" >
-            <input type="submit" class="btn btn-info" value="Upload" >
-        {{csrf_field() }}
-</form>
 
- <form action="uploaded_ad" enctype="multipart/form-data" method="post">
 
-    
+ 
 
        
-            <label for="image4">Advertisement 4</label>
+            <label for="image4">Advertisement 4</label><br>
+
+<?php 
+ if(file_exists( public_path() . '/storage/advertisement_4.jpg') )
+ {
+    $filename = "advertisement_4.jpg";
+    //    return Storage::allfiles('public');
+    $url = Storage::url($filename);
+    //echo $url."<br>";
+    echo "<img src='".$url."' width =30% hieght=30%/>";
+}
+else echo "No current Advertisement";
+?>
+
+
             <input type="file" class="form-control" id="image4" name="image4" >
             <input type="submit" class="btn btn-info" value="Upload" >
-        {{csrf_field() }}
+
 </form>
 
 </div>

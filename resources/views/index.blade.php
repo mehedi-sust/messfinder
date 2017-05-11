@@ -134,14 +134,26 @@
             <h4 class="modal-title">Sign in</h4>
           </div>
           <div class="modal-body">
-            <form role="form">
+            <form role="form" method="POST" action="{{ route('login') }}">
+            {{ csrf_field() }}
               <div class="form-group">
                 <label for="regNo">Regestration No.</label>
-                <input type="text" class="form-control input-lg" placeholder="Enter registration no.">
+                <input type="text" class="form-control input-lg" placeholder="Enter registration no." id="reg" name="reg" value="{{ old('reg') }}" required autofocus>
+                                                @if ($errors->has('reg'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('reg') }}</strong>
+                                    </span>
+                                @endif
+
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control input-lg" placeholder="Enter Password">
+                <input type="password" class="form-control input-lg" placeholder="Enter Password" id="password" name="password" required>
+                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
               </div>
               <div class="checkbox">
                 <label>

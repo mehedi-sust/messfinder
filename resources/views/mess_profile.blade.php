@@ -25,6 +25,7 @@
     $url = Storage::url($filename);
     //echo $url."<br>";
     echo "<img src='".$url."' width =800 hieght=300/>";
+    echo "<img src='/storage/advertisement_1.jpg' width =400 hieght=250/>";
 ?>
 
     <div class="container"> 
