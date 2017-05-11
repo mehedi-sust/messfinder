@@ -39,6 +39,7 @@ Route::get('mess_info','Controller@showdb');
 Route::post('mess_created','MessController@insert');
 Route::post('uploaded','MessController@upload_img');
 Route::post('uploaded_ad','AdminController@upload_ad');
+Route::get('add_location','AdminController@get_add_location');
 Route::get('show_image','MessController@show_image');
 Route::get('admin_home','AdminController@index');
 Route::post('delete_member','AdminController@delete_member');

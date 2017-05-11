@@ -146,6 +146,10 @@
                         <a href="upload_add" class="active"><i class="fa fa-newspaper-o"></i>Advertisment</a>
                     </li>
                     
+                    <li>
+                        <a href="add_location" class="active"><i class="fa fa-map-marker"></i>Manage Mess Location</a>
+                    </li>
+                    
                     
                         </ul>
                     </li>

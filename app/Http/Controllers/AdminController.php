@@ -168,4 +168,12 @@ if($req->hasFile('image4')){
     }
 
     }
+
+    public function get_add_location(){
+        $location = DB::table('location')
+            ->select('*')
+            ->get();
+        return view('admin/add_location')->with(['location'=>$location]);
+    }
+
 }

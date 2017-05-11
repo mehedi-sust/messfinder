@@ -50,18 +50,56 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Image Not Found"></a>
+          <a class="navbar-brand" href="/"><img src="img/logo.png" alt="Image Not Found"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-top">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
+            @if (Auth::check() and Auth::user()->reg == "admin")
+                    <li>
+                        <a href="admin_home">Admin Dashboard</a>
+                    </li>
+                @endif
+                
             <li><a href="#">List a Mess</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#modal-signin" class="signin" data-toggle="modal" data-target="#modal-signin">Sign in</a></li>
-            <li><a href="#" class="signup" data-toggle="modal" data-target="#modal-signup">Sign up</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="contact">Contact</a></li>
+            @if (Auth::guest())
+            <li><a href="login" >Sign in</a></li>
+            <li><a href="register" >Sign up</a></li>
+            @else
+            <ul class = "nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu" id = "user_dropdown">
+                                    <li><a href="">
+                                        My Profile
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                        My Preferences
+                                        </a>
+                                    </li>
+                                    <li class = "divider"></li>
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
@@ -128,7 +166,16 @@
 </div>
 <!-- end:footer -->
 
-
+<style type="text/css">
+    .container2 {
+        margin-left: 10%;
+        margin-top: 4%;
+        margin-bottom: 4%;
+    }
+    textarea{
+        resize:none;
+    }
+</style>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
