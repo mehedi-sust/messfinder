@@ -28,11 +28,11 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
             <div class="page-title">
-              <h2>Create Mess</h2>
+              <h2>Add Mess Features</h2>
             </div>
             <ol class="breadcrumb">
               <li><a href="#">Home</a></li>
-              <li class="active">Create Mess</li>
+              <li class="active">Mess Features</li>
             </ol>
           </div>
         </div>
@@ -40,6 +40,14 @@
     </div>
     <!-- end:header -->
 
+<?php 
+$i=0;
+foreach ($current_features as $value) {
+  $i++;
+}
+if($i==0){
+
+?>
 <!-- begin:progress steps -->
 <div class="container">
     <div class="row bs-wizard" style="border-bottom:0;">
@@ -73,7 +81,7 @@
     </div>
   </div>
 <!-- end:progress steps -->
-
+<?php } ?>
   <!-- begin: add member form -->
   <div class="content" id="add_member_content_form">
     <div class="row">

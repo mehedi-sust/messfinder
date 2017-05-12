@@ -20,6 +20,7 @@ Route::get('mess_info_home','PageController@get_mess_info_home');
 Route::get('upload_add','PageController@get_upload_add');
 Route::get('add_member','MessController@member_list');
 Route::post('add_member','MessController@member_list');
+Route::post('add_location','AdminController@location_added');
 Route::get('add_mess_feature','MessController@add_mess_feature')->name('add_mess_feature');
 Route::post('mess_feature_added','MessController@mess_feature_added');
 Route::post('mess_feature_deleted','MessController@mess_feature_deleted');

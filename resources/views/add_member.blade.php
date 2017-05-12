@@ -6,17 +6,26 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
             <div class="page-title">
-              <h2>Create Mess</h2>
+              <h2>Add Mess Member</h2>
             </div>
             <ol class="breadcrumb">
               <li><a href="#">Home</a></li>
-              <li class="active">Create Mess</li>
+              <li class="active">Add Member</li>
             </ol>
           </div>
         </div>
       </div>
     </div>
     <!-- end:header -->
+
+<?php 
+$i=0;
+foreach ($member_info as $value) {
+  $i++;
+}
+if($i==0){
+
+?>
 
   <!-- begin:progress steps -->
 <div class="container">
@@ -51,6 +60,7 @@
     </div>
   </div>
 <!-- end:progress steps -->
+<?php } ?>
 
 
   <!-- begin: add member form -->

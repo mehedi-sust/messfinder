@@ -97,7 +97,7 @@ else echo "No current Advertisement";
 
 
             <input type="file" class="form-control" id="image4" name="image4" >
-            <input type="submit" class="btn btn-info" value="Upload" >
+            <input type="submit" class="btn btn-success" value="Upload" >
 
 </form>
 

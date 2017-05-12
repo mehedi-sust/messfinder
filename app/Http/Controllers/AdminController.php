@@ -176,4 +176,17 @@ if($req->hasFile('image4')){
         return view('admin/add_location')->with(['location'=>$location]);
     }
 
+    public function location_added(Request $req){
+        $location = $req->input('location');
+        //echo $location;
+        DB::table('location')
+            ->insert(['location' => $location]);
+
+        $location = DB::table('location')
+            ->select('*')
+            ->get();
+        return view('admin/add_location')->with(['location'=>$location]);
+
+    }
+
 }

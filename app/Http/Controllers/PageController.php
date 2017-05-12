@@ -12,7 +12,11 @@ class PageController extends Controller{
 		#recive from model
 		#compile or process the data fform the model if needed
 		#pass that data to the correct view
-		return view('index');
+		$locations = DB::table('location')
+            ->select('*')
+            ->get();
+        
+		return view('index')->with(['locations'=>$locations]);
 	}
 
 	public function getAbout(){
@@ -68,8 +72,8 @@ class PageController extends Controller{
 
 	public function get_upload_add(){
 		return view('admin/upload_add');
-	}
-	
+	}	
+
 }
 
 ?>
