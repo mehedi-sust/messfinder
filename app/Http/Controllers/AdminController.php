@@ -118,6 +118,62 @@ class AdminController extends Controller
             ->select('name','reg','mobile','type','password','mess_id')
             ->simplePaginate(2);
         return view('user_list',['user' => $user]);
+    }
+
+    public function upload_ad(Request $req){
+    if($req->hasFile('image1') || $req->hasFile('image2') || $req->hasFile('image3') || $req->hasFile('image4') ){
+    if($req->hasFile('image1')){
+        $req->file('image1');
+        $mess_id = Auth::user()->mess_id;
+        $filename = "advertisement_1.jpg";
+        //$req->image->path();
+        //$req->image->extension();
+        return $req->image1->storeAs('public',$filename);
+        //return Storage::putFile('public',$req->file('image'));
+    }
+ 
+if($req->hasFile('image2')){
+        $req->file('image2');
+        $mess_id = Auth::user()->mess_id;
+        $filename = "advertisement_2.jpg";
+        //$req->image->path();
+        //$req->image->extension();
+        return $req->image2->storeAs('public',$filename);
+        //return Storage::putFile('public',$req->file('image'));
+    }
+ 
+if($req->hasFile('image3')){
+        $req->file('image3');
+        $mess_id = Auth::user()->mess_id;
+        $filename = "advertisement_3.jpg";
+        //$req->image->path();
+        //$req->image->extension();
+        return $req->image3->storeAs('public',$filename);
+        //return Storage::putFile('public',$req->file('image'));
+    }
+ 
+
+if($req->hasFile('image4')){
+        $req->file('image4');
+        $mess_id = Auth::user()->mess_id;
+        $filename = "advertisement_4.jpg";
+        //$req->image->path();
+        //$req->image->extension();
+        return $req->image4->storeAs('public',$filename);
+        //return Storage::putFile('public',$req->file('image'));
+    }
+}
+    else {
+        return "No File Selected";
+    }
 
     }
+
+    public function get_add_location(){
+        $location = DB::table('location')
+            ->select('*')
+            ->get();
+        return view('admin/add_location')->with(['location'=>$location]);
+    }
+
 }

@@ -17,7 +17,7 @@
       <div class="col-md-12">
         <div class="quick-search" id="homepage_row_search">
           <div class="row">
-            <form role="form" class="form-inline">
+            <form action="search/" method="get" role="form" class="form-inline">
                 <div class="form-group col-md-offset-2">
                   <select class="form-control">
                     <option>Location</option>
@@ -134,18 +134,31 @@
             <h4 class="modal-title">Sign in</h4>
           </div>
           <div class="modal-body">
-            <form role="form">
-              <div class="form-group">
+            <form role="form" method="POST" action="{{ route('login') }}">
+            {{ csrf_field() }}
+              <div class="form-group{{ $errors->has('reg') ? ' has-error' : '' }}">
                 <label for="regNo">Regestration No.</label>
-                <input type="text" class="form-control input-lg" placeholder="Enter registration no.">
+                <input type="text" class="form-control input-lg" placeholder="Enter registration no." id="reg" name="reg" value="{{ old('reg') }}" required autofocus>
+                                                @if ($errors->has('reg'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('reg') }}</strong>
+                                    </span>
+                                @endif
+
               </div>
-              <div class="form-group">
+              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        
                 <label for="password">Password</label>
-                <input type="password" class="form-control input-lg" placeholder="Enter Password">
+                <input type="password" class="form-control input-lg" placeholder="Enter Password" id="password" name="password" required>
+                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="forget"> Keep me logged in
+                  <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Keep me logged in
                 </label>
               </div>
             </form>
@@ -153,6 +166,9 @@
           <div class="modal-footer">
             <p>Don't have account ? <a href="#modal-signup"  data-toggle="modal" data-target="#modal-signup">Sign up here.</a></p>
             <input type="submit" class="btn btn-success btn-block btn-lg" value="Sign in">
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Forgot Your Password?
+                                </a>
           </div>
         </div>
       </div>

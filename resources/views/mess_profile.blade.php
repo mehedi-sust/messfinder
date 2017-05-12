@@ -24,6 +24,7 @@
     $url = Storage::url($filename);
     //echo $url."<br>";
     echo "<img src='".$url."' width =800 hieght=300/>";
+    echo "<img src='/storage/advertisement_1.jpg' width =400 hieght=250/>";
 ?>
 
     <div class="container"> 
@@ -109,108 +110,134 @@
         </div>
         <!--/.table-responsive-->
 
-        <h2 class="page-header text-center">Members Information</h2>
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr style="background-color: #5bc0de; color:#fff">
-                <th>Room No.</th>
-                <th>Reg no.</th>
-                <th>Name</th>
-                @if(Auth::user()->type == 'Admin')
-                <th>Mobile</th>
-                @endif
-                <th>Vacant From</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach ($member as $value)
-            <tr>
-              <td>Room {{$value->room_id}}</td>
-              <td>{{$value->reg}}</td>
-              <td>{{$value->name}}</td>
-                @if(Auth::user()->type == 'Admin')
-              <td>{{$value->mobile}}</td>
-                @endif
-              <td></td>
-            </tr>
-            @endforeach
-            </tbody>
-          </table>
-        </div>
-
-                       
-
-       <h2 class="page-header text-center">Room Information</h2>
-         <div class="container">
-           <ul class="nav nav-pills">
-             @foreach($room as $value)
-             <?php 
-                $id = $value->room_id;
-                $link = "<a href='#room".$id."' data-toggle='tab'>";
-                if($id==1){
-             ?>
-             <li class="active">
-             <?php }
-                else echo"<li>";
-                  echo $link; ?>
-                    Room {{$value->room_id}}</a>
-             </li>
-             @endforeach
-           </ul>
-         </div>
-            <!--/.container-->
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="tab-content clearfix">
-                @foreach ($room as $value)
-                <?php
-                 $id = $value->room_id;
-                 if($id==1){
-                $link = "<div class='tab-pane active' id='room".$id."'>";
-                }
-                else $link = "<div class='tab-pane' id='room".$id."'>";
-                 
-                 echo $link;
-                ?>
+                        <!--/.table-responsive-->
+                        
+                        <h2 class="page-header text-center">Vacancy Informamtion</h2>
                         <div class="table-responsive">
-                            <table class="table custom-table">
-                            <tbody>
-                                <tr>
-                                    <td><strong>Total Seat:</strong></td>
-                                    <td>{{$value->total_seat}}</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong> Vacant:</strong></td>
-                                    <td>{{$value->vacant_seat}}</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>Rent:</strong></td>
-                                    <td>{{$value->cost}}</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Members:</strong>
-                                    <td>
-                                        <ul>
-                     @foreach($member as $person)
-                        @if($person->room_id==$value->room_id)
-                        <li><a href="">{{$person->name}}</a> </li>
-                        @endif
-                     @endforeach 
-                                        </ul>
-
-                                    </td>
-                                </tr>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr style="background-color: #5bc0de; color:#fff">
+                                        <th>Room No.</th>
+                                        <th>Vacant Seat</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($room as $value)
+                                    <tr>
+                                        <td>Room {{$value->room_id}}</td>
+                                        <td>{{$value->vacant_seat}}</td>
+                                        
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        <!--/.table-responsive-->                
-                    </div>
-                    <!--/.tab-pane-->
-                    @endforeach
+                        <!--/.table-responsive-->
+
+<h2 class="page-header text-center">Members Information</h2>
+<div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr style="background-color: #5bc0de; color:#fff">
+                                        <th>Room No.</th>
+                                        <th>Reg no.</th>
+                                        <th>Name</th>
+                                        @if(Auth::check() && Auth::user()->type == 'Admin')
+                                        <th>Mobile</th>
+                                        @endif
+                                        <th>Vacant From</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($member as $value)
+                                    <tr>
+                                        <td>Room {{$value->room_id}}</td>
+                                        <td>{{$value->reg}}</td>
+                                        <td>{{$value->name}}</td>
+                                        @if(Auth::check() && Auth::user()->type == 'Admin')
+                                        <td>{{$value->mobile}}</td>
+                                        @endif
+                                        <td></td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                       
+
+                       <h2 class="page-header text-center">Room Information</h2>
+                            <div class="container">
+                                <ul class="nav nav-pills">
+                                    @foreach($room as $value)
+                                    <?php 
+                                        $id = $value->room_id;
+                                        $link = "<a href='#room".$id."' data-toggle='tab'>";
+                                        if($id==1){
+                                    ?>
+                                    <li class="active">
+                                    <?php }
+                                    else echo"<li>";
+                                       echo $link; ?>
+                                        Room {{$value->room_id}}</a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <!--/.container-->
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="tab-content clearfix">
+                                        @foreach ($room as $value)
+                                        <?php
+                                         $id = $value->room_id;
+                                         if($id==1){
+                                        $link = "<div class='tab-pane active' id='room".$id."'>";
+                                        }
+                                        else $link = "<div class='tab-pane' id='room".$id."'>";
+                                         
+                                         echo $link;
+                                        ?>
+                                                <div class="table-responsive">
+                                                    <table class="table custom-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><strong>Total Seat:</strong></td>
+                                                            <td>{{$value->total_seat}}</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td><strong> Vacant:</strong></td>
+                                                            <td>{{$value->vacant_seat}}</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td><strong>Rent:</strong></td>
+                                                            <td>{{$value->cost}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>Members:</strong>
+                                                            <td>
+                                                                <ul>
+                                             @foreach($member as $person)
+                                                @if($person->room_id==$value->room_id)
+                                                <li><a href="">{{$person->name}}</a> </li>
+                                                @endif
+                                             @endforeach 
+                                                                </ul>
+
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!--/.table-responsive-->                
+                                            </div>
+                                            <!--/.tab-pane-->
+                                            @endforeach
                                        </div>
                                         <!--/.tab-content clearfix-->
                                     </div>
