@@ -16,7 +16,6 @@
    @endsection
    
    @section('content')
-   <body>
    @foreach ($mess as $value)
    <?php 
     $mess_id = $_GET['id'];
@@ -30,65 +29,87 @@
 
     <div class="container"> 
     <div class="container2"> 
-        <div class="content">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-1">
-                        <h2 class="page-header text-center" style="margin-left: 10px;">Basic Information</h2>
-                        <div id="table-responsive">
-                            <table class="table table-striped custom-table ">
-                            <tbody>
-                            <tr>
-                            <td><strong>Mess Name:</strong></td>
-                            <td><!--php code for mess name-->{{$value->mess_name}}</td>
-                            </tr>
-                                <tr>
-                                    <td><strong>Location:</strong></td>
-                                    <td><!--php code for location-->{{$value->mess_location}}</td>
-                                </tr>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-1">
+            <h2 class="page-header text-center" style="margin-left: 10px;">Basic Information</h2>
+              <div id="table-responsive">
+                <table class="table table-striped custom-table ">
+                  <tbody>
+                    <tr>
+                      <td><strong>Mess Name:</strong></td>
+                      <td><!--php code for mess name-->{{$value->mess_name}}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Location:</strong></td>
+                      <td><!--php code for location-->{{$value->mess_location}}</td>
+                    </tr>
 
-                                <tr>
-                                    <td><strong>Distacne from campus(in KM):</strong></td>
-                                    <td><!--php code-->{{$value->distance}}</td>
-                                </tr>
+                    <tr>
+                      <td><strong>Distacne from campus(in KM):</strong></td>
+                      <td><!--php code-->{{$value->distance}}</td>
+                    </tr>
 
-                                <tr>
-                                    <td><strong>Total Room:</strong></td>
-                                    <td><!--php code--> {{$value->total_room}}</td>
-                                </tr>
+                    <tr>
+                      <td><strong>Total Room:</strong></td>
+                      <td><!--php code--> {{$value->total_room}}</td>
+                    </tr>
 
-                                <tr>
-                                    <td><strong>Total Seat:</strong></td>
-                                    <td><!--php code--> {{$value->total_seat}}</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Vacant Seat:</strong></td>
-                                    <td><!--php code--> {{$value->vacant_seat}}</td>
-                                </tr>
-                                @endforeach
-                                <tr>
-                                    <td><strong>Features:</strong></td>
-                                    <td>
-                                    <ul >
-                                    @foreach($feature as $value)
-                                        <li>{{$value->feature}}</li>
-                                    @endforeach
-                                    </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Contact(Mobile):</strong></td>
-                                    <ul>
-                                    <td>  @foreach($mobile as $value)
-                                          
-                                          0{{$value->mobile}} ({{$value->name}})
-                                          @endforeach 
-                                    </td>         
-                                    </ul>
+                    <tr>
+                      <td><strong>Total Seat:</strong></td>
+                      <td><!--php code--> {{$value->total_seat}}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Vacant Seat:</strong></td>
+                      <td><!--php code--> {{$value->vacant_seat}}</td>
+                    </tr>
+                    @endforeach
+                    <tr>
+                      <td><strong>Features:</strong></td>
+                      <td>
+                        <ul>
+                        @foreach($feature as $value)
+                          <li>{{$value->feature}}</li>
+                        @endforeach
+                        </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Contact(Mobile):</strong></td>
+                      <ul>
+                        <td>  @foreach($mobile as $value)
+                              
+                              0{{$value->mobile}} ({{$value->name}})
+                              @endforeach 
+                        </td>         
+                      </ul>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--/.table-responsive-->
+                        
+        <h2 class="page-header text-center">Vacancy Informamtion</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr style="background-color: #5bc0de; color:#fff">
+                <th>Room No.</th>
+                <th>Vacant Seat</th>
+              </tr>
+            </thead>
+            <tbody>
+            @foreach ($room as $value)
+              <tr>
+                <td>Room {{$value->room_id}}</td>
+                <td>{{$value->vacant_seat}}</td>
+              </tr>
+            @endforeach
+            </tbody>
+          </table>
+        </div>
+        <!--/.table-responsive-->
 
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
                         <!--/.table-responsive-->
                         
                         <h2 class="page-header text-center">Vacancy Informamtion</h2>
