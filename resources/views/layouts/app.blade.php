@@ -78,15 +78,24 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu" id = "user_dropdown">
+                                    @if(Auth::user()->mess_id != 0)
                                     <li><a href="">
-                                        My Mess
+                                        Veiw My Mess
                                         </a>
                                     </li>
-                                    <li><a href="">
+                                    @else
+                                    <li><a href="create_mess">
+                                        Create New Mess
+                                        </a>
+                                    </li> 
+                                    @endif
+                                    @if(Auth::user()->type == "Manager")
+                                    <li><a href="edit_mess">
                                         Edit My Mess
                                         </a>
                                     </li>
-                                    <li><a href="">Create New Mess</a></li>
+                                    @endif
+                                    </li>
                                     <li class = "divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"

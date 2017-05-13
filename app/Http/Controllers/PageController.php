@@ -40,9 +40,10 @@ class PageController extends Controller{
 	}
 	public function getRoomInfo(){
 		//$mess_id = Auth::user()->mess_id;
-		$mess_id = 3;
+		$mess_id = Auth::user()->mess_id;
 		$mess = DB::table('basic_mess_info')->select()->where('mess_id','=',$mess_id)->get();
-		$room = DB::table('room_info')->select()->where('mess_id','=',$mess_id)->get();
+		$room = DB::table('room_info')->select('*')->where('mess_id','=',$mess_id)->get();
+		echo $mess_id;
 		return view('add_room_info',['mess'=> $mess])->with(['room'=>$room]);
 	}
 

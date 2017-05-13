@@ -10,6 +10,7 @@ use App\Mess;
 use DB;
 use Auth;
 use File;
+use Session;
 class MessController extends Controller
 {
     /**
@@ -30,7 +31,10 @@ class MessController extends Controller
     public function create()
     {
         //
-        return view('add_basic_info');
+      $location = DB::table('location')
+            ->select('*')
+            ->get();
+        return view('add_basic_info')->with(['location'=>$location]);
     }
 
 public function insert(Request $request){
@@ -43,7 +47,7 @@ public function insert(Request $request){
       $description = $request->input('description');
       $manager = Auth::user()->reg;
       DB::insert('insert into basic_mess_info (mess_name,mess_location,total_seat,vacant_seat,total_room,distance,description,manager) values(?,?,?,?,?,?,?,?)',[$name,$location,$total_seat,$vacant_seat,$total_room,$distance,$description,$manager]);
-
+      Session::flash('message', 'Mess Created successfully'); 
       
       $mess = DB::select('select * from basic_mess_info where manager = ?',[$manager]);
       $mess_id =0;
@@ -53,7 +57,12 @@ public function insert(Request $request){
       
       DB::table('users')->where('reg',$manager)->update(['mess_id' => $mess_id, 'type' => 'Manager']);
 
-      return view('mess_info_home');
+      $room = DB::table('basic_mess_info')
+            ->select('*')
+            ->where(['mess_id' , '=' , $mess_id])
+            ->get();
+      
+      return view('add_room_info')->with(['mess' => $room]);
    }
     /**
      * Store a newly created resource in storage.
@@ -169,6 +178,7 @@ public function insert_room(Request $request){
   $i =0;
   $input = $request->all();
   $seat = "";
+  $mess_id = Auth::user()->mess_id;
   foreach ($input as $req) {
     $seat = $request->input('seat_no');
     $cost = $request->input('fare');
@@ -180,16 +190,21 @@ public function insert_room(Request $request){
   }
 
   $len = count($seat);
-  echo $len;
+  //echo $len;
 
   for($i=0;$i<$len;$i++){
-    DB::insert('insert into room_info (total_seat,vacant_seat,cost,add_info) values(?,?,?,?)',[$seat[$i],$seat[$i],$cost[$i],$add_info[$i]]);
+    DB::insert('insert into room_info (room_id,mess_id,total_seat,vacant_seat,cost,add_info) values(?,?,?,?,?,?)',[$i+1,$mess_id,$seat[$i],$seat[$i],$cost[$i],$add_info[$i]]);
 
     //echo $seat[$i]."   ".$seat[$i]."   ".$cost[$i]."    ".$add_info[$i]."<br>";
   }
     //echo $seat[4]."<br>";
+
+    $room = DB::table('room_info')->where('mess_id','=',$mess_id)->get();
+   
+    $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->orderBy('room_id')->get();
+    
   
-    return "Success";
+    return view('add_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
       
    }
 
@@ -332,7 +347,7 @@ public function insert_room(Request $request){
     $reg = $req->input('reg_no');
     $date = $req->input('vacant_from');
     //$mess_id = Auth::user()->mess_id;
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     $vacant = 0;
     
     $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->orderBy('room_id')->get();
@@ -347,7 +362,6 @@ public function insert_room(Request $request){
       DB::table('room_info')->where([['mess_id','=',$mess_id],['room_id' , '=' , $room_id]])->decrement('vacant_seat');
       DB::table('basic_mess_info')->where ('mess_id','=',$mess_id)->decrement('vacant_seat');  //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
     }
-
     
     
     
@@ -458,7 +472,7 @@ public function delete_mess_request(Request $delete_request){
 
 public function add_mess_feature(){
   //$mess_id = Auth::user()->mess_id; 
-  $mess_id = 3;
+  $mess_id = Auth::user()->mess_id;
   $current_features = DB::table('mess_features')->where('mess_id','=',$mess_id)->get();
   return view('add_mess_feature')->with(['current_features'=>$current_features]);
 }

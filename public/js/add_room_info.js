@@ -14,7 +14,7 @@ $(document).ready(function(){
             " <textarea class=\"form-control input-lg\" rows=\"3\" name=\"more_info[]\" id=\"more_info\" style=\"resize:none;\" placeholder=\"Enter additional information here...\"><\/textarea>" +
         "<\/div>";
         
-    	var numberOfRoom = 5;
+    	var numberOfRoom = $('#total_room').val();;
         var roomCounter = 2;
     	while(roomCounter <= numberOfRoom){
     	$("#add_room_info_btn").before(roomInfo);
