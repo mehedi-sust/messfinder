@@ -2,12 +2,85 @@
 
 @section('content')
     <!-- begin:header -->
-    <div id="header" class="header-slide">
+    <div id="header">
       <div class="container">
-      <!--
-      <h1 class="text-center">Mess Finder</h1>
-      <h2 class="text-center">Find Your Expected Mess Easily</h2>
-      -->
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <!--
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+
+    </ol>
+   -->
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="img/la.jpg" alt="Los Angeles" style="width:5000px; height:525px;">
+        <div class="carousel-caption">
+          <h3>Los Angeles</h3>
+          <p>LA is always so much fun!</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="img/chicago.jpg" alt="Chicago" style="width:5000px; height:525px;">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="img/ny.jpg" alt="New York" style="width:5000px; height:525px;">
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>We love the Big Apple!</p>
+        </div>
+      </div>
+    
+    @foreach ($mess as $data)
+    <?php 
+    $link = "/storage/banner_".$data->mess_id.".jpg";
+if(file_exists( public_path() . $link) )
+ {
+    $filename = "banner_".$data->mess_id.".jpg";
+    //    return Storage::allfiles('public');
+    $url = Storage::url($filename);
+    //echo $url."<br>";
+    echo '
+    <div class="item">
+        <img src="'.$url.'" alt="New York" style="width:100%;">
+        ';?>
+        <div class="carousel-caption">
+          <h3>{{$data->mess_name}}</h3>
+          <h4>Location : {{$data->mess_location}}</h4>
+          <p>Vacant Seat : {{$data->vacant_seat}}</p>
+          <p>Total Seat : {{$data->total_seat}}</p>
+        </div>
+      </div>
+      <?php
+      
+} ?>  
+
+    @endforeach
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
       </div>
     </div>
     <!-- end:header -->
