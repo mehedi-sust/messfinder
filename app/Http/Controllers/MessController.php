@@ -347,6 +347,8 @@ public function insert_room(Request $request){
       DB::table('room_info')->where([['mess_id','=',$mess_id],['room_id' , '=' , $room_id]])->decrement('vacant_seat');
       DB::table('basic_mess_info')->where ('mess_id','=',$mess_id)->decrement('vacant_seat');  //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
     }
+
+    
     
     
     return view('add_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
@@ -472,6 +474,11 @@ public function mess_feature_deleted(Request $delete_mess_feature){
   $feature_id = $delete_mess_feature->input('feature_id');
   DB::table('mess_features')->where([['mess_id','=', $mess_id],['count','=',$feature_id]])->delete();
   return redirect()->route('add_mess_feature');
+}
+
+public function get_slide(){
+  $mess = DB::select('select * from basic_mess_info ');
+  return view('slide')->with(['mess'=>$mess]);
 }
 
 }
