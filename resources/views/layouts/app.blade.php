@@ -15,14 +15,14 @@
    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{asset('http://fonts.googleapis.com/css?family=Raleway:400,600,800')}}" rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,600,800" rel='stylesheet' type='text/css'>
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
     <link href="{{asset('css/progress-steps.css')}}" rel="stylesheet">
     <link href="{{asset('css/customize-style.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <!--
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -30,8 +30,8 @@
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
+      <script src="{{ asset('js/html5shiv.js') }}"></script>
+      <script src="{{ asset('js/respond.min.js') }}"></script>
     <![endif]-->
     
     @section('custom_css')
@@ -73,11 +73,11 @@
             @else
             <ul class = "nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    {{ Auth::user()->name }} <b class="caret"></b>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu" id = "user_dropdown">
+                                <ul class="dropdown-menu" id = "user_dropdown">
                                     <li><a href="">
                                         My Mess
                                         </a>
@@ -187,28 +187,28 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-    <script src="js/gmap3.min.js"></script>
-    <script src="js/jquery.easing.js"></script>
-    <script src="js/jquery.jcarousel.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/jquery.backstretch.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="{{ asset('js/gmap3.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.easing.js') }}"></script>
+    <script src="{{ asset('js/jquery.jcarousel.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.backstretch.js') }}"></script>
+    <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
     <script src="{{asset('js/script.js')}}"></script>
      
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js') }}"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}"></script>
     <!-- Customized JavaScript for different pages
     ================================================== -->
     <!-- Applicable to add_room_info.blade.php -->
-    <script src="js/add_room_info.js"></script>
+    <script src="{{ asset('js/add_room_info.js') }}"></script>
     <!-- Applicable to edit_mess_room_info.blade.php -->
-    <script src="js/edit_room_info.js"></script>
+    <script src="{{ asset('js/edit_room_info.js') }}"></script>
     
     @section('custom_js')
 
