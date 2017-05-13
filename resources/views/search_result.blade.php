@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+
+<div id="header" class="heading" style="background-image: url(img/img01.jpg);">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
@@ -18,54 +18,6 @@
       </div>
     </div>
     <!-- end:header -->
-
-    <!-- begin:quick search-->
-<div class="content" id="search_result_quick_search">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="quick-search">
-              <div class="row">
-                <form role="form" class="form-inline">
-                    <div class="form-group col-md-offset-1">
-                      <select class="form-control">
-                        <option>Location</option>
-                        <option>Varsity Gate</option>
-                        <option>Tilargaogn</option>
-                        <option>Topobon</option>
-                        <option>Khuliapara</option>
-                        <option>Surma</option>
-                        <option>Modina Market</option>
-                      </select>
-                    </div>
-                  <!-- break -->
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Vacant Seat" id="vacant_seat">
-                    </div>
-                  <!-- break -->
-                  <div class="input-group">
-                      <span class="input-group-addon">KM.</span>
-                      <input type="text" class="form-control" placeholder="Distance from Campus" id="campus_distance">
-                    </div>
-                  <!-- break -->
-                    <div class="input-group">
-                      <span class="input-group-addon">Tk.</span>
-                      <select class="form-control">
-                        <option>Economy (500-1000)</option>
-                        <option>Moderate (1001-2000)</option>
-                        <option>Deluxe (2001-3000)</option>
-                        <option>Super Deluxe (3001-5000)</option>
-                      </select>
-                  </div>
-                    <input type="submit" name="submit" value="Search" class="btn btn-success">
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-</div>
-    <!-- end:quick search -->
 
 <div class="content" id="search_result_content">
     <div class = "container">

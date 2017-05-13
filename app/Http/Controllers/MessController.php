@@ -193,15 +193,18 @@ public function insert_room(Request $request){
    }
 
    public function simple_search(Request $req){
-    $location = $req->input('area');
-    $seat = $req->input('vacant_seat');
-    $distance = $req->input('distance');
-    $rent_start = $req->input('fare_from');
-    $rent_last = $req->input('fare_to');
+    $location = $_GET['area'];
+    $seat = $_GET['vacant_seat'];
+    $distance = $_GET['distance'];
+    $fare = $_GET['fare'];
+    $rent_start = 0;
+    $rent_last = 0;
 
-    $location = "%".$location."%";
-    if($location==NULL){
+    
+    if($location=="Location"){
         $location ="%%";
+    }else{
+      $location = "%".$location."%";
     }
     if($seat == NULL){
         $seat = 0;
@@ -209,12 +212,23 @@ public function insert_room(Request $request){
     if($distance == NULL){
         $distance = 1000000;
     }
-    if($rent_start == NULL){
-        $rent_start=0;
-    }
-    if($rent_last == NULL){
+    if($fare == "eco"){
+        $rent_start=500;
+        $rent_last = 1000;
+    } elseif($fare == "mod"){
+        $rent_start= 1001;
+        $rent_last = 2000;
+    } elseif($fare == "del"){
+        $rent_start= 2001;
+        $rent_last = 3000;
+    }elseif($fare == "supdel"){
+        $rent_start= 3001;
+        $rent_last = 5000 ;
+    }else{
+        $rent_start= 0;
         $rent_last = 1000000;
     }
+
     //echo "Loc -".$location." dist-".$distance." rent-".$rent_start." to ".$rent_last." ." ;
     //$search_location = DB::table('basic_mess_info')->select('mess_id','mess_name','distance','mess_location')->where('mess_location','like',$location);
   //  dd($mess);
@@ -230,7 +244,15 @@ public function insert_room(Request $request){
 #}
 
     //select distinct basic_mess_info.mess_id,basic_mess_info.vacant_seat,mess_name,mess_location,cost from basic_mess_info, room_info where basic_mess_info.mess_id = room_info.mess_id and basic_mess_info.mess_location like '?' and basic_mess_info.vacant_seat >= ? and basic_mess_info.distance <= ? and room_info.cost between ? and ? GROUP BY basic_mess_info.mess_id,basic_mess_info.vacant_seat,mess_name,mess_location",[$location,$seat,$distance,$rent_start,$rent_last]);
-     return view('search_result')->with(['mess'=>$mess]);
+
+//echo $location . " " . $seat . "  "  . $fare . "  " .$rent_start . "  " . $rent_last; 
+             
+
+    $location = DB::table('location')
+            ->select('*')
+            ->get();
+            
+     return view('search_result')->with(['mess'=>$mess])->with(['location'=>$location]);
         echo "success";
         
    }
@@ -324,6 +346,8 @@ public function insert_room(Request $request){
       DB::table('room_info')->where([['mess_id','=',$mess_id],['room_id' , '=' , $room_id]])->decrement('vacant_seat');
       DB::table('basic_mess_info')->where ('mess_id','=',$mess_id)->decrement('vacant_seat');  //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
     }
+
+    
     
     
     return view('add_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
@@ -341,6 +365,9 @@ public function insert_room(Request $request){
       $description = $request->input('description');
       DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->update(['mess_name' => $name,'mess_location' => $location,'total_seat' => $total_seat,'vacant_seat' => $vacant_seat,'total_room' =>$total_room ,'distance' => $distance,'description' => $description]);
       //return view('/mess_profile');
+      //echo $mess_id;
+      //echo $location . "  " . $total_seat." ".$name ." ".$total_seat." ".$total_room;
+      //echo "success";
       return redirect()->route('edit_mess');
    }
 
@@ -446,6 +473,11 @@ public function mess_feature_deleted(Request $delete_mess_feature){
   $feature_id = $delete_mess_feature->input('feature_id');
   DB::table('mess_features')->where([['mess_id','=', $mess_id],['count','=',$feature_id]])->delete();
   return redirect()->route('add_mess_feature');
+}
+
+public function get_slide(){
+  $mess = DB::select('select * from basic_mess_info ');
+  return view('slide')->with(['mess'=>$mess]);
 }
 
 }

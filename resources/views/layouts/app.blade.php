@@ -12,17 +12,18 @@
     <title>Mess Finder</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+   <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,800' rel='stylesheet' type='text/css'>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/jquery-ui.css" rel="stylesheet">
-    <link href="css/progress-steps.css" rel="stylesheet">
-    <link href="css/customize-style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{asset('http://fonts.googleapis.com/css?family=Raleway:400,600,800')}}" rel='stylesheet' type='text/css'>
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
+    <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
+    <link href="{{asset('css/progress-steps.css')}}" rel="stylesheet">
+    <link href="{{asset('css/customize-style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
+    
     <!--
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     -->
@@ -50,7 +51,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/"><img src="img/logo.png" alt="Image Not Found"></a>
+          <a class="navbar-brand" href="/"><img src="{{asset('img/logo.png')}}" alt="Image Not Found"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -78,13 +79,14 @@
 
                                 <ul class="dropdown-menu" role="menu" id = "user_dropdown">
                                     <li><a href="">
-                                        My Profile
+                                        My Mess
                                         </a>
                                     </li>
                                     <li><a href="">
-                                        My Preferences
+                                        Edit My Mess
                                         </a>
                                     </li>
+                                    <li><a href="">Create New Mess</a></li>
                                     <li class = "divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -169,8 +171,14 @@
 <style type="text/css">
     .container2 {
         margin-left: 10%;
-        margin-top: 4%;
-        margin-bottom: 4%;
+        margin-top: 10%;
+        margin-right: 10%;
+        margin-bottom: 10%;
+    }
+    .container3 {
+        padding: 8%;
+        margin-left: 10%;
+        
     }
     textarea{
         resize:none;
@@ -191,7 +199,7 @@
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/jquery.backstretch.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{asset('js/script.js')}}"></script>
      
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>

@@ -48,18 +48,13 @@
                   <th>Location</th>
                 </tr>
               </thead>
-                
-                
+              <?php  
+                $i = 1;
+                ?>
                 @foreach($location as $data)
               <tbody>
-                <td>Room {{$data->room_id}}</td>
-                <td>{{$data->reg}}</td>
-                <form class="delete" action="delete_member" method="POST">
-                  <input type="hidden" name="mem_reg" value="{{$data->reg}}">
-                  <input type="hidden" name="room_id" value="{{$data->room_id}}">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                  <input type="submit" value="Delete" class="btn btn-danger" >
-                </form>
+                <td> <?php echo $i++; ?></td>
+                <td>{{$data->location}}</td>
                 </td>
               </tbody>
               @endforeach

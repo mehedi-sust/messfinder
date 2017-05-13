@@ -23,7 +23,7 @@
        
             <label for="image">Mess Banner</label>
             <input type="file" class="form-control" id="image" name="image" >
-            <input type="submit" value="Upload" >
+            <input type="submit" value="Upload" class="btn btn-success" >
         {{csrf_field() }}
 </form>
 </div>
