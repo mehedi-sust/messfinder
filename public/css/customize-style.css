@@ -93,3 +93,16 @@ add_member_info.blade.php
 #add_mess_feature_finish_btn{
 	margin-top:25px;
 }
+
+/*
+=========================
+mess_profile.blade.php
+=========================
+*/
+
+#mess_cover_photo{
+    display: block;
+    margin:auto;
+    width:100%;
+    height:300px;
+}

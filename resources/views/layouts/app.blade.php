@@ -68,7 +68,7 @@
             <li><a href="contact">Contact</a></li>
             @if (Auth::guest())
             <li><a href="login" >Sign in</a></li>
-            <li><a href="register" >Sign up</a></li>
+            <li><a href="register" class="signup">Sign up</a></li>
             @else
             <ul class = "nav navbar-nav navbar-right">
                             <li class="dropdown">

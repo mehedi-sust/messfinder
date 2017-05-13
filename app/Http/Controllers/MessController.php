@@ -144,7 +144,6 @@ public function insert(Request $request){
 
     public function show_mess_profile()
     {
-        //
         $mess_id = $_GET['id'];
         //$mess_id = 3;
         //echo $mess_id;

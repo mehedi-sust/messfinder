@@ -2,17 +2,7 @@
 
    @section('custom_css_js')
      @parent 
-   <!-- Custom CSS for this page-->
-   <link href="{{ asset('css/view-mess.css') }}" rel="stylesheet">
-   <style>
-        img{
-            display: block;
-            margin:auto;
-            width:100%;
-            height:300px;
-        }
-   </style>
-
+   
    @endsection
    
    @section('content')
@@ -23,8 +13,8 @@
     //    return Storage::allfiles('public');
     $url = Storage::url($filename);
     //echo $url."<br>";
-    echo "<img src='".$url."' width =800 hieght=300/>";
-    echo "<img src='/storage/advertisement_1.jpg' width =400 hieght=250/>";
+    echo "<img src='".$url."' id=\"mess_cover_photo\"/>";
+    echo "<img src='/storage/advertisement_1.jpg' id=\"mess_cover_photo\"/>";
 ?>
 
     <div class="container"> 
@@ -89,27 +79,6 @@
               </div>
               <!--/.table-responsive-->
                         
-        <h2 class="page-header text-center">Vacancy Informamtion</h2>
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr style="background-color: #5bc0de; color:#fff">
-                <th>Room No.</th>
-                <th>Vacant Seat</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach ($room as $value)
-              <tr>
-                <td>Room {{$value->room_id}}</td>
-                <td>{{$value->vacant_seat}}</td>
-              </tr>
-            @endforeach
-            </tbody>
-          </table>
-        </div>
-        <!--/.table-responsive-->
-
                         <!--/.table-responsive-->
                         
                         <h2 class="page-header text-center">Vacancy Informamtion</h2>
@@ -228,7 +197,6 @@
                                                 @endif
                                              @endforeach 
                                                                 </ul>
-
                                                             </td>
                                                         </tr>
                                                         </tbody>
