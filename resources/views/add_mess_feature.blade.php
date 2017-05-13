@@ -99,7 +99,7 @@ if($i==0){
                         <button class="btn btn-success">Add</button>
                     </div>
                 </form>
-                <a href = "{{ route('index')}}"class="btn btn-success col-md-offset-5" id="add_mess_feature_finish_btn">Finish</a>
+                <a href = "{{ route('index')}}" class="btn btn-success col-md-offset-5" id="add_mess_feature_finish_btn">Finish</a>
             </div>
            <!-- /.panel-body -->
          </div>

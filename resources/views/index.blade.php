@@ -2,12 +2,69 @@
 
 @section('content')
     <!-- begin:header -->
-    <div id="header" class="header-slide">
+    <div id="header">
       <div class="container">
-      <!--
-      <h1 class="text-center">Mess Finder</h1>
-      <h2 class="text-center">Find Your Expected Mess Easily</h2>
-      -->
+     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <!--
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+
+    </ol>
+   -->
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="img/site_slide1.jpg" alt="Los Angeles">
+        <div class="carousel-caption">
+          
+        </div>
+      </div>
+
+        
+    @foreach ($mess as $data)
+    <?php 
+    $link = "/storage/banner_".$data->mess_id.".jpg";
+if(file_exists( public_path() . $link) )
+ {
+    $filename = "banner_".$data->mess_id.".jpg";
+    //    return Storage::allfiles('public');
+    $url = Storage::url($filename);
+    //echo $url."<br>";
+    echo '
+    <div class="item">
+        <img src="'.$url.'" alt="New York" >
+        ';?>
+        <div class="carousel-caption" style="color: #00e6e6; text-shadow: 2px 2px 5px black;" >
+          <h3>{{$data->mess_name}}</h3>
+          <h4>Location : {{$data->mess_location}}</h4>
+          <h4>Vacant Seat : {{$data->vacant_seat}}</h4>
+          <h4>Total Seat : {{$data->total_seat}}</h4>
+        </div>
+      </div>
+      <?php
+      
+} ?>  
+
+    @endforeach
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
       </div>
     </div>
     <!-- end:header -->

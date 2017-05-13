@@ -11,6 +11,7 @@ use DB;
 use Auth;
 use File;
 use Session;
+use Image;
 class MessController extends Controller
 {
     /**
@@ -153,7 +154,6 @@ public function insert(Request $request){
 
     public function show_mess_profile()
     {
-        //
         $mess_id = $_GET['id'];
         //$mess_id = 3;
         //echo $mess_id;
@@ -433,13 +433,20 @@ public function upload_img(Request $req){
         return "no file selected";
     }*/
     if($req->hasFile('image')){
-        $req->file('image');
+        $image=$req->file('image');
         $mess_id = Auth::user()->mess_id;
-        $filename = "banner_".$mess_id.".jpg";
+        $filename = "banner_".$mess_id.".".$image->getClientOriginalExtension();;
         //$req->image->path();
         //$req->image->extension();
-        return $req->image->storeAs('public',$filename);
+        $req->image->storeAs('public',$filename);
+        $url = Storage::url($filename);
+        $path = public_path($filename);
+        Image::make($image->getRealPath())->resize(1200, 700)->save($path);
+       // $img = Image::make($image->getRealPath())->resize(1200, 700)
         //return Storage::putFile('public',$req->file('image'));
+        
+        return veiw('manage_mess');
+
     }
     else {
         return "No File Selected";

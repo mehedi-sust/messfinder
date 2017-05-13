@@ -12,11 +12,12 @@ class PageController extends Controller{
 		#recive from model
 		#compile or process the data fform the model if needed
 		#pass that data to the correct view
+		$mess = DB::select('select * from basic_mess_info ');
 		$locations = DB::table('location')
             ->select('*')
             ->get();
         
-		return view('index')->with(['locations'=>$locations]);
+		return view('index')->with(['locations'=>$locations])->with(['mess'=>$mess]);
 	}
 
 	public function getAbout(){
@@ -74,6 +75,10 @@ class PageController extends Controller{
 	public function get_upload_add(){
 		return view('admin/upload_add');
 	}	
+
+	public function get_manage_mess(){
+		return view('manage_mess');
+	}
 
 }
 

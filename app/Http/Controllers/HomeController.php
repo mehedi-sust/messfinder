@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $mess = DB::select('select * from basic_mess_info ');
+        $locations = DB::table('location')
+            ->select('*')
+            ->get();
+        
+        return view('index')->with(['locations'=>$locations])->with(['mess'=>$mess]);
     }
 }
