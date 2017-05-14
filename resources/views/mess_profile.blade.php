@@ -1,9 +1,4 @@
 @extends('layouts.app')
-
-   @section('custom_css_js')
-     @parent 
-   
-   @endsection
    
    @section('content')
    @foreach ($mess as $value)
@@ -220,4 +215,6 @@
                 <!-- /.content-->
            </div>     
            <!-- /.container2-->
+           </div>
+           <!-- /.container-->
    @endsection
