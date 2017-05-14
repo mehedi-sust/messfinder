@@ -26,29 +26,13 @@
     <div class="carousel-inner">
 
       <div class="item active">
-        <img src="img/la.jpg" alt="Los Angeles" style="width:5000px; height:525px;">
+        <img src="img/site_slide1.jpg" alt="Los Angeles">
         <div class="carousel-caption">
-          <h3>Los Angeles</h3>
-          <p>LA is always so much fun!</p>
+          
         </div>
       </div>
 
-      <div class="item">
-        <img src="img/chicago.jpg" alt="Chicago" style="width:5000px; height:525px;">
-        <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="img/ny.jpg" alt="New York" style="width:5000px; height:525px;">
-        <div class="carousel-caption">
-          <h3>New York</h3>
-          <p>We love the Big Apple!</p>
-        </div>
-      </div>
-  	
+      	
   	@foreach ($mess as $data)
   	<?php 
   	$link = "/storage/banner_".$data->mess_id.".jpg";

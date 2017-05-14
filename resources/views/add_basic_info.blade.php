@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+
+@if (!Auth::check())
+Sorry You cannot access this Page. Please Log in first.
+
+
+@elseif(Auth::check() and Auth::user()->mess_id == 0)
 @section('content')
 <!-- begin:header -->
     <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
@@ -70,12 +76,9 @@
             <div class="form-group required">
               <label for="mess_location" class="control-label">Location</label>
               <select class="form-control input-lg" id = "mess_location" name="location" required>
-                    <option>Varsity Gate</option>
-                    <option>Tilargaogn</option>
-                    <option>Topobon</option>
-                    <option>Khuliapara</option>
-                    <option>Surma</option>
-                    <option>Modina Market</option>
+                    @foreach($location as $data)
+                        <option value="{{$data->location}}">{{$data->location}}</option>
+                    @endforeach
               </select>
             </div>
             <div class="form-group required">
@@ -106,3 +109,4 @@
 <!-- /.content -->
 <!-- end:form -->
 @endsection
+@endif

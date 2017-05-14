@@ -9,7 +9,7 @@
     $url = Storage::url($filename);
     //echo $url."<br>";
     echo "<img src='".$url."' id=\"mess_cover_photo\"/>";
-    echo "<img src='/storage/advertisement_1.jpg' id=\"mess_cover_photo\"/>";
+   // echo "<img src='/storage/advertisement_1.jpg' id=\"mess_cover_photo\"/>";
 ?>
 
     <div class="container"> 

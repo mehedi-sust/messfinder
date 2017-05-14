@@ -77,16 +77,25 @@
                                     {{ Auth::user()->name }} <b class="caret"></b>
                                 </a>
 
-                                <ul class="dropdown-menu" id = "user_dropdown">
-                                    <li><a href="">
-                                        My Mess
+                                <ul class="dropdown-menu" role="menu" id = "user_dropdown">
+                                    @if(Auth::user()->mess_id != 0)
+                                    <li><a href="<?php echo "http://localhost:8000/mess_profile?id=".Auth::user()->mess_id ?>">
+                                        Veiw My Mess
                                         </a>
                                     </li>
-                                    <li><a href="">
-                                        Edit My Mess
+                                    @elseif(Auth::user()->type =='user')
+                                    <li><a href="http://localhost:8000/create_mess">
+                                        Create New Mess
+                                        </a>
+                                    </li> 
+                                    @endif
+                                    @if(Auth::user()->type == "Manager")
+                                    <li><a href="http://localhost:8000/manage_mess">
+                                        Manage My Mess
                                         </a>
                                     </li>
-                                    <li><a href="">Create New Mess</a></li>
+                                    @endif
+                                    </li>
                                     <li class = "divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"

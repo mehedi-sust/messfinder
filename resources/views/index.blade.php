@@ -4,7 +4,7 @@
     <!-- begin:header -->
     <div id="header">
       <div class="container">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+     <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <!--
     <ol class="carousel-indicators">
@@ -18,29 +18,13 @@
     <div class="carousel-inner">
 
       <div class="item active">
-        <img src="img/la.jpg" alt="Los Angeles" style="width:5000px; height:525px;">
+        <img src="img/site_slide1.jpg" alt="Los Angeles">
         <div class="carousel-caption">
-          <h3>Los Angeles</h3>
-          <p>LA is always so much fun!</p>
+          
         </div>
       </div>
 
-      <div class="item">
-        <img src="img/chicago.jpg" alt="Chicago" style="width:5000px; height:525px;">
-        <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="img/ny.jpg" alt="New York" style="width:5000px; height:525px;">
-        <div class="carousel-caption">
-          <h3>New York</h3>
-          <p>We love the Big Apple!</p>
-        </div>
-      </div>
-    
+        
     @foreach ($mess as $data)
     <?php 
     $link = "/storage/banner_".$data->mess_id.".jpg";
@@ -52,13 +36,13 @@ if(file_exists( public_path() . $link) )
     //echo $url."<br>";
     echo '
     <div class="item">
-        <img src="'.$url.'" alt="New York" style="width:100%;">
+        <img src="'.$url.'" alt="New York" >
         ';?>
-        <div class="carousel-caption">
+        <div class="carousel-caption" style="color: #00e6e6; text-shadow: 2px 2px 5px black;" >
           <h3>{{$data->mess_name}}</h3>
           <h4>Location : {{$data->mess_location}}</h4>
-          <p>Vacant Seat : {{$data->vacant_seat}}</p>
-          <p>Total Seat : {{$data->total_seat}}</p>
+          <h4>Vacant Seat : {{$data->vacant_seat}}</h4>
+          <h4>Total Seat : {{$data->total_seat}}</h4>
         </div>
       </div>
       <?php

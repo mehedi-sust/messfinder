@@ -19,6 +19,13 @@
     </div>
     <!-- end:header -->
 
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissable" style="text-align: center;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+  <strong>{{ Session::get('message') }}.</strong>
+</div>
+@endif 
+
 <!-- begin:progress steps -->
 <div class="container">
     <div class="row bs-wizard" style="border-bottom:0;">
@@ -64,12 +71,13 @@
       <div class="panel-heading"><h4>Room Information</h4></div>
         <div class="panel-body" id="add_room_info_form">
           <form class="form-inline" action="room_info_inserted" method = "post" id="room_info_form">
-<!--        
-{{csrf_field()}}
--->         
+
+          {{csrf_field()}}
+          @foreach($mess as $data)
             <div class="form-group required">
-              <input type="hidden" class="form-control" id="total_room" value="10">
+              <input type="hidden" class="form-control" id="total_room" value="{{$data->total_room}}"> 
             </div>
+            @endforeach
 
             <legend>Room 1</legend>
             
