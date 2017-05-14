@@ -446,7 +446,6 @@ public function upload_img(Request $req){
         //return Storage::putFile('public',$req->file('image'));
         
         return veiw('manage_mess');
-
     }
     else {
         return "No File Selected";
