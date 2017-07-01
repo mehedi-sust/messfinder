@@ -4,13 +4,13 @@
     <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-md-offset-1 col-sm-12">
+          <div class="col-md-9 col-md-offset-1 col-sm-12">
             <div class="page-title">
-              <h2>Add Mess Member</h2>
+              <h2>Edit Mess Member</h2>
             </div>
             <ol class="breadcrumb">
               <li><a href="#">Home</a></li>
-              <li class="active">Add Member</li>
+              <li class="active">Edit Mess Member</li>
             </ol>
           </div>
         </div>
@@ -27,55 +27,16 @@ if($i==0){
 
 ?>
 
-  <!-- begin:progress steps -->
-<div class="container">
-    <div class="row bs-wizard" style="border-bottom:0;">
-        <div class="col-xs-2 bs-wizard-step active">
-          <div class="text-center bs-wizard-stepnum">Step 1</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Basic Information</div>
-        </div>
-        
-        <div class="col-xs-2 bs-wizard-step complete"><!-- complete -->
-          <div class="text-center bs-wizard-stepnum">Step 2</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Room Information</div>
-        </div>
-        
-        <div class="col-xs-2 bs-wizard-step active"><!-- complete -->
-          <div class="text-center bs-wizard-stepnum">Step 3</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Member Information</div>
-        </div>
-        
-        <div class="col-xs-2 bs-wizard-step disabled"><!-- active -->
-          <div class="text-center bs-wizard-stepnum">Step 4</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Extra Features</div>
-        </div>
-
-        <div class="col-xs-2 bs-wizard-step disabled"><!-- active -->
-          <div class="text-center bs-wizard-stepnum">Step 5</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Upload Cover Photo</div>
-        </div>
-    </div>
-  </div>
-<!-- end:progress steps -->
+  
 <?php } ?>
 
 
   <!-- begin: add member form -->
   <div class="content" id="add_member_content_form">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-9 col-md-offset-1">
         <div class="panel panel-arillo">
-          <div class="panel-heading"><h4>Add Member Information</h4></div>
+          <div class="panel-heading"><h4>Edit Member Information</h4></div>
             <div class="panel-body">
             <form class="form-inline" id="member_infor_form" action="add_member" method="post">
                 <div class="form-group">
@@ -120,7 +81,7 @@ if($i==0){
   <!-- begin:member list -->
   <div class="content" id="add_member_content_list">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-9 col-md-offset-1">
         <div class="panel panel-arillo">
           <div class="panel-heading"><h4>Member List</h4></div>
               <table class="table table-striped">

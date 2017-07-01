@@ -24,7 +24,10 @@
 <!-- begin:form -->
 <div class="content" id="create_mess_content">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-2 col-md-offset-1" style="border:1px solid blue;">
+      sidebar
+    </div>
+    <div class="col-md-5 col-md-offset-1" style="border:1px solid red;">
       <div class="panel panel-arillo">
         <div class="panel-heading"><h4>Edit Basic Information</h4></div>
         <div class="panel-body">

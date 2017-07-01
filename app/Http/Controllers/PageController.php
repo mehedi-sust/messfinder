@@ -77,9 +77,14 @@ class PageController extends Controller{
 	}	
 
 	public function get_manage_mess(){
-		return view('manage_mess');
+		$mess_id = Auth::user()->mess_id;
+		$check = DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
+		foreach ($check as  $value) {
+			# code...
+			//echo $value->room_info;
+		}
+		return view('manage_mess')->with(['check'=>$check]);
 	}
-
 }
 
 ?>

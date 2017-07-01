@@ -13,7 +13,7 @@
 Route::resource('messes','MessController');
 Route::get('show_map','MessController@Show_map');
 Route::get('change_manager','AdminController@get_change_manager');
-Route::get('upload_photo','PageController@show_upload_photo');
+Route::get('upload_photo','PageController@show_upload_photo')->name('upload_photo');
 Route::post('update_room_info','MessController@room_info_update');
 Route::post('mess_info_updated','MessController@mess_info_updated');
 Route::get('mess_info_home','PageController@get_mess_info_home');
@@ -24,6 +24,11 @@ Route::post('add_location','AdminController@location_added');
 Route::get('add_mess_feature','MessController@add_mess_feature')->name('add_mess_feature');
 Route::post('mess_feature_added','MessController@mess_feature_added');
 Route::post('mess_feature_deleted','MessController@mess_feature_deleted');
+
+Route::get('update_mess_feature','MessController@update_mess_feature')->name('update_mess_feature');
+Route::post('update_mess_feature_added','MessController@update_mess_feature_added');
+Route::post('update_mess_feature_deleted','MessController@update_mess_feature_deleted');
+
 
 Route::get('edit_room_info','MessController@edit_room_info');
 Route::get('edit_single_room_info/{room_id}/{total_seat}/{vacant_seat}/{cost}/{add_info}',array('uses' => 'MessController@edit_single_room_info', 'as' => 'edit_single_room_info'));
@@ -43,7 +48,9 @@ Route::post('uploaded_ad','AdminController@upload_ad');
 Route::get('add_location','AdminController@get_add_location');
 Route::get('show_image','MessController@show_image');
 Route::get('admin_home','AdminController@index');
-Route::get('manage_mess','PageController@get_manage_mess');
+Route::get('manage_mess','PageController@get_manage_mess')->name('manage_mess');
+Route::get('edit_mess_member','MessController@get_edit_mess_member');
+Route::post('edit_mess_member','MessController@get_edit_mess_member');
 Route::post('delete_member','AdminController@delete_member');
 Route::get('delete_mess', 'MessController@delete_mess');
 Route::post('delete_mess_request', 'MessController@delete_mess_request');

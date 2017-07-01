@@ -28,11 +28,12 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
             <div class="page-title">
-              <h2>Add Mess Features</h2>
+              <h2>Update Mess Features</h2>
             </div>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
-              <li class="active">Mess Features</li>
+              <li><a href="{{ route('index') }}">Home</a></li>
+              <li><a href="{{ route('manage_mess') }}">Manage Mess</a></li>
+              <li class="active">Update Mess Features</li>
             </ol>
           </div>
         </div>
@@ -45,73 +46,26 @@ $i=0;
 foreach ($current_features as $value) {
   $i++;
 }
-if($i==0){
-
 ?>
-<!-- begin:progress steps -->
-<!-- begin:progress steps -->
-<div class="container">
-    <div class="row bs-wizard" style="border-bottom:0;">
-        <div class="col-xs-2 bs-wizard-step complete">
-          <div class="text-center bs-wizard-stepnum">Step 1</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Basic Information</div>
-        </div>
-        
-        <div class="col-xs-2 bs-wizard-step complete"><!-- complete -->
-          <div class="text-center bs-wizard-stepnum">Step 2</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Room Information</div>
-        </div>
-        
-        <div class="col-xs-2 bs-wizard-step complete"><!-- complete -->
-          <div class="text-center bs-wizard-stepnum">Step 3</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Member Information</div>
-        </div>
-        
-        <div class="col-xs-2 bs-wizard-step active"><!-- active -->
-          <div class="text-center bs-wizard-stepnum">Step 4</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Extra Features</div>
-        </div>
-
-        <div class="col-xs-2 bs-wizard-step disabled"><!-- active -->
-          <div class="text-center bs-wizard-stepnum">Step 5</div>
-          <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
-          <div class="bs-wizard-info text-center">Upload Cover Photo</div>
-        </div>
-    </div>
-  </div>
-<!-- end:progress steps --><!-- end:progress steps -->
-<?php } ?>
 
   <!-- begin: add member form -->
   <div class="content" id="add_member_content_form">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-arillo">
-          <div class="panel-heading"><h4>Add Mess Features</h4></div>
+          <div class="panel-heading"><h4>Update Mess Features</h4></div>
             <div class="panel-body">
-                <form class="form-inline" action = "mess_feature_added" method="post"> 
+                <form class="form-inline" action = "update_mess_feature_added" method="post"> 
                  {{ csrf_field() }}       
                     <div class="form-group col-md-offset-2">
-                        <label for="feature_name">Feature Name: </label>
-                        <input name="feature_name" class="form-control" id="feature_name">
+                        <label for="vacant_start_month">Feature Name: </label>
+                        <input name="feature_name" class="form-control">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success">Add</button>
                     </div>
                 </form>
-                <a href = "{{ route('upload_photo') }}" class="btn btn-success col-md-offset-5" id="add_mess_feature_finish_btn">Next</a>
-                <!--
-                <a href = "{{ route('index')}}" class="btn btn-success col-md-offset-5" id="add_mess_feature_finish_btn">Finish</a>
-                -->
+                <a href = "{{ route('manage_mess') }}" class="btn btn-success col-md-offset-5" id="add_mess_feature_finish_btn">Done</a>
             </div>
            <!-- /.panel-body -->
          </div>
@@ -141,7 +95,7 @@ if($i==0){
                         <tr>
                         <td class="left_aligned">{{$data->feature}}</td>
                         <td class="right_aligned">
-                        <form class="delete" action="mess_feature_deleted" method="POST">
+                        <form class="delete" action="update_mess_feature_deleted" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="feature_id" value="{{$data->count}}">
                         <input type="submit" class="btn btn-danger" value="Delete">

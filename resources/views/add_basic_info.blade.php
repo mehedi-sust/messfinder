@@ -28,37 +28,43 @@ Sorry You cannot access this Page. Please Log in first.
 <!-- begin:progress steps -->
 <div class="container">
     <div class="row bs-wizard" style="border-bottom:0;">
-        <div class="col-xs-3 bs-wizard-step active">
+        <div class="col-xs-2 bs-wizard-step active">
           <div class="text-center bs-wizard-stepnum">Step 1</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <div class="bs-wizard-info text-center">Basic Information</div>
         </div>
         
-        <div class="col-xs-3 bs-wizard-step disabled"><!-- complete -->
+        <div class="col-xs-2 bs-wizard-step disabled"><!-- complete -->
           <div class="text-center bs-wizard-stepnum">Step 2</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <div class="bs-wizard-info text-center">Room Information</div>
         </div>
         
-        <div class="col-xs-3 bs-wizard-step disabled"><!-- complete -->
+        <div class="col-xs-2 bs-wizard-step disabled"><!-- complete -->
           <div class="text-center bs-wizard-stepnum">Step 3</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <div class="bs-wizard-info text-center">Member Information</div>
         </div>
         
-        <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
+        <div class="col-xs-2 bs-wizard-step disabled"><!-- active -->
           <div class="text-center bs-wizard-stepnum">Step 4</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <div class="bs-wizard-info text-center">Extra Features</div>
         </div>
+
+        <div class="col-xs-2 bs-wizard-step disabled"><!-- active -->
+          <div class="text-center bs-wizard-stepnum">Step 5</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <a href="#" class="bs-wizard-dot"></a>
+          <div class="bs-wizard-info text-center">Upload Cover Photo</div>
+        </div>
     </div>
   </div>
 <!-- end:progress steps -->
-
 
 <!-- begin:form -->
 <div class="content" id="create_mess_content">

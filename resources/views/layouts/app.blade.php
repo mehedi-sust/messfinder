@@ -7,7 +7,7 @@
     <meta name="description" content="arillo is responsive html real estate theme">
     <meta name="author" content="afriq yasin ramadhan">
     <meta name="editor" content="raihan ahmed">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
 
     <title>Mess Finder</title>
 
@@ -63,8 +63,10 @@
                         <a href="admin_home">Admin Dashboard</a>
                     </li>
                 @endif
-                
+            
+            <!--
             <li><a href="#">List a Mess</a></li>
+            -->
             <li><a href="about">About</a></li>
             <li><a href="contact">Contact</a></li>
             @if (Auth::guest())
@@ -126,14 +128,12 @@
       <div class="col-md-1 col-sm-6 col-xs-12">
         <div class="widget">
           <h5><a href="#">Home</a></h5>
-          </ul>
         </div>
       </div>
       <!-- break -->
       <div class="col-md-1 col-sm-6 col-xs-12">
         <div class="widget">
             <h5><a href="#">List Mess</a></h5>
-          </ul>
         </div>
       </div>
       <!-- break -->
@@ -208,7 +208,7 @@
     <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
     <script src="{{ asset('js/jquery.backstretch.js') }}"></script>
     <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
-    <script src="{{asset('js/script.js')}}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
      
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js') }}"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}"></script>

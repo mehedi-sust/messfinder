@@ -18,7 +18,7 @@
     <div class="carousel-inner">
 
       <div class="item active">
-        <img src="img/site_slide1.jpg" alt="Los Angeles">
+        <img src="img/site_slide1.jpg" alt="Los Angeles" style="height:500px; width:1200px">
         <div class="carousel-caption">
           
         </div>
@@ -36,7 +36,7 @@ if(file_exists( public_path() . $link) )
     //echo $url."<br>";
     echo '
     <div class="item">
-        <img src="'.$url.'" alt="New York" >
+        <img src="'.$url.'" alt="New York" style="height:500px; width:1200px" >
         ';?>
         <div class="carousel-caption" style="color: #00e6e6; text-shadow: 2px 2px 5px black;" >
           <h3>{{$data->mess_name}}</h3>
@@ -114,12 +114,62 @@ if(file_exists( public_path() . $link) )
     </div>
     <!-- end:quick search -->
 
-    <!-- begin:service -->
+    <!-- begin:student service -->
     <div id="service">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <h2>Looking For a Suitable Mess?<small>We are here to help you.</small></h2>
+          </div>
+        </div>
+        
+          <div class="col-md-3 col-md-offset-1 col-sm-6 col-xs-12">
+            <div class="service-container">
+              <div class="service-icon">
+                <a href="#"><i class="fa fa-search"></i></a>
+              </div>
+              <div class="service-content">
+                <h3>Find a suitable mess</h3>
+                <p>You can search for a suitable mess with desired criteria using advanced search options.</p>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+          <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-container">
+              <div class="service-icon">
+                <a href="#"><i class="fa fa-desktop"></i></a>
+              </div>
+              <div class="service-content">
+                <h3>Apply for seat online</h3>
+                <p>You can for a seat in mess online.</p>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-container">
+              <div class="service-icon">
+                <a href="#"><i class="fa fa-calendar"></i></a>
+              </div>
+              <div class="service-content">
+                <h3>Manage Mess Events</h3>
+                <p>You can create mess events and invite your friends in the event.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <!-- end:service -->
+
+    <!-- begin:student service -->
+    <div id="service">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Looking For a Way to Promote Your Mess?<small>We are here to help you too.</small></h2>
           </div>
         </div>
         <div class="row">
@@ -141,8 +191,8 @@ if(file_exists( public_path() . $link) )
                 <a href="#"><i class="fa fa-search"></i></a>
               </div>
               <div class="service-content">
-                <h3>Find a suitable mess</h3>
-                <p>You can search for a suitable mess with desired criteria using advanced search options.</p>
+                <h3>Find suitable border for your mess</h3>
+                <p>You can select suitable border for your mess.</p>
               </div>
             </div>
           </div>
@@ -150,11 +200,11 @@ if(file_exists( public_path() . $link) )
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="service-container">
               <div class="service-icon">
-                <a href="#"><i class="fa fa-calendar"></i></a>
+                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
               </div>
               <div class="service-content">
-                <h3>Manage Mess Events</h3>
-                <p>You can create mess events and invite your friends in the event.</p>
+                <h3>Manage Mess Data</h3>
+                <p>You can share mess data and advertise it to borders.</p>
               </div>
             </div>
           </div>

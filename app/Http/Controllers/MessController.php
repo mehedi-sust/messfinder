@@ -98,7 +98,7 @@ public function insert(Request $request){
 */
         $data = array('name'=>$mess_name,'location'=>$location,'distance'=>$distance,'description'=>$description);
         DB::table('messes')->insert($data);
-        echo $mess->name ."  ". $mess->location;
+        //echo $mess->name ."  ". $mess->location;
         $mess->save();
         //return redirect()->route('messes.show',$mess->id);
     }
@@ -155,15 +155,13 @@ public function insert(Request $request){
     public function show_mess_profile()
     {
         $mess_id = $_GET['id'];
-        //$mess_id = 3;
-        //echo $mess_id;
         $reg = 0;
         $man = DB::table('basic_mess_info')->select('manager')->where('mess_id','=',$mess_id)->get();
         foreach ($man as $value) {
           # code...
           $reg = $value->manager;
         }
-        echo $reg;
+        //echo $reg;
         $mobile= DB::table('users')->select('mobile','name')->where('reg','=',$reg)->get();
         $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
         $feature = DB::select('select * from mess_features where mess_id = ?',[$mess_id]);
@@ -171,7 +169,7 @@ public function insert(Request $request){
         $member = DB::select('select distinct room_id,name,users.reg,mobile,vacant_from from mess_members,users where mess_members.mess_id =? and users.reg = mess_members.reg group by room_id',[$mess_id]);
       return view('mess_profile',['mess'=>$mess])->with(['feature'=>$feature])->with(['room'=>$room])->with(['member'=>$member])->with(['mobile'=>$mobile]);
        //return view('test',['mess'=>$mess])->with(['room'=>$room])->with(['member'=>$member])->with(['feature'=>$feature])->with(['mobile'=>$mobile])->with(['member'=>$member]);
-        echo "success";
+        //echo "success";
     }
 
 public function insert_room(Request $request){
@@ -291,7 +289,7 @@ public function insert_room(Request $request){
    // return view('test')->with(['room'=>$room])->with(['member_info'=>$member_info]);
     */
     $mess_id = $_GET['id'];
-        echo $mess_id;
+        //echo $mess_id;
         $mess = DB::select('select * from basic_mess_info where mess_id = ?',[$mess_id]);
         $feature = DB::select('select * from mess_features where mess_id = ?',[$mess_id]);
         $room = DB::select('select * from room_info where mess_id =?',[$mess_id]);
@@ -310,21 +308,19 @@ public function insert_room(Request $request){
    }
 
    public function mess_edit(){
-    //$mess_id = Auth::user()->mess_id;
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     $mess_info= DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
     return view('edit_mess_basic')->with(['mess_info'=>$mess_info]);
    }
 
    public function edit_room_info(){
-    //$mess_id = Auth::user()->mess_id;
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     $room_info= DB::table('room_info')->where('mess_id','=',$mess_id)->get();
     return view('edit_mess_room_info')->with(['room_info'=>$room_info]);
    }
 
    public function edit_single_room_info($room_id, $total_seat, $vacant_seat, $cost, $add_info){
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     /*
     $room_info= DB::table('room_info')->where([
                                         ['mess_id','=',$mess_id],
@@ -369,6 +365,34 @@ public function insert_room(Request $request){
    
    }
 
+   public function get_edit_mess_member(Request $req){
+    $room_id = $req->input('room_id');
+    $reg = $req->input('reg_no');
+    $date = $req->input('vacant_from');
+    //$mess_id = Auth::user()->mess_id;
+    $mess_id = Auth::user()->mess_id;
+    $vacant = 0;
+    
+    $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->orderBy('room_id')->get();
+    $room = DB::table('room_info')->where('mess_id','=',$mess_id)->get();
+   
+    $mess = DB::table('basic_mess_info')->select()->where('mess_id','=',$mess_id)->get();
+    
+    if($room_id != NULL and $reg != NULL) {
+        DB::table('mess_members')->insert(['mess_id'=>$mess_id,'room_id' => $room_id , 'reg'=> $reg , 'vacant_from' => $date]);
+
+      DB::table('users')->where('reg','=',$reg)->update(['mess_id'=>$mess_id]);
+      DB::table('room_info')->where([['mess_id','=',$mess_id],['room_id' , '=' , $room_id]])->decrement('vacant_seat');
+      DB::table('basic_mess_info')->where ('mess_id','=',$mess_id)->decrement('vacant_seat');  //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
+    }
+    
+    
+    
+    return view('edit_mess_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
+   
+   }
+
+
    public function mess_info_updated(Request $request){
     $mess_id = Auth::user()->mess_id;
     $name = $request->input('mess_name');
@@ -402,9 +426,9 @@ public function room_info_update(Request $request){
       ->update(['total_seat' => $seat,'vacant_seat' => $vacant_seat,'cost' => $cost,'add_info' => $description]);
       //return view('/'); 
     //}
-    //session::flush('success','Update successful!');
+    Session::flash('success','Room Information was updated with success!');
     //return view('edit_room_info');
-      echo "mess_id".$mess_id;
+      echo "cost".$cost;
 }
 
 public function manager_change(){
@@ -441,11 +465,17 @@ public function upload_img(Request $req){
         $req->image->storeAs('public',$filename);
         $url = Storage::url($filename);
         $path = public_path($filename);
-        Image::make($image->getRealPath())->resize(1200, 700)->save($path);
+        Image::make($image->getRealPath())->resize(1200, 500)->save($path);
        // $img = Image::make($image->getRealPath())->resize(1200, 700)
         //return Storage::putFile('public',$req->file('image'));
+
+        $check = DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
+        foreach ($check as  $value) {
+        # code...
+        //echo $value->room_info;
+        }
         
-        return veiw('manage_mess');
+        return view('manage_mess')->with(['check'=>$check]);;
 
     }
     else {
@@ -460,7 +490,7 @@ public function get_mess_img($filename){
 }
 public function show_image(){
         //return "show";
-    $mess_id = 3;
+    $mess_id = Auth::user()->mess_id;
     $filename = "banner_".$mess_id.".jpg";
     //    return Storage::allfiles('public');
     $url = Storage::url($filename);
@@ -495,6 +525,26 @@ public function mess_feature_deleted(Request $delete_mess_feature){
   $feature_id = $delete_mess_feature->input('feature_id');
   DB::table('mess_features')->where([['mess_id','=', $mess_id],['count','=',$feature_id]])->delete();
   return redirect()->route('add_mess_feature');
+}
+
+public function update_mess_feature(){
+  //$mess_id = Auth::user()->mess_id; 
+  $mess_id = Auth::user()->mess_id;
+  $current_features = DB::table('mess_features')->where('mess_id','=',$mess_id)->get();
+  return view('update_mess_feature')->with(['current_features'=>$current_features]);
+}
+
+public function update_mess_feature_added(Request $add_mess_feature){
+  $mess_id = Auth::user()->mess_id; 
+  $feature_name = $add_mess_feature->input('feature_name');  
+  DB::table('mess_features')->insert(['mess_id'=>$mess_id,'feature'=>$feature_name]);
+  return redirect()->route('update_mess_feature');
+}
+public function update_mess_feature_deleted(Request $delete_mess_feature){
+  $mess_id = Auth::user()->mess_id; 
+  $feature_id = $delete_mess_feature->input('feature_id');
+  DB::table('mess_features')->where([['mess_id','=', $mess_id],['count','=',$feature_id]])->delete();
+  return redirect()->route('update_mess_feature');
 }
 
 public function get_slide(){

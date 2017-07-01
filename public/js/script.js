@@ -9,7 +9,7 @@ $(document).ready(function(){
       $('.heading').css('background-position', 'center '+-(scrolled*0.5)+'px');
 	}
 
-
+    
     /* backstretch slider */
     $('.header-slide').backstretch([
       "slide/bg01.jpg",
@@ -30,9 +30,10 @@ $(document).ready(function(){
             //$('.navbar').css('border-bottom-color', '#fff');
 		}
 	});
-
-
+   
+    
     /* nice scroll */
+    
     $( 'html' ).niceScroll({
         cursorcolor: '#434a54',
         cursorwidth: '10px',
@@ -41,7 +42,7 @@ $(document).ready(function(){
         scrollspeed: 200,
         zindex: 1060
     });
-    
+
 
     /* carousel testimony */
     $('#testislider').carousel({
