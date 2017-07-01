@@ -476,7 +476,6 @@ public function upload_img(Request $req){
         }
         
         return view('manage_mess')->with(['check'=>$check]);;
-
     }
     else {
         return "No File Selected";
