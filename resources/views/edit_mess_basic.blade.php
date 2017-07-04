@@ -24,10 +24,47 @@
 <!-- begin:form -->
 <div class="content" id="create_mess_content">
   <div class="row">
-    <div class="col-md-2 col-md-offset-1" style="border:1px solid blue;">
-      sidebar
+  <!-- begin: navigantion sidebar -->
+    <div class="col-md-3">
+      <div class="nav-side-menu">
+        <div class="brand">Manage Mess Information</div>
+        <!--
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        -->
+            <div class="menu-list">
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li>
+                      <a href="edit_mess" ><i class="fa fa-info-circle fa-lg"></i>Edit Mess Basic Information</a>
+                    </li>
+
+                    <li>
+                      <a href="room_info" ><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>Add Room Information</a>
+                    </li>
+
+                    <li>
+                      <a href="add_member" ><i class="fa fa-users fa-lg" aria-hidden="true"></i>Update Mess Member List</a>
+                    </li>  
+
+                    <li>
+                      <a href="update_mess_feature" ><i class="fa fa-gift fa-lg" aria-hidden="true"></i>Update Mess Features</a>
+                    </li>
+
+                    <li>
+                      <a href="upload_photo" ><i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>Change Mess Cover Photo</a>
+                    </li>
+
+                     <li>
+                      <a href="change_manager" ><i class="fa fa-user fa-lg" aria-hidden="true"></i>Change Manager</a>
+                    </li>
+                </ul>
+        </div>
+      </div>
     </div>
-    <div class="col-md-5 col-md-offset-1" style="border:1px solid red;">
+    <!-- end: navigantion sidebar -->
+
+    <!-- begin: edit basic information form -->
+
+    <div class="col-md-5 col-md-offset-1">
       <div class="panel panel-arillo">
         <div class="panel-heading"><h4>Edit Basic Information</h4></div>
         <div class="panel-body">
@@ -73,6 +110,7 @@
       <!-- /.panel -->
     </div>
       <!-- /.col-md-8 -->
+    <!-- end: edit basic information form -->
   </div>
   <!-- /.row -->
 </div>

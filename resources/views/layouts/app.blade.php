@@ -15,13 +15,15 @@
    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="http://fonts.googleapis.com/css?family=Raleway:400,600,800" rel='stylesheet' type='text/css'>
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
     <link href="{{asset('css/progress-steps.css')}}" rel="stylesheet">
     <link href="{{asset('css/customize-style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/nav-sidebar.css')}}" rel="stylesheet">    
+
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,600,800" rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/
     font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

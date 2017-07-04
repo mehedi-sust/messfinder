@@ -38,11 +38,11 @@ if(file_exists( public_path() . $link) )
     <div class="item">
         <img src="'.$url.'" alt="New York" >
         ';?>
-        <div class="carousel-caption" style="color: #00e6e6; text-shadow: 2px 2px 5px black;" >
-          <h3>{{$data->mess_name}}</h3></span>
-          <span class= "glyphicon glyphicon-map-marker"><h4>{{$data->mess_location}}</h4></span>
-          <h4>Vacant Seat : {{$data->vacant_seat}}</h4>
-          <h4>Total Seat : {{$data->total_seat}}</h4>
+        <div class="carousel-caption" style="color: #00e6e6;" text-shadow: 2px 2px 5px black;" >
+          <h3>{{$data->mess_name}}</h3>
+          <h3 class="index_mess_details"><i class="material-icons">place</i>{{$data->mess_location}}</h3>
+          <h3 class="index_mess_details"><i class="material-icons">people</i>{{$data->total_seat}}</h3>
+          <h3 class="index_mess_details"><i class="material-icons">help</i>{{$data->vacant_seat}} </h3>
         </div>
       </div>
       <?php
