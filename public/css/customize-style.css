@@ -40,6 +40,16 @@ index.html
 	margin-top:-140px;
 }
 
+.index_mess_details{
+  font-family: "Times New Roman", Times, serif;
+  display:inline;
+  padding: 7px;
+}
+
+.carousel-caption{
+  bottom: 45px;
+}
+
 /*
 ==================
 search_result.html
