@@ -137,6 +137,7 @@ div.polaroid {
 }
 
 div.container {
+  width: 80%;
   text-align: center;
   padding: 10px 20px;
 }

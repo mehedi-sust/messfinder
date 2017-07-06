@@ -142,12 +142,6 @@
       <!-- break -->
       <div class="col-md-1 col-sm-6 col-xs-12">
         <div class="widget">
-            <h5><a href="#">List Mess</a></h5>
-        </div>
-      </div>
-      <!-- break -->
-      <div class="col-md-1 col-sm-6 col-xs-12">
-        <div class="widget">
           <h5><a href="#">About</a></h5>
         </div>
       </div>
