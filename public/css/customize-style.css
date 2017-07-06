@@ -179,11 +179,31 @@ add_member_info.blade.php
 
 /*
 =========================
-add_member_info.blade.php
+add_mess_feature.blade.php
 =========================
 */
 #add_mess_feature_finish_btn{
 	margin-top:25px;
+}
+
+
+/*
+============================
+update_cover_photo.blade.php
+============================
+*/
+#cover_photo_update_form{
+  margin:50px;
+}
+
+/*
+============================
+change_manager.blade.php
+============================
+*/
+
+#change_manager_content{
+  margin:50px;
 }
 
 /*

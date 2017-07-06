@@ -44,7 +44,7 @@ class PageController extends Controller{
 		$mess_id = Auth::user()->mess_id;
 		$mess = DB::table('basic_mess_info')->select()->where('mess_id','=',$mess_id)->get();
 		$room = DB::table('room_info')->select('*')->where('mess_id','=',$mess_id)->get();
-		echo $mess_id;
+		//echo $mess_id;
 		return view('add_room_info',['mess'=> $mess])->with(['room'=>$room]);
 	}
 
@@ -70,6 +70,12 @@ class PageController extends Controller{
 
 	public function show_upload_photo(){
 		return view('upload_photo');
+	}
+
+	public function show_update_photo(){
+		$mess_id = Auth::user()->mess_id;
+		$mess_info = DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
+		return view('update_cover_photo')->with(['mess_info'=>$mess_info]);
 	}
 
 	public function get_upload_add(){

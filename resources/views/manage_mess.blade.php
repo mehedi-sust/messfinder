@@ -13,7 +13,7 @@
               <h2>Manage Mess</h2>
             </div>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ route('index') }}">Home</a></li>
               <li class="active">Manage Mess</li>
             </ol>
           </div>
@@ -38,7 +38,7 @@
               <a href="edit_room_info" class="list-group-item">Edit Room Information</a>
               @endif
               @endforeach
-              <a href="add_member" class="list-group-item">Update Mess Member List</a>
+              <a href="edit_mess_member" class="list-group-item">Update Mess Member List</a>
               <a href="update_mess_feature" class="list-group-item">Update Mess Features</a>
               <a href="upload_photo" class="list-group-item">Change Mess Cover Photo</a>
               <a href="change_manager" class="list-group-item">Change Manager</a>

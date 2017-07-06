@@ -267,7 +267,7 @@ public function insert_room(Request $request){
             ->get();
             
      return view('search_result')->with(['mess'=>$mess])->with(['location'=>$location]);
-        echo "success";
+        //echo "success";
         
    }
 
@@ -315,8 +315,9 @@ public function insert_room(Request $request){
 
    public function edit_room_info(){
     $mess_id = Auth::user()->mess_id;
+    $mess_info= DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
     $room_info= DB::table('room_info')->where('mess_id','=',$mess_id)->get();
-    return view('edit_mess_room_info')->with(['room_info'=>$room_info]);
+    return view('edit_mess_room_info')->with(['room_info'=>$room_info])->with(['mess_info'=>$mess_info]);
    }
 
    public function edit_single_room_info($room_id, $total_seat, $vacant_seat, $cost, $add_info){
@@ -386,9 +387,7 @@ public function insert_room(Request $request){
       DB::table('basic_mess_info')->where ('mess_id','=',$mess_id)->decrement('vacant_seat');  //DB::insert('insert into mess_members (mess_id, room_id,reg,vacant_from) values(?,?,?,?)',[$mess_id,$room_id,$reg,$date]);
     }
     
-    
-    
-    return view('edit_mess_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
+    return view('edit_mess_member')->with(['room'=>$room])->with(['member_info'=>$member_info])->with(['mess'=>$mess]);
    
    }
 
@@ -428,7 +427,7 @@ public function room_info_update(Request $request){
     //}
     Session::flash('success','Room Information was updated with success!');
     //return view('edit_room_info');
-      echo "cost".$cost;
+      //echo "cost".$cost;
 }
 
 public function manager_change(){
@@ -529,8 +528,9 @@ public function mess_feature_deleted(Request $delete_mess_feature){
 public function update_mess_feature(){
   //$mess_id = Auth::user()->mess_id; 
   $mess_id = Auth::user()->mess_id;
+  $mess_info= DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->get();
   $current_features = DB::table('mess_features')->where('mess_id','=',$mess_id)->get();
-  return view('update_mess_feature')->with(['current_features'=>$current_features]);
+  return view('update_mess_feature')->with(['current_features'=>$current_features])->with(['mess_info'=>$mess_info]);
 }
 
 public function update_mess_feature_added(Request $add_mess_feature){

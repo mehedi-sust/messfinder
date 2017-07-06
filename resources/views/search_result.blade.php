@@ -2,15 +2,15 @@
 
 @section('content')
 
-<div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+<div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
-            <div class="page-title">
+            <div class="page-title" style="margin-bottom: 10px">
               <h2>Search Result</h2>
             </div>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ route('index') }}">Home</a></li>
               <li class="active">Search Result</li>
             </ol>
           </div>
@@ -21,13 +21,11 @@
 
 <!-- begin:quick search-->
 <div class="content" id="search_result_quick_search">
-    <div class="container">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-11 col-md-offset-1">
             <div class="quick-search">
-              <div class="row">
                 <form role="form" class="form-inline">
-                   <div class="form-group col-md-offset-2">
+                  <div class="form-group">
                   <select class="form-control" id="area" name="area">
                   <option value="Location">Location</option>
                     @foreach($location as $data)
@@ -35,6 +33,7 @@
 
                     @endforeach
                   </select>
+                  </div>
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Vacant Seat" id="vacant_seat" name="vacant_seat">
                 </div>
@@ -56,16 +55,13 @@
               </div>
                 <input type="submit" name="submit" value="Search" class="btn btn-success">
                 </form>
-              </div>
             </div>
           </div>
         </div>
-    </div>
 </div>
     <!-- end:quick search -->
 
 <div class="content" id="search_result_content">
-    <div class = "container">
         <div class = "row">
             <div class = "col-md-10 col-md-offset-1">
                 <table class="table table-striped" border='1' align = 'center'>
@@ -75,7 +71,7 @@
                         <th>Mess Name</th>
                         <th>Location</th>
                         <th>Distance(KM)</th>
-                </tr>
+                    </tr>
                 </thead>
 
             <tbody>   
@@ -99,7 +95,6 @@
             </tbody>
         </table>
         </div>
-        </div>
-    </div>
+        </div>    
 </div>
 @endsection

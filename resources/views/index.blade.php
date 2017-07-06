@@ -273,9 +273,7 @@ if(file_exists( public_path() . $link) )
           <div class="modal-footer">
             <p>Don't have account ? <a href="#modal-signup"  data-toggle="modal" data-target="#modal-signup">Sign up here.</a></p>
             <input type="submit" class="btn btn-success btn-block btn-lg" value="Sign in">
-            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
+            <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>
           </div>
         </div>
       </div>

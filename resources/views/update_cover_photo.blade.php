@@ -1,27 +1,29 @@
 @extends('layouts.app')
-        
-@section('content') 
 
-    <!-- begin:header -->
+@section('content')
+@if(Auth::check() and Auth::user()->type == "Manager")
+<!-- begin:header -->
     <div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
             <div class="page-title" style="margin-bottom: 10px">
-              <h2>Change Mess Manager</h2>
+              <h2>Update Cover Photo</h2>
             </div>
             <ol class="breadcrumb">
               <li><a href="{{ route('index') }}">Home</a></li>
-              <li class="active">Change Mess Manager</li>
+              <li class="active">Update Cover Photo</li>
             </ol>
           </div>
         </div>
       </div>
     </div>
     <!-- end:header -->
+ 
+   <!-- begin: photo  upload form -->
+  <div class="content" id="cover_photo_update_form">
+    <div class="row">
 
-<div class="content" id="change_manager_content">
-  <div class="row">
     <!-- begin: navigantion sidebar -->
     <div class="col-md-3">
       <div class="nav-side-menu">
@@ -29,7 +31,7 @@
         <!--
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
         -->
-              <div class="menu-list">
+            <div class="menu-list">
                 <ul id="menu-content" class="menu-content collapse out">
                     <li>
                       <a href="edit_mess" ><i class="fa fa-info-circle fa-lg"></i>Edit Mess Basic Information</a>
@@ -62,30 +64,41 @@
                       <a href="change_manager" ><i class="fa fa-user fa-lg" aria-hidden="true"></i>Change Manager</a>
                     </li>
                 </ul>
-              </div>
-           </div>
-        </div>
-    <!-- end: navigantion sidebar -->
-
-    <div class="col-md-5 col-md-offset-1">
-      <div class="panel panel-arillo">
-        <div class="panel-heading"><h4>Change Mess Manager</h4></div>
-          <div class="panel-body">
-            <form class="form-inline">
-                <div class="form-group">
-                    <select class="form-control" name="manager_name" id="manager_name">
-                    @foreach($users as $value)
-                    <option>{{$value->name}}</option>
-                    @endforeach
-                    </select>
-                </div>
-                <div class="form-group col-md-offset-1" id="submit_div">
-                    <input type="submit" class="btn btn-success" value="Make Manager">
-                </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>
+    <!-- end: navigantion sidebar -->
+
+      <div class="col-md-5 col-md-offset-1">
+        <div class ="panel panel-arillo">
+          <div class="panel-heading"><h4>Update Cover Photo</h4></div>
+            <div class="panel-body">
+		      <form action="uploaded" enctype="multipart/form-data" method="post">
+		      <!--
+		        <label for="image">Mess Banner</label>
+		        <input type="file" class="form-control" id="upload_image" name="image" >
+		        <input type="submit" value="Upload" class="btn btn-success" >
+               -->
+		        <div class="form-group">
+                  <label for="upload_image">Mess Banner</label>
+                  <input type="file" class="form-control" id="upload_image" name="image">
+                </div>
+
+                <div class="form-group col-md-offset-5">
+                  <input type="submit" value="Upload" class="btn btn-success" >
+                </div>
+		        {{csrf_field() }}
+		      </form>
+        	</div>
+         <!--/.panel-body-->
+      </div>
+      <!--/.panel-arillo-->
+    </div>
+    <!--/.col-md-10 col-md-offset-1-->
   </div>
-    @endsection
+  <!--/.row-->
+</div>
+<!--/.content-->
+<!-- end: photo  upload form -->
+@endif
+@endsection

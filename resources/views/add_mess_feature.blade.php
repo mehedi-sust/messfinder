@@ -23,15 +23,15 @@
 
 @section('content')
 <!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+    <div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
-            <div class="page-title">
+            <div class="page-title" style="margin-bottom: 10px">
               <h2>Add Mess Features</h2>
             </div>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ route('index') }}">Home</a></li>
               <li class="active">Mess Features</li>
             </ol>
           </div>
@@ -134,6 +134,7 @@ if($i==0){
                     <thead>
                         <th>Feature Name</th>
                         <th class="right_aligned">Delete Feature</th>
+                        <th><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-feature">Add Feature</button></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -161,5 +162,30 @@ if($i==0){
     </div>
     <!-- /.content -->
   <!-- end:member list -->
+
+  <!-- begin:modal-add-feature -->
+    <div class="modal fade" id="modal-add-feature" tabindex="-1" role="dialog" aria-labelledby="modal-add-feature" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Add Feature</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-inline" action = "mess_feature_added" method="post"> 
+                 {{ csrf_field() }}       
+                    <div class="form-group col-md-offset-2">
+                        <label for="feature_name">Feature Name: </label>
+                        <input name="feature_name" class="form-control" id="feature_name">
+                    </div>
+                    <div class="form-group modal-footer">
+                        <button class="btn btn-success">Add</button>
+                    </div>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    <!-- end:modal-add-feature -->   
 @endsection
 

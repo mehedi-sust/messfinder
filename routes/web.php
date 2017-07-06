@@ -14,6 +14,7 @@ Route::resource('messes','MessController');
 Route::get('show_map','MessController@Show_map');
 Route::get('change_manager','AdminController@get_change_manager');
 Route::get('upload_photo','PageController@show_upload_photo')->name('upload_photo');
+Route::get('update_cover_photo','PageController@show_update_photo')->name('update_cover_photo');
 Route::post('update_room_info','MessController@room_info_update');
 Route::post('mess_info_updated','MessController@mess_info_updated');
 Route::get('mess_info_home','PageController@get_mess_info_home');

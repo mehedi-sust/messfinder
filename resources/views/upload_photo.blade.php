@@ -3,15 +3,15 @@
 @section('content')
 @if(Auth::check() and Auth::user()->type == "Manager")
 <!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+    <div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
-            <div class="page-title">
+            <div class="page-title" style="margin-bottom: 10px">
               <h2>Create Mess</h2>
             </div>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ route('index') }}">Home</a></li>
               <li class="active">Create Mess</li>
             </ol>
           </div>
@@ -64,9 +64,9 @@
 
  
    <!-- begin: photo  upload form -->
-  <div class="content">
+  <div class="content" id="cover_photo_update_form">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-5 col-md-offset-1">
         <div class ="panel panel-arillo">
           <div class="panel-heading"><h4>Upload Cover Photo</h4></div>
             <div class="panel-body">

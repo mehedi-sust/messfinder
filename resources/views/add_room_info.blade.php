@@ -2,15 +2,15 @@
 
 @section('content')
 <!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+    <div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
-            <div class="page-title">
+            <div class="page-title" style="margin-bottom: 10px">
               <h2>Create Mess</h2>
             </div>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ route('index') }}">Home</a></li>
               <li class="active">Create Mess</li>
             </ol>
           </div>
@@ -27,7 +27,7 @@
 @endif 
 
 <!-- begin:progress steps -->
-<div class="container">
+<div class="container col-md-offset-1">
     <div class="row bs-wizard" style="border-bottom:0;">
         <div class="col-xs-2 bs-wizard-step complete">
           <div class="text-center bs-wizard-stepnum">Step 1</div>
@@ -70,7 +70,7 @@
 <!-- begin:room info form -->
 <div class="content" id="room_info_content">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-9 col-md-offset-2">
     <!--
       <h2 class="page-header text-center" style="text-align: center">Room Information</h2>
     -->
@@ -90,17 +90,17 @@
             
             <div class="form-group">
                 <label for="seat_no">No. of Seat: </label>
-                <input type="text" class="form-control input-lg" name="seat_no[]" id="seat_no" required>
+                <input type="text" class="form-control" name="seat_no[]" id="seat_no" required>
             </div>
 
             <div class="form-group">
                 <label for="fare">Rent: </label>
-                <input type="text" class="form-control input-lg" name="fare[]" id="fare" required>
+                <input type="text" class="form-control" name="fare[]" id="fare" required>
             </div>
              
             <div class="form-group">
                 <label for="more_info">More Information: </label>
-                <textarea type="text" class="form-control input-lg" rows="3" name="more_info[]" id="more_info" placeholder="Enter additional information here..." required></textarea>
+                <textarea type="text" class="form-control" rows="3" name="more_info[]" id="more_info" placeholder="Enter additional information here..." required></textarea>
             </div>
 
             <div class="form-group col-xs-offset-5" id="add_room_info_btn">

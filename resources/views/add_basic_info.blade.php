@@ -8,15 +8,15 @@ Sorry You cannot access this Page. Please Log in first.
 @elseif(Auth::check() and Auth::user()->mess_id == 0)
 @section('content')
 <!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+    <div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
-            <div class="page-title">
+            <div class="page-title" style="margin-bottom: 10px">
               <h2>Create Mess</h2>
             </div>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
+              <a href="{{ route('index') }}">Home</a></li>
               <li class="active">Create Mess</li>
             </ol>
           </div>

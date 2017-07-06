@@ -15,6 +15,7 @@
    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
@@ -96,12 +97,13 @@
                                     </li> 
                                     @endif
                                     @if(Auth::user()->type == "Manager")
-                                    <li><a href="http://localhost:8000/manage_mess">
+                                    <li><a href="http://localhost:8000/edit_mess">
                                         Manage My Mess
                                         </a>
                                     </li>
                                     @endif
-                                    </li>
+                                    </ul>
+                                </li>
                                     <li class = "divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -114,9 +116,11 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                </ul>
+            </ul>
+                            <!--
                             </li>
-                        @endif
+                            -->
+            @endif
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
@@ -181,29 +185,11 @@
 </div>
 <!-- end:footer -->
 
-<style type="text/css">
-    .container2 {
-        margin-left: 10%;
-        margin-top: 10%;
-        margin-right: 10%;
-        margin-bottom: 10%;
-    }
-    .container3 {
-        padding: 8%;
-        margin-left: 10%;
-        
-    }
-    textarea{
-        resize:none;
-    }
-</style>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
-     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
     <script src="{{ asset('js/gmap3.min.js') }}"></script>
     <script src="{{ asset('js/jquery.easing.js') }}"></script>
     <script src="{{ asset('js/jquery.jcarousel.min.js') }}"></script>
@@ -213,7 +199,10 @@
     <script src="{{ asset('js/jquery.backstretch.js') }}"></script>
     <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
-     
+
+    
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js') }}"></script> 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js') }}"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}"></script>
     <!-- Customized JavaScript for different pages

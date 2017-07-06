@@ -1,15 +1,15 @@
    @extends('layouts.app')
    @section('content')
     <!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+    <div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
-            <div class="page-title">
+            <div class="page-title" style="margin-bottom: 10px">
               <h2>Edit Mess Information</h2>
             </div>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ route('index') }}">Home</a></li>
               <li class="active">Edit Mess Info</li>
             </ol>
           </div>
@@ -18,7 +18,7 @@
     </div>
     <!-- end:header -->
  
-  <!-- begin: add member form -->
+  <!-- begin: update single room info form -->
   <div class="content" id="add_member_content_form">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -63,7 +63,7 @@
      <!-- /.row -->
    </div>
    <!-- /.content -->
-   <!-- end:add member form -->
+   <!-- end: update single room info form -->
    
    <!-- begin:footer -->
 <div id="footer">
