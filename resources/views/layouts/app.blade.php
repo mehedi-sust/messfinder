@@ -102,8 +102,7 @@
                                         </a>
                                     </li>
                                     @endif
-                                    </ul>
-                                </li>
+                                
                                     <li class = "divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -116,6 +115,8 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                </ul>
+                            </li>
             </ul>
                             <!--
                             </li>
