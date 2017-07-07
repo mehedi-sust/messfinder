@@ -11,6 +11,8 @@
 |
 */
 Route::resource('messes','MessController');
+Route::get('new_user_list','AdminController@get_new_user_list');
+Route::get('new_mess_list','AdminController@get_new_mess_list');
 Route::get('show_map','MessController@Show_map');
 Route::get('change_manager','AdminController@get_change_manager');
 Route::get('upload_photo','PageController@show_upload_photo')->name('upload_photo');
