@@ -81,9 +81,9 @@ if($i==0){
                 <div class="form-group">
                     <label for="sel1">Room No.:</label>
                     <select class="form-control" id="sel1" name="room_id">
-                        @foreach($room as $room)
-                            @if($room->vacant_seat > 0)
-                            <option value ="{{$room->room_id}}" > Room {{$room->room_id}}</option>
+                        @foreach($room as $value)
+                            @if($value->vacant_seat > 0)
+                            <option value ="{{$value->room_id}}" > Room {{$value->room_id}}</option>
                             @endif
                         @endforeach
                     </select>
@@ -174,7 +174,7 @@ if($i==0){
                     <label for="sel1">Room No.:</label>
                     <select class="form-control" id="sel1" name="room_id">
                         @foreach($room as $room)
-                            @if($room->vacant_seat > 0)
+                            @if( $room->vacant_seat > 0)
                             <option value ="{{$room->room_id}}" > Room {{$room->room_id}}</option>
                             @endif
                         @endforeach
@@ -202,8 +202,5 @@ if($i==0){
       </div>
     <!-- end:modal-add-member -->   
 @endsection
-
-@endsection
-
 
 

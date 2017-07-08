@@ -197,12 +197,14 @@ public function insert_room(Request $request){
   }
     //echo $seat[4]."<br>";
 
-    $room = DB::table('room_info')->where('mess_id','=',$mess_id)->get();
+    $room = DB::table('room_info')->select('*')->where('mess_id','=',$mess_id)->get();
    
     $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->orderBy('room_id')->get();
-    
+    DB::table('basic_mess_info')->where('mess_id','=',$mess_id)->update(['room_info'=>'yes']);
   
     return view('add_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
+
+   //return view('add_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
       
    }
 
