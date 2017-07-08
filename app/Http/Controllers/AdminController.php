@@ -20,7 +20,15 @@ class AdminController extends Controller
         $total_seat = DB::table("basic_mess_info")->sum('total_seat');
         $vacant_seat = DB::table("basic_mess_info")->sum('vacant_seat');
         $mess_member = DB::table('mess_members')->count();
-        return view('admin/admin_home',['users'=>$users])->with(['mess'=>$mess])->with(['total_seat'=>$total_seat])->with(['vacant_seat'=>$vacant_seat])->with(['mess_member'=>$mess_member]);
+        $new_members = DB::table('users')
+            ->select('name','reg','mobile','type','password','mess_id')
+            ->where('created_at','<','last_log_in_at')->count();
+
+        $new_mess = DB::table('basic_mess_info','users')
+            ->select('basic_mess_info.*','users.last_log_in_at')
+            ->where('basic_mess_info.created_at','<','last_log_in_at')->count();
+        
+        return view('admin/admin_home',['users'=>$users])->with(['mess'=>$mess])->with(['total_seat'=>$total_seat])->with(['vacant_seat'=>$vacant_seat])->with(['mess_member'=>$mess_member])->with(['new_members'=>$new_members])->with(['new_mess'=>$new_mess]);
     }
 
     /**
@@ -115,11 +123,44 @@ class AdminController extends Controller
             ->select('users.name','users.reg','users.mobile','users.type','users.password','users.mess_id', 'mess_members.*')
             ->simplePaginate(2);
         */
+
             $user=DB::table('users')
             ->select('name','reg','mobile','type','password','mess_id')
             ->simplePaginate(2);
         return view('user_list',['user' => $user]);
     }
+
+
+
+    public function get_new_user_list(){
+        /*$user=DB::table('users')
+            ->join('mess_members', 'users.reg', '=', 'mess_members.reg')
+            ->select('users.name','users.reg','users.mobile','users.type','users.password','users.mess_id', 'mess_members.*')
+            ->simplePaginate(2);
+        */
+            $user=DB::table('users')
+            ->select('name','reg','mobile','type','password','mess_id')
+            ->where('created_at','<','last_log_in_at')
+            ->orderBy('created_at','desc')
+            ->simplePaginate(2);
+        return view('user_list',['user' => $user]);
+    }
+
+
+     public function get_new_mess_list(){
+            $new_mess = DB::table('basic_mess_info','users')
+            ->select('basic_mess_info.*','users.last_log_in_at')
+            ->where('basic_mess_info.created_at','<','last_log_in_at')->count();
+            echo $new_mess;
+            $mess= DB::table('basic_mess_info')->orderBy('created_at','desc')->limit($new_mess)->simplePaginate(2);
+
+
+            /*$mess= DB::table('basic_mess_info')->orderBy('created_at','desc')->limit(0)->count();
+            echo $mess;
+*/
+        return view('mess_list',['mess' => $mess]);
+    }
+
 
     public function upload_ad(Request $req){
     if($req->hasFile('image1') || $req->hasFile('image2') || $req->hasFile('image3') || $req->hasFile('image4') ){
