@@ -48,7 +48,7 @@ Route::post('uploaded','MessController@upload_img');
 Route::post('uploaded_ad','AdminController@upload_ad');
 Route::get('add_location','AdminController@get_add_location');
 Route::get('show_image','MessController@show_image');
-Route::get('admin_home','AdminController@index');
+Route::get('admin_home','AdminController@index')->name('admin_home');
 Route::get('manage_mess','PageController@get_manage_mess')->name('manage_mess');
 Route::get('edit_mess_member','MessController@get_edit_mess_member');
 Route::post('edit_mess_member','MessController@get_edit_mess_member');

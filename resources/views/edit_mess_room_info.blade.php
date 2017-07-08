@@ -144,7 +144,7 @@
                 <textarea type="text" class="form-control" rows="2" id="additional_info" value = "{{$room_info["add_info"]}}" name="add_info" ></textarea>
               </div>
               <div class="form-group" id="next_div">
-                <button type="submit" class="btn btn-primary" id="next_button">Update</button>
+                <button type="submit" class="btn btn-primary" id="next_button" data-dismiss="modal">Update</button>
               </div>
               </form>
           </div>

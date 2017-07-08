@@ -149,6 +149,7 @@ if($i==0){
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         </form>
                         </td>
+                        <td></td>
                         </tr>
                     @endforeach
                     </tbody>

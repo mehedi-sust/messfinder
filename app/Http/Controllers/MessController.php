@@ -201,7 +201,6 @@ public function insert_room(Request $request){
    
     $member_info= DB::table('mess_members')->where('mess_id','=',$mess_id)->orderBy('room_id')->get();
     
-  
     return view('add_member')->with(['room'=>$room])->with(['member_info'=>$member_info]);
       
    }

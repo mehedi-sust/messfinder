@@ -144,6 +144,7 @@ foreach ($current_features as $value) {
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         </form>
                         </td>
+                        <td></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -167,7 +168,7 @@ foreach ($current_features as $value) {
             <h4 class="modal-title">Add Feature</h4>
           </div>
           <div class="modal-body">
-            <form class="form-inline" action = "mess_feature_added" method="post"> 
+            <form class="form-inline" action = "update_mess_feature_added" method="post"> 
                  {{ csrf_field() }}       
                     <div class="form-group col-md-offset-2">
                         <label for="feature_name">Feature Name: </label>

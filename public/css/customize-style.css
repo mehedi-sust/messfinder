@@ -136,7 +136,7 @@ div.polaroid {
   margin-bottom: 25px;
 }
 
-div.container {
+#mess_profile_image_caption {
   width: 80%;
   text-align: center;
   padding: 10px 20px;

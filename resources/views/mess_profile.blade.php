@@ -13,7 +13,7 @@
     echo "<img src='".$url."' id=\"mess_cover_photo\"/>";
    // echo "<img src='/storage/advertisement_1.jpg' id=\"mess_cover_photo\"/>";
 ?>
-<div class="container">
+<div class="container" id="mess_profile_image_caption">
     <h4>{{$value->mess_name}}</h4>
   </div>
 </div>
