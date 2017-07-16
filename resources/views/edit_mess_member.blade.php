@@ -30,7 +30,7 @@ if($i==0){
 
 
   <!-- begin: edit member form -->
-  <!--
+  
   <div class="content" id="add_member_content_form">
     <div class="row">
       <div class="col-md-9 col-md-offset-1">
@@ -64,13 +64,12 @@ if($i==0){
                 </div>
                 {{csrf_field() }}
             </form>
-          <a href = "{{ route('add_mess_feature')}}" class="btn btn-success col-md-offset-5" id="add_member_next_btn">Next</a>
         </div>
       </div>
     </div>
   </div>  
 </div>
--->
+
 <!-- end:edit member form -->
   
   <!-- begin:member list -->
@@ -170,47 +169,7 @@ if($i==0){
   <!-- /.content -->
   <!-- end:member list -->
 
-  <!-- begin:modal-add-member -->
-    <div class="modal fade" id="modal-add-member" tabindex="-1" role="dialog" aria-labelledby="modal-add-member" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Add Member</h4>
-          </div>
-          <div class="modal-body">
-            <form class="form-inline" id="member_infor_form" action="edit_mess_member" method="post">
-                <div class="form-group">
-                    <label for="sel1">Room No.:</label>
-                    <select class="form-control" id="sel1" name="room_id">
-                        @foreach($room as $room)
-                            @if($room->vacant_seat > 0)
-                            <option value ="{{$room->room_id}}" > Room {{$room->room_id}}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                </div>
 
-                <div class="form-group">
-                    <label for="reg_no"> Reg. No.: </label>
-                    <input type="text" class="form-control" name="reg_no" id="reg_no">
-                </div>
-
-                <div class="form-group">
-                <label>Vacant from :</label>
-                <input  type="text" class="form-control" id="vacant_start_month" name="vacant_from" />
-                </div>
-
-                <div class="form-group modal-footer">
-                    <button class="btn btn-success" type="submit" data-dismiss="modal">Add</button>
-                </div>
-                {{csrf_field() }}
-            </form>
-          </div>
-          </div>
-        </div>
-      </div>
-    <!-- end:modal-add-member -->   
 @endsection
 
 

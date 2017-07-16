@@ -6,6 +6,10 @@ $(document).ready(function(){
             " <input type=\"text\" class=\"form-control\" name=\"seat_no[]\" id=\"seat_no\">" +
         "<\/div>" +
         " <div class=\"form-group\">" +
+            "<label for=\"vacant_seat_no\"> Vacant Seat: <\/label>" +
+            " <input type=\"text\" class=\"form-control\" name=\"vacant_seat_no[]\" id=\"vacant_seat_no\">" +
+        "<\/div>" +
+        " <div class=\"form-group\">" +
             " <label for=\"fare\"> Rent: <\/label>" +
             " <input type=\"text\" class=\"form-control\" name=\"fare[]\" id=\"fare\">" +
         "<\/div>" +         

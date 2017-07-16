@@ -92,6 +92,10 @@
                 <label for="seat_no">No. of Seat: </label>
                 <input type="text" class="form-control" name="seat_no[]" id="seat_no" required>
             </div>
+            <div class="form-group">
+                <label for="vacant_seat_no">Vacant Seat: </label>
+                <input type="text" class="form-control" name="vacant_seat_no[]" id="vacant_seat_no" required>
+            </div>
 
             <div class="form-group">
                 <label for="fare">Rent: </label>
@@ -100,7 +104,7 @@
              
             <div class="form-group">
                 <label for="more_info">More Information: </label>
-                <textarea type="text" class="form-control" rows="3" name="more_info[]" id="more_info" placeholder="Enter additional information here..." required></textarea>
+                <textarea type="text" class="form-control" rows="3" name="more_info[]" id="more_info" placeholder="Enter additional information here.Enter N/A if nothing to add." required></textarea>
             </div>
 
             <div class="form-group col-xs-offset-5" id="add_room_info_btn">

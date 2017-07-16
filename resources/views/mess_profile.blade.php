@@ -105,66 +105,33 @@
                 <!--/.table-responsive-->
             </div>
             <!--/.panel panel-arillo-->
-           
-        <div class="panel panel-arillo">
-          <div class="panel-heading"><h4>Members Information</h4></div> 
-            <div class="table-responsive">
-              <table class="table table-striped table-bordered">
-                <thead>
-                  <tr>
-                    <th>Room No.</th>
-                    <th>Reg no.</th>
-                    <th>Name</th>
-                    @if(Auth::check() && Auth::user()->type == 'Admin')
-                    <th>Mobile</th>
-                    @endif
-                    <th>Vacant From</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($member as $value)
-                  <tr>
-                    <td>Room {{$value->room_id}}</td>
-                    <td>{{$value->reg}}</td>
-                    <td>{{$value->name}}</td>
-                    @if(Auth::check() && Auth::user()->type == 'Admin')
-                    <td>{{$value->mobile}}</td>
-                    @endif
-                    <td></td>
-                  </tr>
-                  @endforeach
-                </tbody>
-              </table>
-          </div>
-          <!--/.table responsive-->
-        </div>
-        <!--/.panel panel-arillo-->
 
-                       
           <div class="panel panel-arillo">
            <div class="panel-heading"><h4>Room Information</h4></div> 
                 <div class="container">
-                    <ul class="nav nav-pills">
+                  <div class ="row">
+                    <div class="col-md-3" id="nav_pill_container">
+                    <ul class="nav nav-pills nav-stacked">
                         @foreach($room as $value)
                         <?php 
                             $id = $value->room_id;
-                            $link = "<a href='#room".$id."' data-toggle='tab'>";
+                            $link = "<a href='#room".$id."' data-toggle='pill'><strong>";
                             if($id==1){
                         ?>
                         <li class="active">
                         <?php }
                         else echo"<li>";
                            echo $link; ?>
-                            Room {{$value->room_id}}</a>
+                            Room {{$value->room_id}}</strong></a>
                         </li>
                         @endforeach
                     </ul>
-                </div>
-                <!--/.container-->
+                   </div>
+                   <!--/.col-md-3-->
                     <!--
                     <div class="row">
-                        <div class="col-md-12">
-                        -->
+                    -->
+                        <div class="col-md-5">
                             <div class="tab-content clearfix">
                             @foreach ($room as $value)
                             <?php
@@ -177,7 +144,8 @@
                              echo $link;
                             ?>
                                     <div class="table-responsive">
-                                        <table class="table custom-table">
+                                        <table class="table custom-table table-striped table-bordered">
+                                        <caption><h4>Room Details</h4></caption>
                                         <tbody>
                                             <tr>
                                                 <td><strong>Total Seat:</strong></td>
@@ -218,9 +186,15 @@
                                 @endforeach
                            </div>
                             <!--/.tab-content clearfix-->
+                            </div>
+                            <!--/.col-md-8-->
+                            </div>
+                            <!--/.row-->
+                            </div>
+                <!--/.container-->
                           </div>
                         </div>
-                       <!--/.col-md-5-->
+                       <!--/.col-md-8-->
                     </div>
                     <!--/.row-->
                 </div>

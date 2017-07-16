@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
+<div id="header" class="heading" style="background-image: url(/img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">

@@ -5,8 +5,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+            <div class="panel panel-arillo">
+                <div class="panel-heading"><h4>Register</h4></div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
@@ -28,10 +28,20 @@
 
                         <div class="form-group{{ $errors->has('reg') ? ' has-error' : '' }}">
                         
-                            <label for="reg" class="col-md-4 control-label">Reg. No</label>
-
+                            <label for="reg" class="col-md-4 control-label"></label>
                             <div class="col-md-6">
-                                <input id="reg" type="text" class="form-control" name="reg" placeholder="e.g 2012331002" value="{{ old('reg') }}" required autofocus>
+                                <span>
+                                <strong>If you are a property manager give a Username.</strong><br>
+                                <strong>If you are a student give your Reg. No.</strong>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group{{ $errors->has('reg') ? ' has-error' : '' }}">
+                        
+                            <label for="reg" class="col-md-4 control-label">Username or Reg. No</label>
+                            <div class="col-md-6">
+                                <input id="reg" type="text" class="form-control" name="reg" value="{{ old('reg') }}" required autofocus>
 
                                 @if ($errors->has('reg'))
                                     <span class="help-block">
@@ -95,8 +105,21 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="user-type" class="col-md-4 control-label">User Type</label>
+
+                            <div class="col-md-6">
+                                <div class="radio">
+                                    <label><input type="radio" name="user-type" required>Property Manager</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="user-type" required>Student</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-success btn-lg btn-lg">
+                                <button type="submit" class="btn btn-success btn-lg">
                                     Sign up
                                 </button>
                             </div>

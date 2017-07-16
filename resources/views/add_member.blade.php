@@ -10,7 +10,7 @@
             </div>
             <ol class="breadcrumb">
               <li><a href="{{ route('index') }}">Home</a></li>
-              <li class="active">Add Member</li>
+              <li class="active">Add Mess Member</li>
             </ol>
           </div>
         </div>
@@ -147,6 +147,7 @@ if($i==0){
                   <input type="submit" value="Delete" class="btn btn-danger" >
                 </form>
                 </td>
+                <td></td>
               </tbody>
               @endforeach
               </table>
@@ -169,7 +170,7 @@ if($i==0){
             <h4 class="modal-title">Add Member</h4>
           </div>
           <div class="modal-body">
-            <form class="form-inline" id="member_infor_form" action="edit_mess_member" method="post">
+            <form class="form-inline" id="member_infor_form" action="add_member" method="post">
                 <div class="form-group">
                     <label for="sel1">Room No.:</label>
                     <select class="form-control" id="sel1" name="room_id">
@@ -192,7 +193,7 @@ if($i==0){
                 </div>
 
                 <div class="form-group modal-footer">
-                    <button class="btn btn-success" type="submit" data-dismiss="modal">Add</button>
+                    <button class="btn btn-success" type="submit">Add</button>
                 </div>
                 {{csrf_field() }}
             </form>

@@ -13,7 +13,7 @@ Sorry You cannot access this Page. Please Log in first.
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
             <div class="page-title" style="margin-bottom: 10px">
-              <h2>Create Mess</h2>
+              <h2>Add Basic Information</h2>
             </div>
             <ol class="breadcrumb">
               <a href="{{ route('index') }}">Home</a></li>
@@ -87,14 +87,17 @@ Sorry You cannot access this Page. Please Log in first.
                     @endforeach
               </select>
             </div>
+
             <div class="form-group required">
              <label for="total_room" class="control-label">Total room</label>
              <input type="text" class="form-control input-lg" id="total_room" placeholder="Enter total number of rooms" name="total_room" required>
             </div>
+            <!--
             <div class = "form-group required">
              <label for="total_seat" class="control-label">Total Seat</label>
              <input type="text" class="form-control input-lg" id="total_seat" placeholder="Enter total number of seats" name="total_seat" required>
             </div>
+            -->
             <div class = "form-group required">
              <label for="campus_distance" class="control-label">Distance from campus (in KM)</label>
              <input type="text" class="form-control input-lg" id="campus_distance" name="distance" placeholder="Enter the distance of mess from campus">

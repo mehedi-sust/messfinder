@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
   <!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
+    <div id="header" class="heading" style="background-image: url(http://localhost:8000/img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
@@ -66,7 +66,7 @@
     </div>
     <!-- end: navigantion sidebar -->
     
-      <div class="col-md-8 col-md-offset-1">
+      <div class="col-md-9">
         <div class="panel panel-arillo">
           <div class="panel-heading"><h4>Room Information</h4></div>
               <table class="table table-striped">
@@ -85,16 +85,14 @@
               <tbody>
               @foreach($room_info as $data)
                 <tr>
+
                   <td>Room {{$data->room_id}}</td>
                   <td>{{$data->total_seat}}</td>
                   <td>{{$data->vacant_seat}}</td>
                   <td>{{$data->cost}}</td>
                   <td>{{$data->add_info}}</td>
                   <td>
-                    <a class="btn btn-info" href = "{{ route('edit_single_room_info', ['room_id' => $data->room_id, 'total_seat' => $data->total_seat, 'vacant_seat' =>$data->vacant_seat, 'cost'=>$data->cost, 'add_info'=>$data->add_info]) }}" id="edit_button">Edit</a>
-                  </td>
-                  <td>
-                    <a class="btn btn-info" data-toggle="modal" data-target="#modal-edit-room-info- {{ ['room_id' => $data->room_id, 'total_seat' => $data->total_seat, 'vacant_seat' =>$data->vacant_seat, 'cost'=>$data->cost, 'add_info'=>$data->add_info]) }}" id="edit_button">Edit Modal</a>
+                    <a class="btn btn-info" href = "{{ route('edit_single_room_info', ['room_id' => $data->room_id, 'total_seat' => $data->total_seat, 'vacant_seat' =>$data->vacant_seat, 'add_info'=>$data->add_info, 'cost'=>$data->cost]) }}" id="edit_button">Edit</a>
                   </td>
                 </tr>
               @endforeach
@@ -109,49 +107,6 @@
   </div>
   <!-- /.content -->
   <!-- end:room list -->
-
-  <!-- begin:modal-edit-room-info -->
-    <div class="modal fade" id="modal-edit-room-info" tabindex="-1" role="dialog" aria-labelledby="modal-edit-room-info" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Edit Room Information</h4>
-          </div>
-          <div class="modal-body">
-            <form id="room_info_form" action="/update_room_info_table" method="post">
-              {{csrf_field() }}
-    
-              <legend>Room {{$room_info["room_id"]}}</legend>
-
-              <div class="form-group">
-                <label for="seat_no">No. of Seat: </label>
-                <input type="text" class="form-control" id="seat_no" value = "{{$room_info["total_seat"]}}" name="seat_no"  >
-              </div>
-               
-              <div class="form-group">
-                <label for="vacant_seat">Vacant Seat: </label>
-                <input type="text" class="form-control" id="vacant_seat" value = "{{$room_info["vacant_seat"]}}" name="vacant_seat"  >
-              </div>
-
-              <div class="form-group">
-                <label for="fare">Rent: </label>
-                <input type="text" class="form-control" id="fare" value = "{{$room_info["cost"]}}" name="fare"  >
-              </div>
-               
-              <div class="form-group">
-                <label for="additonal_info">More Information: </label>
-                <textarea type="text" class="form-control" rows="2" id="additional_info" value = "{{$room_info["add_info"]}}" name="add_info" ></textarea>
-              </div>
-              <div class="form-group" id="next_div">
-                <button type="submit" class="btn btn-primary" id="next_button" data-dismiss="modal">Update</button>
-              </div>
-              </form>
-          </div>
-          </div>
-        </div>
-      </div>
-    <!-- end:modal-edit-room-info -->   
 @endsection
 
 

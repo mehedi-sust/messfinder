@@ -4,7 +4,7 @@
 
 @if(Auth::check() and Auth::user()->type == "Manager")
     <!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
+    <div id="header" class="heading" style="background-image: url(/img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
@@ -90,9 +90,10 @@
                     <option>Topobon</option>
                     <option>Khuliapara</option>
                     <option>Surma</option>
-                    <option value="Modina Market" >Modina Market</option>
+                    <option value="Modina Market">Modina Market</option>
               </select>
             </div>
+            <!--
             <div class="form-group required">
              <label for="total_room" class="control-label" >Total room</label>
              <input type="text" class="form-control" id="total_room" placeholder="Enter total number of rooms" name="total_room"  value = "{{$data->total_room}}"  required>
@@ -101,6 +102,7 @@
              <label for="total_seat" class="control-label">Total Seat </label>
              <input type="text" class="form-control" id="total_seat" placeholder="Enter total number of seats" name="total_seat" value = "{{$data->total_seat}}" required>
             </div>
+            -->
             <div class = "form-group required">
              <label for="campus_distance" class="control-label">Distance from campus (in KM)</label>
              <input type="text" class="form-control" id="campus_distance" name="distance" placeholder="Enter the distance of mess from campus" value = "{{$data->distance}}">
@@ -120,11 +122,11 @@
   </div>
   <!-- /.row -->
 </div>
-
+<!-- /.content -->
+<!-- end:form -->
 @else
 
 <h2> ERROR!!! You can not access this page.</h2>
 @endif
-<!-- /.content -->
-<!-- end:form -->
+
 @endsection

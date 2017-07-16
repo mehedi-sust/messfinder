@@ -1,7 +1,7 @@
    @extends('layouts.app')
    @section('content')
     <!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url(img/img01.jpg); min-height:120px; height:175px">
+    <div id="header" class="heading" style="background-image: url(/img/img01.jpg); min-height:120px; height:175px">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-sm-12">
@@ -30,6 +30,8 @@
     
               <legend>Room {{$room_info["room_id"]}}</legend>
 
+              <input type="hidden" class="form-control" id="room_id" value = "{{$room_info["room_id"]}}" name="room_id">
+
               <div class="form-group">
                 <label for="seat_no">No. of Seat: </label>
                 <input type="text" class="form-control" id="seat_no" value = "{{$room_info["total_seat"]}}" name="seat_no"  >
@@ -47,7 +49,7 @@
                
               <div class="form-group">
                 <label for="additonal_info">More Information: </label>
-                <textarea type="text" class="form-control" rows="2" id="additional_info" value = "{{$room_info["add_info"]}}" name="add_info" ></textarea>
+                <textarea type="text" class="form-control" rows="2" id="additional_info" name="add_info" >{{$room_info["add_info"]}}</textarea>
               </div>
               <div class="form-group" id="next_div">
                 <button type="submit" class="btn btn-primary" id="next_button">Update</button>

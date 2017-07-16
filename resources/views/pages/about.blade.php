@@ -1,6 +1,25 @@
 @extends('layouts.app')
-
+    
+    @section('content')
     <!-- Page Content -->
+
+    <!-- begin:header -->
+    <div id="header" class="heading" style="background-image: url(http://localhost:8000/img/img01.jpg); min-height:120px; height:175px">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-12">
+            <div class="page-title" style="margin-bottom: 10px">
+              <h2>About Us</h2>
+            </div>
+            <ol class="breadcrumb">
+              <li><a href="{{ route('index') }}">Home</a></li>
+              <li class="active">About Us</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:header -->
     <div class="container">
 
         <!-- Introduction Row -->
@@ -9,7 +28,7 @@
                 <h1 class="page-header">About 
                     <small>MessFinder</small>
                 </h1>
-                <p>Web Engineering course project.</p>
+                <p>Web Engineering Course Project.</p>
             </div>
         </div>
 
@@ -23,7 +42,7 @@
                 <h3>Raihan Ahmed
                     <small>Reg: 2012331020</small>
                 </h3>
-                <p>E-mail: raihan.sust20@student.sust.edu</p>
+                <p>E-mail: raihan_sust20@student.sust.edu</p>
             </div>
             <div class="col-lg-4 col-sm-6 text-center">
                 <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
@@ -33,6 +52,7 @@
                 <p>E-mail: mehedialhasan@student.sust.edu</p>
             </div>
         <hr>
+        </div>
 
 
     </div>
@@ -43,7 +63,4 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+   @endsection
