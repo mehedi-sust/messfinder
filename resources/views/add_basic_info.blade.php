@@ -89,8 +89,13 @@ Sorry You cannot access this Page. Please Log in first.
             </div>
 
             <div class="form-group required">
+             <label for="mess_floor" class="control-label">Mess Floor</label>
+             <input type="number" class="form-control input-lg" id="mess_floor" placeholder="Enter the mess floor (for ground floor keep it 0)" name="mess_floor" required>
+            </div>
+
+            <div class="form-group required">
              <label for="total_room" class="control-label">Total room</label>
-             <input type="text" class="form-control input-lg" id="total_room" placeholder="Enter total number of rooms" name="total_room" required>
+             <input type="number" class="form-control input-lg" id="total_room" placeholder="Enter total number of rooms" name="total_room" required>
             </div>
             <!--
             <div class = "form-group required">
@@ -98,10 +103,12 @@ Sorry You cannot access this Page. Please Log in first.
              <input type="text" class="form-control input-lg" id="total_seat" placeholder="Enter total number of seats" name="total_seat" required>
             </div>
             -->
+            <!--
             <div class = "form-group required">
              <label for="campus_distance" class="control-label">Distance from campus (in KM)</label>
              <input type="text" class="form-control input-lg" id="campus_distance" name="distance" placeholder="Enter the distance of mess from campus">
             </div>
+            -->
               <div class="form-group col-md-offset-4" id="next_div">
               <button class="btn btn-success btn-lg" >Create Mess and Continue</button>
             </div>

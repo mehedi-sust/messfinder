@@ -23,6 +23,11 @@ $i=0;
 foreach ($member_info as $value) {
   $i++;
 }
+$vacant_seat = 0;
+foreach ($room as $value) {
+  $temp = $value->vacant_seat;
+  $vacant_seat += $temp; 
+}
 if($i==0){
 
 ?>
@@ -67,7 +72,7 @@ if($i==0){
     </div>
   </div>
 <!-- end:progress steps -->
-<?php } ?>
+<?php } if ($vacant_seat == 0) echo "No vacancy....Cause No vacant seat . Need nice presentation .... from Mehedi";  ?>
 
 
   <!-- begin: add member form -->
@@ -201,7 +206,19 @@ if($i==0){
           </div>
         </div>
       </div>
-    <!-- end:modal-add-member -->   
+
+    <!-- end:modal-add-member -->  
+<script type="text/javascript">
+  $("#modal-add-member")
+.modal("show")
+.on("shown.bs.modal", function () {
+    window.setTimeout(function () {
+        $("#customerAdded").modal("hide");
+        location.reload(); 
+    }, 5000);                 
+});
+</script>
+
 @endsection
 
 

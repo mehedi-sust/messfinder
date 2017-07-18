@@ -58,6 +58,7 @@
                 <tr>
                   <th>Serial</th>
                   <th>Location</th>
+                  <th>Distance form SUST</th>
                   <th><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-location">Add Location</button></th>
                 </tr>
               </thead>
@@ -68,6 +69,7 @@
               <tbody>
                 <td> <?php echo $i++; ?></td>
                 <td>{{$data->location}}</td>
+                <td>{{$data->distance}} KM</td>
                 <td></td>
                 </td>
               </tbody>
@@ -80,6 +82,8 @@
     </div>
     <!-- /.row -->
   </div>
+
+  To find the distance use <a href="https://maps.google.com">THIS</a>
   <!-- /.content -->
   <!-- end:member list -->
 
@@ -98,7 +102,12 @@
                     <input type="text" class="form-control" name="location" id="location">
                 </div>
 
-                <div class="form-group col-md-offset-1">
+                <div class="form-group">
+                    <label for="distance"> Distance: </label>
+                    <input type="text" class="form-control" name="distance" id="distance" placeholder="From SUST in KMs">
+                </div>
+
+                <div class="form-group col-md-offset-0">
                     <button class="btn btn-success" type="submit">Add</button>
                 </div>
                 {{csrf_field() }}
@@ -107,5 +116,7 @@
           </div>
         </div>
       </div>
-    <!-- end:modal-add-location -->   
+    <!-- end:modal-add-location --> 
+
+
 @endsection

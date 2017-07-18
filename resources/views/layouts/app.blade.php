@@ -91,12 +91,12 @@
 
                                 <ul class="dropdown-menu" role="menu" id = "user_dropdown">
                                     @if(Auth::user()->mess_id != 0)
-                                    <li><a href="<?php echo "http://localhost:8000/mess_profile?id=".Auth::user()->mess_id ?>">
+                                    <li><a href=<?php echo'/mess_profile?id='.Auth::user()->mess_id ?> >
                                         Veiw My Mess
                                         </a>
                                     </li>
-                                    @elseif(Auth::user()->type =='user')
-                                    <li><a href="http://localhost:8000/create_mess">
+                                    @elseif(Auth::user()->type =='User')
+                                    <li><a href="/create_mess">
                                         Create New Mess
                                         </a>
                                     </li> 

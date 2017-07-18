@@ -220,9 +220,10 @@ if($req->hasFile('image4')){
 
     public function location_added(Request $req){
         $location = $req->input('location');
+        $distance = $req->input('distance');
         //echo $location;
         DB::table('location')
-            ->insert(['location' => $location]);
+            ->insert(['location' => $location , 'distance' => $distance]);
 
         $location = DB::table('location')
             ->select('*')

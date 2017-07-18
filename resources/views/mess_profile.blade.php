@@ -171,7 +171,7 @@
                                                     <ul>
                                  @foreach($member as $person)
                                     @if($person->room_id==$value->room_id)
-                                    <li><a href="">{{$person->name}}</a> </li>
+                                    <li><a href="">{{$person->reg}}</a> </li>
                                     @endif
                                  @endforeach 
                                                     </ul>
