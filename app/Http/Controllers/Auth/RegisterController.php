@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace MessFinder\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use MessFinder\User;
+use MessFinder\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Support\Str;
+use Mail;
+use MessFinder\Mail\verifyEmail;
+use Session;
 class RegisterController extends Controller
 {
     /*
@@ -52,7 +55,7 @@ class RegisterController extends Controller
       'reg' => 'required|max:10|unique:users',
       'email' => 'required|email|max:255|unique:users',
       'password' => 'required|confirmed|min:6',
-      'mobile' => 'required|max:11|unique:users'
+      'mobile' => 'required|max:15|unique:users'
       ]);
     }
 
@@ -64,12 +67,38 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'reg' => $data['reg'],
             'password' => bcrypt($data['password']),
-            'mobile' => $data['mobile']
+            'mobile' => $data['mobile'],
+            'verifyToken' => Str::random(40),
+
   ]);
+        $thisUser = User::findOrFail($user->id);
+        $this->sendEmail($thisUser);
+        return $user;
+    }
+
+    public function Show_verify_email(){
+        return view('Auth/verifyEmail');
+    }
+
+    public function sendEmail($thisUser){
+        Mail::to($thisUser['email'])->send(new verifyEmail($thisUser));
+    }
+
+    public function sendEmailDone($email,$verifyToken){
+
+        $user = User::where(['email' => $email , 'verifyToken' => $verifyToken])->first();
+        Session::flash('message', 'Good News!!! Your account has been activated. Now just Sign In.');
+        if($user){
+             User::where(['email' => $email , 'verifyToken' => $verifyToken])->update(['status'=> '1' , 'verifyToken' => Null]);
+             return view('auth.login');
+        }
+        else{
+            return 'User not Found or Token Expired';
+        }
     }
 }

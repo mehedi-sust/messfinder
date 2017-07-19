@@ -1,5 +1,5 @@
 <?php 
-namespace App\Http\Controllers;
+namespace MessFinder\Http\Controllers;
 
 class InsertController{
 

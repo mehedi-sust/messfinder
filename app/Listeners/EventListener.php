@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners;
+namespace MessFinder\Listeners;
 
-use App\Events\SomeEvent;
+use MessFinder\Events\SomeEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

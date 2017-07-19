@@ -1,8 +1,8 @@
 <?php 
 
-namespace App\Http\Controllers;
+namespace MessFinder\Http\Controllers;
 
-use App\Http\Controllers\Storage;
+use MessFinder\Http\Controllers\Storage;
 use DB;
 use Auth;
 class PageController extends Controller{

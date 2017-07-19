@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.google.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => 'messfinder.sust@gmail.com',
+        'name' => 'Admin[Messfinder]',
     ],
 
     /*
@@ -101,6 +101,8 @@ return [
 
     'sendmail' => '/usr/sbin/sendmail -bs',
 
+
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
@@ -119,5 +121,7 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+    'pretend' => false
 
 ];

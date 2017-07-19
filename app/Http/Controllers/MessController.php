@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MessFinder\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Response;
 use input;
-use App\Mess;
+use MessFinder\Mess;
 use DB;
 use Auth;
 use File;

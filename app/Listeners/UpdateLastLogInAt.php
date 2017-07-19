@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace MessFinder\Listeners;
 
 use Illuminate\Auth\Events\Login;
 use Illuminate\Queue\InteractsWithQueue;

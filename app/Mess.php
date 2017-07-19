@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MessFinder;
 
 use Illuminate\Database\Eloquent\Model;
 

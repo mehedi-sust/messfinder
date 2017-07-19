@@ -14,7 +14,8 @@ class AddLogInAtToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-           $table->timestamp('last_log_in_at')->nullable(); 
+           $table->timestamp('last_log_in_at')->nullable();
+           $table->timestamp('current_log_in_at')->nullable(); 
         });
     }
 
@@ -27,6 +28,7 @@ class AddLogInAtToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('last_log_in_at');
+            $table->dropColumn('current_log_in_at');
         });
     }
 }

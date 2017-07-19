@@ -63,6 +63,8 @@ Route::post('room_info_inserted','MessController@insert_room');
 Route::get('create_mess','MessController@create');
 Route::post('insert_mess_basic','Controller@insert_mess_basic');
 Route::get('/','PageController@getIndex')->name('index');
+Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+Route::get('verifyEmail','Auth\RegisterController@Show_verify_email')->name('verifyEmail');
 
 Auth::routes();
 

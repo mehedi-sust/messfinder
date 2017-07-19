@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace MessFinder\Events;
 
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
