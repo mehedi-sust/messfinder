@@ -15,6 +15,8 @@
    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('css/jquery-ui.css')}}" rel="stylesheet">
