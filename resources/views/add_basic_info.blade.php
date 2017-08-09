@@ -16,7 +16,7 @@ Sorry You cannot access this Page. Please Log in first.
               <h2>Add Basic Information</h2>
             </div>
             <ol class="breadcrumb">
-              <a href="{{ route('index') }}">Home</a></li>
+              <li><a href="{{ route('index') }}">Home</a></li>
               <li class="active">Create Mess</li>
             </ol>
           </div>
@@ -26,7 +26,7 @@ Sorry You cannot access this Page. Please Log in first.
     <!-- end:header -->
 
 <!-- begin:progress steps -->
-<div class="container">
+<div class="container col-md-offset-1">
     <div class="row bs-wizard" style="border-bottom:0;">
         <div class="col-xs-2 bs-wizard-step active">
           <div class="text-center bs-wizard-stepnum">Step 1</div>

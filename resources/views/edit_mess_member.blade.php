@@ -131,10 +131,6 @@ if($i==0){
                   <th>Reg. No.</th>
                   <th>Vacant From</th>
                   <th>Delete Member</th>
-                  <th><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-member">Add Member</button></th>
-                  <!--
-                  <th><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-member"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i></button></th>
-                  -->
                 </tr>
               </thead>
                 

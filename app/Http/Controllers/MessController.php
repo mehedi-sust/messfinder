@@ -197,7 +197,7 @@ public function insert_room(Request $request){
     $i=$i+1;  
 
   }
-  echo $seat_sum;
+  //echo $seat_sum;
   $len = count($seat);
   //echo $len;
 
@@ -351,9 +351,10 @@ public function insert_room(Request $request){
     $room_info['vacant_seat'] = $vacant_seat;
     $room_info['cost'] = $cost;
     $room_info['add_info'] = $add_info;
+    $mess = DB::table('basic_mess_info')->select()->where('mess_id','=',$mess_id)->get();
     
 
-    return view('update_room_info')->with("room_info",$room_info);
+    return view('update_room_info')->with("room_info",$room_info)->with("mess", $mess);
    }
 
    public function room_info_update(Request $request){
