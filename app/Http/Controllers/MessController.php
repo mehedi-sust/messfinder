@@ -491,7 +491,7 @@ public function upload_img(Request $req){
         //echo $value->room_info;
         }
         
-        return view('manage_mess')->with(['check'=>$check]);;
+        return view('home')->with(['check'=>$check]);;
     }
     else {
         return "No File Selected";

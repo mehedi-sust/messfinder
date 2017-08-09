@@ -64,9 +64,9 @@
 
  
    <!-- begin: photo  upload form -->
-  <div class="content" id="cover_photo_update_form">
+  <div class="content col-md-offset-3" id="cover_photo_update_form">
     <div class="row">
-      <div class="col-md-5 col-md-offset-1">
+      <div class="col-md-5 col-md-offset-3">
         <div class ="panel panel-arillo">
           <div class="panel-heading"><h4>Upload Cover Photo</h4></div>
             <div class="panel-body">

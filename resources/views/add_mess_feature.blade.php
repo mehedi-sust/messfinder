@@ -45,10 +45,7 @@ $i=0;
 foreach ($current_features as $value) {
   $i++;
 }
-if($i==0){
-
 ?>
-<!-- begin:progress steps -->
 <!-- begin:progress steps -->
 <div class="container">
     <div class="row bs-wizard" style="border-bottom:0;">
@@ -89,7 +86,7 @@ if($i==0){
     </div>
   </div>
 <!-- end:progress steps --><!-- end:progress steps -->
-<?php } ?>
+
 
   <!-- begin: add member form -->
   <div class="content" id="add_member_content_form">
