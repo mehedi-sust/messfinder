@@ -44,7 +44,7 @@ public function insert(Request $request){
       $location = $request->input('location');
       $total_seat = 0;
       $vacant_seat = 0;
-      $total_room = $request->input('total_room');
+      $total_room = $request->input('t_room');
       $distance = 0;
       $floor = $request->input('mess_floor');
       $description = $request->input('description');

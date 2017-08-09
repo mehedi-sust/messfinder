@@ -94,8 +94,8 @@ Sorry You cannot access this Page. Please Log in first.
             </div>
 
             <div class="form-group required">
-             <label for="total_room" class="control-label">Total room</label>
-             <input type="number" class="form-control input-lg" id="total_room" placeholder="Enter total number of rooms" name="total_room" required>
+             <label for="t_room" class="control-label">Total room</label>
+             <input type="number" class="form-control input-lg" id="t_room" placeholder="Enter total number of rooms" name="t_room" required>
             </div>
             <!--
             <div class = "form-group required">
